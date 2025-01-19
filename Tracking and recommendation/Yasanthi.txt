@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION Form</title>
+</head>
+<style>
+    /* CSS Styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #911bc0;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        background-color: #0beca9f3;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    select,
+    input[type="time"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    button {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .error {
+        color: red;
+        margin-bottom: 15px;
+    }
+</style>
+<body>
+    <h1>Register Patient</h1>
+    <form id="RegistrationForm">
+    <!-- Patient Information -->
+    <label for="name">Patient Name:</label>
+    <input type="text" id="name" required><br><br>
+    
+    <label for="age">Age:</label>
+    <input type="number" id="age" required><br><br>
+    
+    <label for="stage">Stage of Dementia:</label>
+    <select id="stage" required>
+        <option value="Early">Early</option>
+        <option value="Middle">Middle</option>
+        <option value="Late">Late</option>
+    </select><br><br>
+    
+   <!-- Medications -->
+   <h3 class="section-title">Medications</h3>
+   <label for="donepezil">Donepezil</label>
+   <input type="checkbox" id="donepezil" value="Donepezil">
+   <label for="donepezil_time">Time:</label>
+   <input type="time" id="donepezil_time"><br>
+   <label for="donepezil_dosage">Dosage (mg):</label>
+   <input type="number" id="donepezil_dosage"><br>
+   <label for="donepezil_frequency">Frequency:</label>
+   <select id="donepezil_frequency">
+       <option value="Once daily">Once daily</option>
+       <option value="Twice daily">Twice daily</option>
+       <option value="Thrice daily">Thrice daily</option>
+   </select><br>
+
+   <label for="memantine">Memantine</label>
+   <input type="checkbox" id="memantine" value="Memantine">
+   <label for="memantine_time">Time:</label>
+   <input type="time" id="memantine_time"><br>
+   <label for="memantine_dosage">Dosage (mg):</label>
+   <input type="number" id="memantine_dosage"><br>
+   <label for="memantine_frequency">Frequency:</label>
+   <select id="memantine_frequency">
+       <option value="Once daily">Once daily</option>
+       <option value="Twice daily">Twice daily</option>
+       <option value="Thrice daily">Thrice daily</option>
+   </select><br>
+   
+    <!-- Daily Routine Time -->
+     <!--Brain Activities-->
+    <h3 class="section-title">Brain Activities</h3>
+    <label for="brain_activity">Choose brain activity:</label>
+    <select id="brain_activity">
+        <option value="Puzzles">Puzzles</option>
+        <option value="Crossword">Crossword</option>
+        <option value="Memory Games">Memory Games</option>
+        <option value="Reading">Reading</option>
+        <option value="noneB">None</option>
+
+    </select><br>
+    <label for="brain_activity_time">Brain Activity Time:</label>
+    <input type="time" id="brain_activity_time"><br>
+
+    <!-- Physical Exercises -->
+    <h3 class="section-title">Physical Exercises</h3>
+    <label for="exercise">Choose exercise:</label>
+    <select id="exercise">
+        <option value="Walking">Walking</option>
+        <option value="Yoga">Yoga</option>
+        <option value="Dancing">Dancing</option>
+        <option value="noneEx">None</option>
+
+    </select><br>
+    <label for="exercise_time">Exercise Time:</label>
+    <input type="time" id="exercise_time"><br>
+
+     <!-- Sleep Time -->
+     <h3 class="section-title">Sleep Time</h3>
+     <label for="sleep_time">Sleep Time:</label>
+     <input type="time" id="sleep_time"><br><br>
+     <label for="sleep_time">Rquaired Sleeping Hours:</label>
+     <input type="time" id="sleep_hours"><br><br>
+
+    <button type="button" onclick="submitForm()">Register</button>
+</form>
+
+<script>
+    // JavaScript to submit the form data to the backend
+    function submitForm() {
+
+        // Clear previous error messages
+        document.getElementById('errorMessages').innerHTML = '';
+
+// Get form data
+const name = document.getElementById('name').value;
+const age = document.getElementById('age').value;
+const stage = document.getElementById('stage').value;
+
+// Validate required fields
+const errors = [];
+if (name === '') errors.push('Patient name is required.');
+if (age === '' || age <= 0) errors.push('Age must be a positive number.');
+if (stage === '') errors.push('Please select the stage of dementia.');
+        
+        };
+    
+
+        
+</script>
+
+    
+</body>
+</html>
