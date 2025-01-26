@@ -1,0 +1,45 @@
+version: "3.1"
+stories:
+- story: greet and ask about dementia
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_about_dementia
+    - action: utter_explain_dementia
+
+- story: caregiver asks for support
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: caregiver_support
+    - action: utter_caregiver_support
+
+- story: ask about dementia stages
+  steps:
+    - intent: ask_dementia_stages
+    - action: utter_dementia_stages
+
+- story: ask about treatment options
+  steps:
+    - intent: ask_treatment
+    - action: utter_treatment
+
+- story: ask about prevention methods
+  steps:
+    - intent: ask_prevention
+    - action: utter_prevention
+
+- story: ask about memory aids
+  steps:
+    - intent: ask_about_memory_aids
+    - action: utter_memory_aids
+
+- story: challenge the bot
+  steps:
+    - intent: bot_challenge
+    - action: utter_group_made_me
+
+- story: user says goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye

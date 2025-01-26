@@ -1,0 +1,47 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Answer bot challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_group_made_me
+
+  - rule: Respond to a greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Explain dementia when asked
+    steps:
+      - intent: ask_about_dementia
+      - action: utter_explain_dementia
+
+  - rule: Provide caregiver support
+    steps:
+      - intent: caregiver_support
+      - action: utter_caregiver_support
+
+  - rule: Explain dementia stages
+    steps:
+      - intent: ask_dementia_stages
+      - action: utter_dementia_stages
+
+  - rule: Respond to treatment questions
+    steps:
+      - intent: ask_treatment
+      - action: utter_treatment
+
+  - rule: Provide prevention tips
+    steps:
+      - intent: ask_prevention
+      - action: utter_prevention
+
+  - rule: Suggest memory aids
+    steps:
+      - intent: ask_about_memory_aids
+      - action: utter_memory_aids
