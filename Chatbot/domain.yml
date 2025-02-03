@@ -10,6 +10,7 @@ intents:
   - ask_treatment
   - ask_prevention
   - ask_about_memory_aids
+  - nlu_fallback
 
 responses:
   utter_greet:
@@ -41,3 +42,6 @@ responses:
 
   utter_group_made_me:
     - text: "I was made by Group 23 to assist with dementia-related questions and caregiving support."
+
+  utter_ask_clarification:
+    - text: "I didn’t quite understand that. Could you rephrase or ask something else?"

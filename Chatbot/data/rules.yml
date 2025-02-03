@@ -45,3 +45,8 @@ rules:
     steps:
       - intent: ask_about_memory_aids
       - action: utter_memory_aids
+
+  - rule: Fallback rule
+    steps:
+      - intent: nlu_fallback
+      - action: utter_ask_clarification
