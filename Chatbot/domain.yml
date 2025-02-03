@@ -1,0 +1,43 @@
+version: "3.1"
+
+intents:
+  - greet
+  - ask_about_dementia
+  - caregiver_support
+  - goodbye
+  - bot_challenge
+  - ask_dementia_stages
+  - ask_treatment
+  - ask_prevention
+  - ask_about_memory_aids
+
+responses:
+  utter_greet:
+    - text: "Hello! I’m here to help. What can I do for you?"
+
+  utter_explain_dementia:
+    - text: "Dementia is a condition that affects memory, thinking, and behavior."
+
+  utter_caregiver_support:
+    - text: "Caring for someone with dementia can be challenging. I can provide tips or answer specific questions."
+
+  utter_goodbye:
+    - text: "Goodbye! Take care, and I’m here whenever you need help."
+
+  utter_iamabot:
+    - text: "I’m a helpful assistant, here to answer your questions about dementia."
+
+  utter_dementia_stages:
+    - text: "Dementia has different stages, starting with mild symptoms like forgetfulness and progressing to severe symptoms that affect daily activities. Would you like details about a specific stage?"
+
+  utter_treatment:
+    - text: "Dementia treatments focus on managing symptoms. I'm not authorized to provide specific medical advice. Please consult a healthcare professional for medication-related details."
+
+  utter_prevention:
+    - text: "Some lifestyle changes, like regular exercise, a healthy diet, and mental stimulation, may help reduce dementia risk. Let me know if you'd like more tips."
+
+  utter_memory_aids:
+    - text: "Memory aids like reminders, calendars, and labeled items can help dementia patients manage daily tasks more easily."
+
+  utter_group_made_me:
+    - text: "I was made by Group 23 to assist with dementia-related questions and caregiving support."

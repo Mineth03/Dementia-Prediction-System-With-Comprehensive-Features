@@ -1,0 +1,79 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good morning
+    - hey
+    - hi there
+    - hey chatbot
+
+- intent: ask_about_dementia
+  examples: |
+    - What is dementia?
+    - Can you explain dementia?
+    - Tell me about dementia symptoms.
+    - What are the symptoms of dementia?
+    - How does dementia affect someone?
+    - Is dementia curable?
+    - What causes dementia?
+    - How do I know if someone has dementia?
+    - Can dementia be prevented?
+
+- intent: caregiver_support
+  examples: |
+    - How do I support someone with dementia?
+    - What tips can you give for caregiving?
+    - Help me manage dementia patients.
+    - What advice do you have for caregivers?
+    - How do I deal with stress as a caregiver?
+    - What resources are available for caregivers?
+    - Can you help me manage caregiving duties?
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - take care
+    - talk to you soon
+    - catch you later
+    - see you
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - what are you?
+    - are you human?
+    - who made you?
+    - what is your purpose?
+    - what are you capable of?
+
+- intent: ask_dementia_stages
+  examples: |
+    - What are the stages of dementia?
+    - Can you explain the stages of dementia?
+    - How does dementia progress over time?
+    - What happens in the late stage of dementia?
+
+- intent: ask_treatment
+  examples: |
+    - How is dementia treated?
+    - What treatments are available for dementia?
+    - Can medication help with dementia?
+    - Are there therapies for dementia?
+
+- intent: ask_prevention
+  examples: |
+    - How can dementia be prevented?
+    - Are there ways to reduce dementia risk?
+    - What lifestyle changes help prevent dementia?
+    - Can exercise or diet prevent dementia?
+
+- intent: ask_about_memory_aids
+  examples: |
+    - What memory aids are helpful for dementia patients?
+    - Can tools help with memory loss?
+    - Are there devices for managing memory problems?
+    - How do I help someone remember their tasks?

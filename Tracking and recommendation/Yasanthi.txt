@@ -9,7 +9,7 @@
     /* CSS Styles */
     body {
         font-family: Arial, sans-serif;
-        background-color: #f0f0f5;
+
         margin: 0;
         padding: 20px;
     }
@@ -18,7 +18,7 @@
         color: #333;
     }
     form {
-        background-color: #fff;
+
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -76,24 +76,7 @@
         <option value="Late">Late</option>
     </select><br><br>
     
-    <!-- Medications -->
-    <h3>Select Medications:</h3>
-    <input type="checkbox" id="donepezil" value="Donepezil">
-    <label for="donepezil">Donepezil</label><br>
-    
-    <input type="checkbox" id="memantine" value="Memantine">
-    <label for="memantine">Memantine</label><br>
-    
-    <!-- Daily Routine Time -->
-    <h3>Daily Routine</h3>
-    <label for="exercise_time">Morning Exercise Time:</label>
-    <input type="time" id="exercise_time"><br><br>
-    
-    <label for="brain_activity_time">Brain Activity Time:</label>
-    <input type="time" id="brain_activity_time"><br><br>
-    
-    <label for="sleep_time">Sleep Time:</label>
-    <input type="time" id="sleep_time"><br><br>
+
 
     <button type="button" onclick="submitForm()">Register</button>
 </form>
@@ -101,38 +84,7 @@
 <script>
     // JavaScript to submit the form data to the backend
     function submitForm() {
-        const patientData = {
-            name: document.getElementById('name').value,
-            age: document.getElementById('age').value,
-            stage_of_dementia: document.getElementById('stage').value,
-            medications: [
-                document.getElementById('donepezil').checked ? 'Donepezil' : '',
-                document.getElementById('memantine').checked ? 'Memantine' : ''
-            ].filter(Boolean),
-            daily_routine: {
-                morning_exercise_time: document.getElementById('exercise_time').value,
-                brain_activity_time: document.getElementById('brain_activity_time').value,
-                sleep_time: document.getElementById('sleep_time').value
-            }
-        };
 
-        // Send the data to the backend using Fetch API
-        fetch('http://localhost:5000/register-patient', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(patientData)
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Patient registered successfully');
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
 </script>
 
     
