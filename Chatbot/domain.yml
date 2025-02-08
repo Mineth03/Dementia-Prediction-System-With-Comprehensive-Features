@@ -10,38 +10,57 @@ intents:
   - ask_treatment
   - ask_prevention
   - ask_about_memory_aids
+  - small_talk
   - nlu_fallback
 
 responses:
   utter_greet:
     - text: "Hello! I’m here to help. What can I do for you?"
+    - text: "Hi there! How can I assist you today?"
+    - text: "Hey! What would you like to know about dementia?"
 
   utter_explain_dementia:
     - text: "Dementia is a condition that affects memory, thinking, and behavior."
+    - text: "Dementia impacts cognitive function and can affect daily activities."
+    - text: "Dementia causes memory loss and changes in problem-solving abilities."
 
   utter_caregiver_support:
     - text: "Caring for someone with dementia can be challenging. I can provide tips or answer specific questions."
+    - text: "Supporting a dementia patient requires patience. Let me know what aspect you'd like help with."
+    - text: "Would you like guidance on emotional support, daily care, or managing stress as a caregiver?"
 
   utter_goodbye:
     - text: "Goodbye! Take care, and I’m here whenever you need help."
-
-  utter_iamabot:
-    - text: "I’m a helpful assistant, here to answer your questions about dementia."
+    - text: "See you later! Feel free to return if you have more questions."
+    - text: "Take care! Don't hesitate to ask me anything in the future."
 
   utter_dementia_stages:
-    - text: "Dementia has different stages, starting with mild symptoms like forgetfulness and progressing to severe symptoms that affect daily activities. Would you like details about a specific stage?"
+    - text: "Dementia has different stages, starting with mild symptoms like forgetfulness and progressing to severe symptoms that affect daily activities."
+    - text: "There are early, middle, and late stages of dementia. Each has unique symptoms and challenges."
+    - text: "Dementia progresses over time, with memory loss and cognitive impairment increasing in severity."
 
   utter_treatment:
-    - text: "Dementia treatments focus on managing symptoms. I'm not authorized to provide specific medical advice. Please consult a healthcare professional for medication-related details."
+    - text: "Dementia treatments focus on managing symptoms. I'm not authorized to provide specific medical advice but please consult a healthcare professional if needed."
+    - text: "While there's no cure for dementia, therapies and lifestyle changes can help slow its progression."
+    - text: "Some treatments focus on cognitive exercises, diet, and professional support to improve quality of life."
 
   utter_prevention:
     - text: "Some lifestyle changes, like regular exercise, a healthy diet, and mental stimulation, may help reduce dementia risk. Let me know if you'd like more tips."
+    - text: "Maintaining a balanced diet, staying mentally active, and getting enough sleep may help lower dementia risk."
+    - text: "Preventing dementia involves a combination of physical health, brain exercises, and a strong social network."
 
   utter_memory_aids:
     - text: "Memory aids like reminders, calendars, and labeled items can help dementia patients manage daily tasks more easily."
+    - text: "Using alarms, sticky notes, and smartphone apps can assist dementia patients in remembering tasks."
+    - text: "Labeling household items and keeping a structured daily routine can support those with memory loss."
 
   utter_group_made_me:
     - text: "I was made by Group 23 to assist with dementia-related questions and caregiving support."
 
   utter_ask_clarification:
     - text: "I didn’t quite understand that. Could you rephrase or ask something else?"
+
+  utter_small_talk:
+    - text: "I'm just an AI, but I'm here to assist you!"
+    - text: "I don’t have feelings, but I’m always ready to help."
+    - text: "I am a chatbot designed to provide dementia-related support!"

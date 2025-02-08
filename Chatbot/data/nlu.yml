@@ -219,3 +219,13 @@ nlu:
     - Are you better than Google Assistant?
     - Do you have intelligence?
     - Are you just a program?
+
+- intent: small_talk
+  examples: |
+    - How are you?
+    - What's your name?
+    - Can you think?
+    - Do you have emotions?
+    - Who made you?
+    - Are you human?
+    - Can you learn new things?
