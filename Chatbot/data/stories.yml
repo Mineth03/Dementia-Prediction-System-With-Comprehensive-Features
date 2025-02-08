@@ -44,3 +44,8 @@ stories:
   steps:
     - intent: goodbye
     - action: utter_goodbye
+
+- story: small talk with the bot
+  steps:
+    - intent: small_talk
+    - action: utter_small_talk
