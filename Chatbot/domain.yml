@@ -12,6 +12,7 @@ intents:
   - ask_about_memory_aids
   - small_talk
   - nlu_fallback
+  - out_of_scope
 
 responses:
   utter_greet:
@@ -58,9 +59,12 @@ responses:
     - text: "I was made by Group 23 to assist with dementia-related questions and caregiving support."
 
   utter_ask_clarification:
-    - text: "I didn’t quite understand that. Could you rephrase or ask something else?"
+    - text: "I didn't quite understand that. Could you rephrase or ask something else?"
 
   utter_small_talk:
     - text: "I'm just an AI, but I'm here to assist you!"
     - text: "I don’t have feelings, but I’m always ready to help."
     - text: "I am a chatbot designed to provide dementia-related support!"
+
+  utter_out_of_scope:
+    - text: "I'm here to assist with dementia related topics. Could you ask something related?"
