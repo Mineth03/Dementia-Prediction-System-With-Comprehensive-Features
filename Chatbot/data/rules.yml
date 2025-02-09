@@ -50,3 +50,8 @@ rules:
     steps:
       - intent: nlu_fallback
       - action: utter_ask_clarification
+
+  - rule: Handle out-of-scope queries
+    steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope

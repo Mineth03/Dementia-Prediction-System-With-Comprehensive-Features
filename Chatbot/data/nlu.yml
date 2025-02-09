@@ -229,3 +229,23 @@ nlu:
     - Who made you?
     - Are you human?
     - Can you learn new things?
+
+- intent: out_of_scope
+  examples: |
+    - What's the weather like?
+    - Who is the president?
+    - How do I cook pasta?
+    - What is 2 + 2?
+    - Can you sing a song?
+    - What is the capital of France?
+    - Give me stock market advice
+    - Who won the last football match?
+    - Can you order food for me?
+    - Who won the grammy for the best song of the year?
+    - Christopher Sexton
+    - Philip Thompson
+    - John Smith
+    - Elon Musk
+    - Travis Scott
+    - Cristiano Ronaldo
+    - Messi
