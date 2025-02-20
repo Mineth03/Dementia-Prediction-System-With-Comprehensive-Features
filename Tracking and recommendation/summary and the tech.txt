@@ -1,0 +1,28 @@
+Chapter Summary
+
+This chapter brings out the research done on dementia,focusing on ordinary dementia patients
+identification,dementia stage identification,daily routine tracking and interactive chatbot
+ for the assistence.The review begins with
+the machine learning models in basic dementia risk prediction and dementia stage identification of a dementia patient.The reaserches done on the dementia disease gave  
+solid foundation for the early detection of dementia and routine tracking.
+Using models for predicting dementia were comman in some studies while showing no sings on combination of daily routine tracking and medication management.
+This approch can be taken as a new contribution for the people to identify their risk on dementia and its level.Additionaly providing the caregivers as well as the 
+patients to keep on tracking the medications and daily routine.  
+
+
+
+
+
+ref link-Social and Administrative Sciences Division, University of Wisconsin-Madison, School of Pharmacy, 777 Highland Ave., Madison, WI, 53705-2222, USA
+
+
+
+Previous studies have emphasized the importance of routine management in chronic disease care, highlighting the positive impact of regular monitoring on health outcomes (Wolff et al., 2016; Moyle et al., 2018).”
+Medication management is a difficult and time-consuming task, and many caregivers feel unprepared and ill-equipped to manage their care recipient's complex medication regimens(Kevin A. Look PharmD, PhD
+, 
+Jamie A. Stone MS,May 2018)
+As an assistence to the caregivers and also to te patients,the rotine tracking will be helpful approch towards the managing medications and daily routine enabling the caregivers to look after more than one patient.
+The frontend is built using REACT allowing users to submit the medications and Daily routine,while the Flask acts as the backend which provides a set of RESTful API endpoints for data processing and interaction with MongoDB.
+The database,MongoDB is selected for dynamic storage of the patient details. GitHub Codespaces is employed for cloud-based development for the ensurence of continuous integration and easy collaboration.
+The algorithms used are follow as:Daily Routine Tracking Algorithm,Recommendation Algorithm and Weekly Report Generation Algorithm.These algorithms track patient behavior, contributing to improved patient care and engagement.
+This approch ensure the capability of delivering personalized routine tracking for each patient.
