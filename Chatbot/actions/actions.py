@@ -3,7 +3,7 @@ from rasa_sdk import Action
 from rasa_sdk.events import SlotSet
 import logging
 
-MONGO_URI = "mongodb+srv://<db_username>:<db_password>@cluster0.s0ovw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI = "mongodb+srv://admin:12345678%40mineth@cluster0.s0ovw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 DATABASE_NAME = "SafeMind"
 COLLECTION_NAME = "report"
 

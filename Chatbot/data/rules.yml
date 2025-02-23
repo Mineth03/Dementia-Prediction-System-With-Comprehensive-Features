@@ -1,6 +1,71 @@
 version: "3.1"
 
 rules:
+  - rule: Respond to greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Respond to user gratitude
+    steps:
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - rule: Answer user’s question about the bot
+    steps:
+      - intent: who_are_you
+      - action: utter_who_are_you
+
+  - rule: Answer how the bot is doing
+    steps:
+      - intent: how_are_you
+      - action: utter_how_are_you
+
+  - rule: Explain chatbot abilities
+    steps:
+      - intent: what_can_you_do
+      - action: utter_what_can_you_do
+
+  - rule: Answer dementia definition questions
+    steps:
+      - intent: ask_dementia_definition
+      - action: utter_dementia_definition
+
+  - rule: Answer dementia symptoms questions
+    steps:
+      - intent: ask_dementia_symptoms
+      - action: utter_dementia_symptoms
+
+  - rule: Answer dementia causes questions
+    steps:
+      - intent: ask_dementia_causes
+      - action: utter_dementia_causes
+
+  - rule: Answer dementia types questions
+    steps:
+      - intent: ask_dementia_types
+      - action: utter_dementia_types
+
+  - rule: Answer dementia diagnosis and prevention questions
+    steps:
+      - intent: ask_dementia_diagnosis_prevention
+      - action: utter_dementia_diagnosis_prevention
+
+  - rule: Answer caregiver tips
+    steps:
+      - intent: ask_caregiver_tips
+      - action: utter_caregiver_tips
+
+  - rule: Respond to stress concerns
+    steps:
+      - intent: ask_caregiver_stress_management
+      - action: utter_caregiver_stress_management
+
+  - rule: Help with patient interaction
+    steps:
+      - intent: ask_caregiver_patient_interaction
+      - action: utter_caregiver_patient_interaction
+
   - rule: Say goodbye anytime the user says goodbye
     steps:
       - intent: goodbye
@@ -15,16 +80,6 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
-
-  - rule: Explain dementia when asked
-    steps:
-      - intent: ask_about_dementia
-      - action: utter_explain_dementia
-
-  - rule: Provide caregiver support
-    steps:
-      - intent: caregiver_support
-      - action: utter_caregiver_support
 
   - rule: Explain dementia stages
     steps:
