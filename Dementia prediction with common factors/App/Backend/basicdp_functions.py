@@ -1,12 +1,8 @@
-from flask import Flask, request, jsonify
+# basicdp_functions.py
 import numpy as np
 import joblib
 import os
 import traceback
-from flask_cors import CORS
-
-app = Flask(__name__)
-CORS(app, resources={r"/predict": {"origins": "http://localhost:5173"}})
 
 # Define categorical mappings
 CATEGORY_MAPPINGS = {
@@ -23,9 +19,8 @@ CATEGORY_MAPPINGS = {
     "NACCFAM": {"No": 0, "Yes": 1, "Unknown": -1}
 }
 
-# Load the trained model
 def load_model():
-    model_path = "../Models/BasicDP.pkl"
+    model_path = os.path.join(".", "Models", "BasicDP.pkl")
     if os.path.exists(model_path):
         try:
             return joblib.load(model_path)
@@ -35,15 +30,16 @@ def load_model():
     else:
         raise FileNotFoundError(f"Model file not found at {model_path}")
 
+# Load model once at module import
+model = load_model()
 
-model = load_model()  # Load model at startup
-
-@app.route('/predict', methods=['POST'])
-def predict():
+def predict_basicdp(data):
+    """
+    Given JSON data from the request, process the input and
+    use the pre-loaded model to make a prediction.
+    """
     try:
-        data = request.get_json()  # Receive JSON data from frontend
-
-        # Define expected features order
+        # Define expected feature order
         features = [
             "SEX", "NACCAGEB", "EDUC", "MARISTAT", "ALCFREQ", "TOBAC100", "SMOKYRS",
             "NACCBMI", "Depression", "SLEEPAP", "DIABETES", "HYPERCHO", "HYPERTEN", 
@@ -53,38 +49,33 @@ def predict():
         user_input = []
         for feature in features:
             value = data.get(feature)
-
             if feature in CATEGORY_MAPPINGS:
-                user_input.append(CATEGORY_MAPPINGS[feature].get(value, -1))  # Convert categorical values
+                # Convert categorical values
+                user_input.append(CATEGORY_MAPPINGS[feature].get(value, -1))
             elif isinstance(value, str) and feature == "SLEEPAP":
-                sleepap_list = value.split(",")  # Convert sleep problems to numeric indicator
+                # Convert sleep problems (comma-separated string) to indicator
+                sleepap_list = value.split(",")
                 user_input.append(1 if len(sleepap_list) > 5 else 0)
             else:
                 try:
-                    user_input.append(float(value))  # Convert numeric values
-                except ValueError:
-                    user_input.append(-1)  # Handle conversion errors
+                    user_input.append(float(value))
+                except (ValueError, TypeError):
+                    user_input.append(-1)
 
-        # Debugging: Print processed input
+        # Debug: Print processed input data
         print("Processed Input Data:", user_input)
-
-        # Ensure input is reshaped correctly
         input_data = np.array(user_input).reshape(1, -1)
 
-        # Make prediction (use predict_proba if model supports it)
+        # Make prediction; use predict_proba if available
         if hasattr(model, "predict_proba"):
-            probability = model.predict_proba(input_data)[0][1]  # Probability of positive class
+            probability = model.predict_proba(input_data)[0][1]
             result = "Positive" if probability >= 0.5 else "Negative"
         else:
             prediction = model.predict(input_data)
             result = "Positive" if prediction[0] >= 0.5 else "Negative"
 
-        return jsonify({"prediction": result})
-
+        return {"prediction": result}
     except Exception as e:
         print(f"Error during prediction: {e}")
         traceback.print_exc()
-        return jsonify({"error": "An error occurred while predicting."})
-
-if __name__ == '__main__':
-    app.run(debug=True)
+        return {"error": "An error occurred while predicting."}
