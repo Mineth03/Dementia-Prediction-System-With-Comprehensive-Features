@@ -3,44 +3,52 @@ import Webcam from 'react-webcam';
 import axios from 'axios';
 
 const DepressionTest = () => {
-  const webcamRef = useRef(null);  // To hold the webcam reference
-  const [result, setResult] = useState(null);  // To store the result from the API
+  const webcamRef = useRef(null);
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // Capture the image from the webcam
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
-    sendImageToAPI(imageSrc);
+    if (imageSrc) {
+      sendImageToAPI(imageSrc);
+    } else {
+      console.error("Failed to capture image.");
+      setResult({ error: "Failed to capture image. Please try again." });
+    }
   };
 
   // Send the captured image to Flask API
-  const sendImageToAPI = (image) => {
-    const formData = new FormData();
-    // Convert image to a Blob (this is important to send as form data)
-    const byteArray = base64ToArrayBuffer(image.split(',')[1]);  // Extract the base64 image part
-    const blob = new Blob([byteArray], { type: 'image/jpeg' });
-    formData.append('image', blob, 'webcam-image.jpg');
+  const sendImageToAPI = async (imageBase64) => {
+    setLoading(true);
+    setResult(null);
 
-    // Send the form data to the Flask API
-    axios.post('http://localhost:5000/faceAnalysis', formData)
-      .then((response) => {
-        // Handle the response from the Flask API
-        setResult(response.data);
-      })
-      .catch((error) => {
-        console.error('Error sending image:', error);
-        setResult({ error: 'Error processing the image. Try again.' });
+    try {
+      const formData = new FormData();
+      const blob = base64ToBlob(imageBase64);
+      formData.append('image', blob, 'webcam-image.jpg');
+
+      const response = await axios.post('http://localhost:5000/faceAnalysis', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
+
+      setResult(response.data);
+    } catch (error) {
+      console.error("Error sending image:", error);
+      setResult({ error: "Error processing the image. Try again." });
+    } finally {
+      setLoading(false);
+    }
   };
 
-  // Function to convert base64 to ArrayBuffer
-  const base64ToArrayBuffer = (base64) => {
-    const binaryString = window.atob(base64);
-    const len = binaryString.length;
-    const bytes = new Uint8Array(len);
-    for (let i = 0; i < len; i++) {
-      bytes[i] = binaryString.charCodeAt(i);
+  // Convert base64 to Blob
+  const base64ToBlob = (base64Data) => {
+    const byteString = atob(base64Data.split(',')[1]);
+    const arrayBuffer = new Uint8Array(byteString.length);
+    for (let i = 0; i < byteString.length; i++) {
+      arrayBuffer[i] = byteString.charCodeAt(i);
     }
-    return bytes.buffer;
+    return new Blob([arrayBuffer], { type: 'image/jpeg' });
   };
 
   return (
@@ -51,11 +59,11 @@ const DepressionTest = () => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
         width="100%"
-        videoConstraints={{
-          facingMode: "user",
-        }}
+        videoConstraints={{ facingMode: "user" }}
       />
-      <button onClick={capture}>Capture Image</button>
+      <button onClick={capture} disabled={loading}>
+        {loading ? "Processing..." : "Capture Image"}
+      </button>
 
       {/* Display the result */}
       {result && (
