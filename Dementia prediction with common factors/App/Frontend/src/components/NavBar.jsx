@@ -1,86 +1,113 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaHome, FaBrain, FaChartLine, FaUser, FaBars, FaTimes } from "react-icons/fa";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  const menuItems = [
+    { path: "/", icon: <FaHome />, text: "Home" },
+    { path: "/prediction-form", icon: <FaChartLine />, text: "Predictions" },
+    { path: "/cog-test", icon: <FaBrain />, text: "Cognitive Test" },
+    { path: "/profile", icon: <FaUser />, text: "Profile" },
+  ];
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.3,
+        when: "afterChildren"
+      }
+    },
+    open: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: 0.3,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { x: -20, opacity: 0 },
+    open: { x: 0, opacity: 1 }
   };
 
   return (
-    <nav className="bg-gray-900 text-white p-4 shadow-md">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold">MyApp</h1>
+    <nav className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <motion.h1 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-2xl font-bold"
+          >
+            HealthAI
+          </motion.h1>
 
-        {/* Hamburger Icon */}
-        <div className="lg:hidden" onClick={toggleMenu}>
-          <button className="text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex space-x-8">
+            {menuItems.map((item) => (
+              <motion.div
+                key={item.path}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  to={item.path}
+                  className="flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+                >
+                  {item.icon}
+                  <span>{item.text}</span>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            className="lg:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </motion.button>
         </div>
 
-        {/* Navigation Links */}
-        <ul
-          className={`lg:flex flex-col lg:flex-row gap-8 text-lg lg:static absolute bg-gray-900 w-full lg:w-auto lg:bg-transparent transition-all duration-300 ease-in-out ${
-            isOpen ? "top-16" : "top-[-200px]"
-          }`}
-        >
-          <li>
-            <Link
-              to="/"
-              className="py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial="closed"
+              animate="open"
+              exit="closed"
+              variants={menuVariants}
+              className="lg:hidden"
             >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/prediction-form"
-              className="py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
-            >
-              Predictions
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/tracker"
-              className="py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
-            >
-              Tracker
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className="py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              className="py-2 px-4 rounded-lg hover:bg-gray-700 transition duration-300"
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
+              {menuItems.map((item) => (
+                <motion.div
+                  key={item.path}
+                  variants={itemVariants}
+                  className="py-2"
+                >
+                  <Link
+                    to={item.path}
+                    className="flex items-center space-x-2 px-4 py-2 rounded-md hover:bg-white/10 transition-colors duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.icon}
+                    <span>{item.text}</span>
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

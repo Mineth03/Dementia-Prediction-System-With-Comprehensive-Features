@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import '../assets/PredictionForm.css';
+import { motion } from 'framer-motion';
+import { FaBrain, FaHeartbeat } from 'react-icons/fa';
 
 const PredictionForm = () => {
   const [formData, setFormData] = useState({
@@ -25,59 +26,72 @@ const PredictionForm = () => {
   });
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [currentSection, setCurrentSection] = useState(0);
 
-  const mapFormDataToBackend = (formData) => {
-    return {
-      NAME: formData.Name,
-      SEX: formData.Sex,
-      NACCAGEB: formData.Age,
-      EDUC: formData.EducationYears,
-      MARISTAT: formData.MaritalStatus,
-      ALCFREQ: formData.AlcoholFrequency,
-      TOBAC100: formData.SmokingStatus,
-      SMOKYRS: formData.SmokingYears,
-      NACCBMI: formData.BMI,
-      Depression: formData.DepressionStatus,
-      SLEEPAP: formData.SleepingProblems.join(','),
-      DIABETES: formData.Diabetes,
-      HYPERCHO: formData.Cholesterol,
-      HYPERTEN: formData.BloodPressure,
-      CVHATT: formData.HeartAttack,
-      CVCHF: formData.HeartFailure,
-      NACCFAM: formData.FamilyHistory,
-      COGTEST: formData.CognitiveTestScore
-    };
-  };
+  const navigate = useNavigate();
 
-  const navigate = useNavigate(); // Initialize navigation
+  const sections = [
+    { title: "Personal Information", icon: "👤" },
+    { title: "Lifestyle Factors", icon: "🌿" },
+    { title: "Health Conditions", icon: "❤️" }
+  ];
 
-  const handleDepressionTest = () => {
-    navigate("/depression-test"); // Redirect to Depression Test page
-  };
-
-  const handleCognitiveTest = () => {
-    navigate("/cog-test"); // Redirect to Cognitive Test page
+  const formSections = {
+    0: [
+      { name: "Name", type: "text", label: "Full Name" },
+      { name: "Sex", type: "select", label: "Sex", options: ["", "Male", "Female"] },
+      { name: "Age", type: "number", label: "Age" },
+      { name: "EducationYears", type: "number", label: "Years of Education" },
+      { name: "MaritalStatus", type: "select", label: "Marital Status", options: [
+        "",
+        "Married",
+        "Widowed",
+        "Divorced",
+        "Separated",
+        "Never married",
+        "Living as married/domestic partner",
+        "Other"
+      ]}
+    ],
+    1: [
+      { name: "AlcoholFrequency", type: "select", label: "Alcohol Consumption Frequency", options: [
+        "",
+        "Less than once a month",
+        "About once a month",
+        "About once a week",
+        "A few times a week",
+        "Daily or almost daily",
+        "Unknown"
+      ]},
+      { name: "SmokingStatus", type: "select", label: "Have you smoked more than 100 cigarettes?", options: ["", "Yes", "No"] },
+      { name: "SmokingYears", type: "number", label: "Years of Smoking" },
+      { name: "BMI", type: "number", label: "BMI" }
+    ],
+    2: [
+      { name: "DepressionStatus", type: "select", label: "Depression Status", options: ["", "Yes", "No"] },
+      { name: "Diabetes", type: "select", label: "Diabetes", options: ["", "Yes", "No", "Unknown"] },
+      { name: "Cholesterol", type: "select", label: "High Cholesterol", options: ["", "Yes", "No", "Unknown"] },
+      { name: "BloodPressure", type: "select", label: "High Blood Pressure", options: ["", "Yes", "No", "Unknown"] },
+      { name: "HeartAttack", type: "select", label: "History of Heart Attack", options: ["", "Yes", "No", "Unknown"] },
+      { name: "HeartFailure", type: "select", label: "Heart Failure", options: ["", "Yes", "No", "Unknown"] },
+      { name: "FamilyHistory", type: "select", label: "Family History of Dementia", options: ["", "Yes", "No", "Unknown"] },
+      { name: "CognitiveTestScore", type: "number", label: "Cognitive Test Score" }
+    ]
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const backendData = mapFormDataToBackend(formData); // Mapping form data to backend format
-
     try {
       const response = await fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(backendData),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch prediction');
-      }
-
+      if (!response.ok) throw new Error('Failed to fetch prediction');
+      
       const data = await response.json();
       setPrediction(data.prediction);
     } catch (error) {
@@ -90,170 +104,160 @@ const PredictionForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const nextSection = () => setCurrentSection(prev => Math.min(prev + 1, sections.length - 1));
+  const prevSection = () => setCurrentSection(prev => Math.max(prev - 1, 0));
+
   return (
-    <div>
-      <h1>Dementia Risk Prediction</h1>
-      <form onSubmit={handleSubmit}>
-        <h3>Personal Information</h3>
-        <label>Name: <input type="text" name="Name" value={formData.Name} onChange={handleChange} required /></label>
-        <label>Sex:
-          <select name="Sex" value={formData.Sex} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-        </label>
-        <label>Age: <input type="number" name="Age" value={formData.Age} onChange={handleChange} required /></label>
-        <label>Education Years: <input type="number" name="EducationYears" value={formData.EducationYears} onChange={handleChange} required /></label>
-        <label>Marital Status:
-          <select name="MaritalStatus" value={formData.MaritalStatus} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Married">Married</option>
-            <option value="Widowed">Widowed</option>
-            <option value="Divorced">Divorced</option>
-            <option value="Separated">Separated</option>
-            <option value="Never married">Never married</option>
-            <option value="Living as married/domestic partner">Living as married/domestic partner</option>
-            <option value="Other">Other</option>
-          </select>
-        </label>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="max-w-4xl mx-auto p-6"
+    >
+      <div className="bg-white rounded-2xl shadow-xl p-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+          Dementia Risk Assessment
+        </h1>
 
-        <h3>Lifestyle Factors</h3>
-        <label>Alcohol Using Frequency:
-          <select name="AlcoholFrequency" value={formData.AlcoholFrequency} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Less than once a month">Less than once a month</option>
-            <option value="About once a month">About once a month</option>
-            <option value="About once a week">About once a week</option>
-            <option value="A few times a week">A few times a week</option>
-            <option value="Daily or almost daily">Daily or almost daily</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Smoking Status (More than 100 cigarettes):
-          <select name="SmokingStatus" value={formData.SmokingStatus} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </label>
-        <label>Smoking Years: <input type="number" name="SmokingYears" value={formData.SmokingYears} onChange={handleChange} required /></label>
-        <label>BMI: <input type="number" name="BMI" value={formData.BMI} onChange={handleChange} required /></label>
-
-        <h3>Health Conditions</h3>
-        <label>Depression Status:
-          <select name="DepressionStatus" value={formData.DepressionStatus} onChange={(e) => setFormData({...formData, DepressionStatus: e.target.value})} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-          <button type="button" onClick={handleDepressionTest}>Take Depression Test</button>
-        </label>
-
-        <label>Sleeping Problems:</label>
-        <div className="multi-choice">
-          {[
-            "Loud snoring",
-            "Gasping for air during sleep",
-            "Awakening with a dry mouth",
-            "Morning headache",
-            "Difficulty staying asleep",
-            "Excessive daytime sleepiness",
-            "Difficulty paying attention while awake",
-            "Irritability",
-          ].map((option, index) => (
-            <label key={index}>
-              <input
-                type="checkbox"
-                name="SleepingProblems"
-                value={option}
-                checked={formData.SleepingProblems.includes(option)}
-                onChange={(e) => {
-                  const { value, checked } = e.target;
-                  setFormData((prevData) => ({
-                    ...prevData,
-                    SleepingProblems: checked
-                      ? [...prevData.SleepingProblems, value]
-                      : prevData.SleepingProblems.filter((item) => item !== value),
-                  }));
-                }}
-              />
-              {option}
-            </label>
-          ))}
+        {/* Progress Bar */}
+        <div className="mb-8">
+          <div className="flex justify-between mb-2">
+            {sections.map((section, idx) => (
+              <motion.button
+                key={idx}
+                onClick={() => setCurrentSection(idx)}
+                className={`flex items-center ${idx === currentSection ? 'text-blue-600' : 'text-gray-400'}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="mr-2">{section.icon}</span>
+                <span className="hidden sm:inline">{section.title}</span>
+              </motion.button>
+            ))}
+          </div>
+          <div className="h-2 bg-gray-200 rounded-full">
+            <motion.div
+              className="h-full bg-blue-600 rounded-full"
+              initial={{ width: "0%" }}
+              animate={{ width: `${((currentSection + 1) / sections.length) * 100}%` }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
         </div>
 
-        <label>Diabetes:
-          <select name="Diabetes" value={formData.Diabetes} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Cholesterol:
-          <select name="Cholesterol" value={formData.Cholesterol} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Blood Pressure:
-          <select name="BloodPressure" value={formData.BloodPressure} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Heart Attack:
-          <select name="HeartAttack" value={formData.HeartAttack} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Heart Failure:
-          <select name="HeartFailure" value={formData.HeartFailure} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Family History:
-          <select name="FamilyHistory" value={formData.FamilyHistory} onChange={handleChange} required>
-            <option value="">Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unknown">Unknown</option>
-          </select>
-        </label>
-        <label>Cognitive Test Score:
-          <input type="number" name="CognitiveTestScore" value={formData.CognitiveTestScore} onChange={(e) => setFormData({...formData, CognitiveTestScore: e.target.value})} required />
-          <button type="button" onClick={handleCognitiveTest}>Take Cognitive Test</button>
-        </label>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            key={currentSection}
+          >
+            {formSections[currentSection].map(field => (
+              <div key={field.name} className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {field.label}
+                </label>
+                {field.type === "select" ? (
+                  <select
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  >
+                    {field.options.map(option => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <input
+                    type={field.type}
+                    name={field.name}
+                    value={formData[field.name]}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  />
+                )}
+              </div>
+            ))}
 
-        <button type="submit" disabled={loading}>Predict</button>
-      </form>
+            {/* Navigation Buttons */}
+            <div className="flex justify-between mt-8">
+              <motion.button
+                type="button"
+                onClick={prevSection}
+                className={`px-4 py-2 rounded-md text-white bg-gray-500 hover:bg-gray-600 transition-colors ${
+                  currentSection === 0 ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                disabled={currentSection === 0}
+              >
+                Previous
+              </motion.button>
+              
+              {currentSection === sections.length - 1 ? (
+                <motion.button
+                  type="submit"
+                  className="px-4 py-2 rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  disabled={loading}
+                >
+                  {loading ? 'Processing...' : 'Submit'}
+                </motion.button>
+              ) : (
+                <motion.button
+                  type="button"
+                  onClick={nextSection}
+                  className="px-4 py-2 rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Next
+                </motion.button>
+              )}
+            </div>
+          </motion.div>
+        </form>
 
-      {loading && <p>Loading...</p>}
-
-      {prediction !== null && !loading && (
-        <div>
-          <h2>Prediction Result:</h2>
-          <p>{prediction}</p>
+        {/* Quick Actions */}
+        <div className="mt-8 grid grid-cols-2 gap-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/depression-test")}
+            className="flex items-center justify-center p-4 bg-indigo-50 rounded-lg text-indigo-600 hover:bg-indigo-100 transition-colors"
+          >
+            <FaHeartbeat className="mr-2" />
+            Take Depression Test
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/cog-test")}
+            className="flex items-center justify-center p-4 bg-blue-50 rounded-lg text-blue-600 hover:bg-blue-100 transition-colors"
+          >
+            <FaBrain className="mr-2" />
+            Take Cognitive Test
+          </motion.button>
         </div>
-      )}
-    </div>
+
+        {/* Results */}
+        {prediction && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-8 p-6 bg-gray-50 rounded-lg"
+          >
+            <h2 className="text-xl font-semibold mb-4">Assessment Results</h2>
+            <p className="text-gray-700">{prediction}</p>
+          </motion.div>
+        )}
+      </div>
+    </motion.div>
   );
 };
 
