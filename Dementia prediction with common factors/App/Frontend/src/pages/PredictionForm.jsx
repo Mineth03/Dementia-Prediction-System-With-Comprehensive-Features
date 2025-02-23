@@ -56,7 +56,7 @@ const PredictionForm = () => {
   };
 
   const handleCognitiveTest = () => {
-    navigate("/cognitive-test"); // Redirect to Cognitive Test page
+    navigate("/cog-test"); // Redirect to Cognitive Test page
   };
 
   const handleSubmit = async (e) => {
