@@ -7,4 +7,5 @@ export default defineConfig({
     port: 5173, // Fixed port
     strictPort: true,
   },
+  base: '/',
 });
