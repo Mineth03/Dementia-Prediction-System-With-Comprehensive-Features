@@ -1,19 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-import PredictionForm from "./pages/PredictionForm";
-import CogTest from "./pages/CogTest";
-import DepressionTest from "./pages/DepressionTest";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage.jsx";
+import DepressionTest from "./pages/DepressionTest.jsx";
+import CogTest from "./pages/CogTest.jsx";
+import Profile from "./pages/Profile.jsx";
+import Layout from "./components/Layout.jsx";
+import PredictionForm from "./pages/PredictionForm.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<PredictionForm />} />
-        <Route path="/depression-test" element={<DepressionTest />} />
-        <Route path="/cognitive-test" element={<CogTest />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Layout><HomePage /></Layout>} />
+      <Route path="/profile" element={<Layout><Profile /></Layout>} />
+      <Route path="/depression-test" element={<Layout><DepressionTest /></Layout>} />
+      <Route path="/prediction-form" element={<Layout><PredictionForm /></Layout>} />
+      <Route path="/cog-test" element={<CogTest />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
-}
+};
 
 export default App;
