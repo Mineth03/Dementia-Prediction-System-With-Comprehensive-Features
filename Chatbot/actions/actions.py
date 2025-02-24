@@ -1,27 +1,30 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+import pymongo
+from rasa_sdk import Action
+from rasa_sdk.events import SlotSet
+import logging
 
+MONGO_URI = "mongodb+srv://admin:12345678%40mineth@cluster0.s0ovw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+DATABASE_NAME = "SafeMind"
+COLLECTION_NAME = "report"
 
-# This is a simple example for a custom action which utters "Hello World!"
+class ActionTestMongoConnection(Action):
+    def name(self):
+        return "action_test_mongo_connection"
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+    def run(self, dispatcher, tracker, domain):
+        logging.debug("🚀 Starting action_test_mongo_connection...")
+        try:
+            client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
+            client.admin.command('ping')
+            dispatcher.utter_message("✅ Successfully connected to MongoDB!")
+            logging.debug("✅ MongoDB connection successful.")
+        except pymongo.errors.ServerSelectionTimeoutError:
+            dispatcher.utter_message("❌ Could not connect to MongoDB. Connection timed out.")
+            logging.error("❌ MongoDB connection timed out.")
+        except Exception as e:
+            dispatcher.utter_message(f"❌ Connection failed: {e}")
+            logging.error(f"❌ Connection failed: {e}")
+        finally:
+            client.close()
+            logging.debug("🚪 MongoDB connection closed.")
+        return []
