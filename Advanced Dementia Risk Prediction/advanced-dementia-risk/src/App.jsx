@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import HealthForm from './components/HealthForm';
+import DementiaRiskForm from './components/DementiaRiskForm';
+//import HealthForm from './components/HealthForm';
 // import Result from './components/Result';
 
 const App = () => {
@@ -13,8 +14,8 @@ const App = () => {
 
   return (
     <div>
-      <h1>Dementia Risk Assessment</h1>
-      <HealthForm onSubmit={handleSubmit} />
+       <h1>Dementia Risk Assessment Form</h1>
+      <DementiaRiskForm onSubmit={handleSubmit} />
     </div>
   );
 };
