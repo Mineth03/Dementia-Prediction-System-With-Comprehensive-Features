@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { FaBrain, FaHeartbeat, FaChartLine } from 'react-icons/fa';
+import { FaBrain, FaHeartbeat, FaChartLine, FaPuzzlePiece, FaGamepad } from 'react-icons/fa';
 import image from '../assets/HomePageDC.jpg';
 
 const HomePage = () => {
@@ -85,7 +85,6 @@ const HomePage = () => {
         </motion.div>
       </motion.div>
 
-
       {/* Feature Section */}
       <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
         {[
@@ -131,6 +130,32 @@ const HomePage = () => {
           frameBorder="0"
           allowFullScreen
         ></iframe>
+      </motion.div>
+
+      {/* Games Section */}
+      <motion.div variants={containerVariants} className="grid grid-cols-1 md:grid-cols-4 gap-10 mt-16">
+        {[ 
+          { icon: <FaPuzzlePiece className="w-16 h-16 mx-auto text-blue-600" />, title: "Sliding Puzzle", link: "/sliding-puzzle" },
+          { icon: <FaGamepad className="w-16 h-16 mx-auto text-blue-600" />, title: "Flip Cards", link: "/flip-cards" },
+          { icon: <FaChartLine className="w-16 h-16 mx-auto text-blue-600" />, title: "Cross Words", link: "/cross-words" },
+          { icon: <FaPuzzlePiece className="w-16 h-16 mx-auto text-blue-600" />, title: "Jigsaw Puzzle", link: "/jigsaw" },
+        ].map((item, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center text-center space-y-6 transition-transform duration-300"
+          >
+            {item.icon}
+            <h2 className="text-2xl font-semibold text-gray-900">{item.title}</h2>
+            <Link
+              to={item.link}
+              className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-lg hover:opacity-90 transition duration-300"
+            >
+              Play Now
+            </Link>
+          </motion.div>
+        ))}
       </motion.div>
 
       {/* Footer Section */}
