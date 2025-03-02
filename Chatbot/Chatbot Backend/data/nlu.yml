@@ -130,6 +130,45 @@ nlu:
     - What do I do if a dementia patient gets aggressive?
     - How can I help a dementia patient feel comfortable?
 
+- intent: ask_dementia_misconceptions
+  examples: |
+    - What are some common misconceptions about dementia?
+    - Is dementia just memory loss?
+    - Do only elderly people get dementia?
+    - Can dementia be reversed?
+    - Are all types of dementia the same?
+
+- intent: ask_dementia_statistics
+  examples: |
+    - How many people have dementia worldwide?
+    - What percentage of elderly people get dementia?
+    - What are the chances of developing dementia?
+    - How common is Alzheimer’s compared to other dementias?
+    - What is the dementia prevalence rate?
+
+- intent: ask_dementia_patient_aggression
+  examples: |
+    - How do I handle aggression in dementia patients?
+    - Why do dementia patients become aggressive?
+    - What should I do if a dementia patient is violent?
+    - How do I calm down an aggressive dementia patient?
+    - Are aggression and mood swings common in dementia?
+
+- intent: ask_dementia_patient_wandering
+  examples: |
+    - How do I prevent a dementia patient from wandering?
+    - Why do dementia patients wander?
+    - What should I do if a dementia patient gets lost?
+    - Are there tracking devices for dementia patients?
+    - How can I keep a dementia patient safe from wandering?
+
+- intent: ask_dementia_patient_sleep_issues
+  examples: |
+    - Why do dementia patients have trouble sleeping?
+    - How do I help a dementia patient sleep better?
+    - What is sundowning in dementia?
+    - How does dementia affect sleep patterns?
+    - Can sleep medications help dementia patients?
 
 
 - intent: ask_dementia_stages

@@ -16,6 +16,11 @@ intents:
   - ask_dementia_risk_factors
   - ask_dementia_early_signs
   - ask_dementia_vs_normal_aging
+  - ask_dementia_misconceptions
+  - ask_dementia_statistics
+  - ask_dementia_patient_aggression
+  - ask_dementia_patient_wandering
+  - ask_dementia_patient_sleep_issues
   - ask_caregiver_tips
   - ask_caregiver_stress_management
   - ask_caregiver_patient_interaction
@@ -71,6 +76,26 @@ responses:
   utter_dementia_vs_normal_aging:
     - text: "Normal aging includes occasional forgetfulness, but dementia involves progressive memory loss that disrupts daily life."
     - text: "Forgetting where you put your keys is normal, but forgetting what keys are used for could be a sign of dementia."
+
+  utter_dementia_misconceptions:
+    - text: "A common misconception is that dementia is just memory loss, but it affects thinking, behavior, and daily functioning."
+    - text: "Not all dementia is Alzheimer’s. There are different types, including vascular dementia and Lewy body dementia."
+
+  utter_dementia_statistics:
+    - text: "Over 55 million people worldwide have dementia, and cases are expected to triple by 2050."
+    - text: "Alzheimer’s disease accounts for 60-70% of dementia cases, making it the most common form."
+
+  utter_dementia_patient_aggression:
+    - text: "Aggression in dementia patients can be caused by confusion, frustration, or physical discomfort. Try to remain calm and redirect their attention."
+    - text: "Handling aggression requires patience—avoid confrontation, use a soothing voice, and try to determine the trigger."
+
+  utter_dementia_patient_wandering:
+    - text: "Wandering is common in dementia patients. Ensure doors are secured and consider using ID bracelets or GPS trackers."
+    - text: "Prevent wandering by establishing daily routines and engaging dementia patients in familiar activities."
+
+  utter_dementia_patient_sleep_issues:
+    - text: "Sleep disturbances are common in dementia. Keeping a consistent bedtime routine and avoiding caffeine can help."
+    - text: "Sundowning syndrome causes confusion and restlessness in the evening. Creating a calm nighttime environment can reduce symptoms."
 
   utter_dementia_definition:
     - text: "Dementia is a syndrome affecting memory, thinking, and behavior."
