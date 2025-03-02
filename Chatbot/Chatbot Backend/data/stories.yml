@@ -71,6 +71,31 @@ stories:
     - intent: ask_dementia_stages
     - action: utter_dementia_stages
 
+- story: User asks about dementia misconceptions
+  steps:
+    - intent: ask_dementia_misconceptions
+    - action: utter_dementia_misconceptions
+
+- story: User asks about dementia statistics
+  steps:
+    - intent: ask_dementia_statistics
+    - action: utter_dementia_statistics
+
+- story: User asks about dementia patient aggression
+  steps:
+    - intent: ask_dementia_patient_aggression
+    - action: utter_dementia_patient_aggression
+
+- story: User asks about dementia patient wandering
+  steps:
+    - intent: ask_dementia_patient_wandering
+    - action: utter_dementia_patient_wandering
+
+- story: User asks about dementia patient sleep issues
+  steps:
+    - intent: ask_dementia_patient_sleep_issues
+    - action: utter_dementia_patient_sleep_issues
+
 - story: ask about treatment options
   steps:
     - intent: ask_treatment

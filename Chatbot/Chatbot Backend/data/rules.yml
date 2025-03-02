@@ -86,6 +86,30 @@ rules:
       - intent: ask_dementia_stages
       - action: utter_dementia_stages
 
+  - rule: Answer dementia misconceptions
+    steps:
+      - intent: ask_dementia_misconceptions
+      - action: utter_dementia_misconceptions
+
+  - rule: Answer dementia statistics
+    steps:
+      - intent: ask_dementia_statistics
+      - action: utter_dementia_statistics
+
+  - rule: Answer dementia patient aggression
+    steps:
+      - intent: ask_dementia_patient_aggression
+      - action: utter_dementia_patient_aggression
+
+  - rule: Answer dementia patient wandering concerns
+    steps:
+      - intent: ask_dementia_patient_wandering
+      - action: utter_dementia_patient_wandering
+
+  - rule: Answer dementia patient sleep issues
+    steps:
+      - intent: ask_dementia_patient_sleep_issues
+      - action: utter_dementia_patient_sleep_issues
   - rule: Respond to treatment questions
     steps:
       - intent: ask_treatment
