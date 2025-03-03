@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Header from './Header';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import Chatbot from "./Chatbot";
 
 const Layout = ({ children }) => {
   return (
@@ -20,6 +21,7 @@ const Layout = ({ children }) => {
           {children}
         </motion.main>
       </AnimatePresence>
+      <Chatbot />
       <Footer />
     </div>
   );
