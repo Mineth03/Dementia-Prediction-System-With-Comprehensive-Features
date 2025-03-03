@@ -1,29 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { FaBrain, FaHeartbeat } from 'react-icons/fa';
 
 const PredictionForm = () => {
-  const [formData, setFormData] = useState({
-    Name: '',
-    Sex: '',
-    Age: '',
-    EducationYears: '',
-    MaritalStatus: '',
-    AlcoholFrequency: '',
-    SmokingStatus: '',
-    SmokingYears: '',
-    BMI: '',
-    DepressionStatus: '',
-    SleepingProblems: [],
-    Diabetes: '',
-    Cholesterol: '',
-    BloodPressure: '',
-    HeartAttack: '',
-    HeartFailure: '',
-    FamilyHistory: '',
-    CognitiveTestScore: '',
+  const [formData, setFormData] = useState(() => {
+    const savedData = localStorage.getItem("predictionFormData");
+    return savedData ? JSON.parse(savedData) : {
+      Name: '',
+      Sex: '',
+      Age: '',
+      EducationYears: '',
+      MaritalStatus: '',
+      AlcoholFrequency: '',
+      SmokingStatus: '',
+      SmokingYears: '',
+      BMI: '',
+      DepressionStatus: '',
+      SleepingProblems: [],
+      Diabetes: '',
+      Cholesterol: '',
+      BloodPressure: '',
+      HeartAttack: '',
+      HeartFailure: '',
+      FamilyHistory: '',
+      CognitiveTestScore: '',
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem("predictionFormData", JSON.stringify(formData));
+  }, [formData]);
+
+
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
   const [currentSection, setCurrentSection] = useState(0);
@@ -94,6 +103,27 @@ const PredictionForm = () => {
       
       const data = await response.json();
       setPrediction(data.prediction);
+      localStorage.removeItem("predictionFormData");  
+      setFormData({
+        Name: '',
+        Sex: '',
+        Age: '',
+        EducationYears: '',
+        MaritalStatus: '',
+        AlcoholFrequency: '',
+        SmokingStatus: '',
+        SmokingYears: '',
+        BMI: '',
+        DepressionStatus: '',
+        SleepingProblems: [],
+        Diabetes: '',
+        Cholesterol: '',
+        BloodPressure: '',
+        HeartAttack: '',
+        HeartFailure: '',
+        FamilyHistory: '',
+        CognitiveTestScore: '',
+      });
     } catch (error) {
       console.error('Error:', error);
       setPrediction('An error occurred while predicting.');
@@ -101,6 +131,7 @@ const PredictionForm = () => {
       setLoading(false);
     }
   };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -1,0 +1,7 @@
+Flask
+Flask-Cors
+numpy
+joblib
+tensorflow==
+opencv-python
+Pillow

@@ -36,50 +36,34 @@ const CogTest = () => {
     { question: "What city are we in?", key: "city", icon: "🏙️" },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -20 }
-  };
+  const difficultQuestions = new Set([
+    "clock", "forwardDigits",
+    "backwardDigits", "serial7s", "sentence1", "sentence2",
+    "abstract1", "abstract2", "recall", "date", "month", "year"
+  ]);
 
   if (step === -1) {
     return (
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        variants={containerVariants}
-        className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8"
-      >
-        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+      <motion.div className="min-h-screen bg-gradient-to-br from-indigo-100 to-blue-50 flex items-center justify-center p-8">
+        <div className="max-w-xl w-full bg-white shadow-lg rounded-2xl p-8">
           <div className="flex items-center justify-center mb-6">
             <FaBrain className="text-4xl text-blue-600 mr-3" />
-            <h2 className="text-3xl font-bold text-gray-800">Cognitive Assessment Guide</h2>
+            <h2 className="text-3xl font-bold text-gray-800">Cognitive Assessment</h2>
           </div>
-          
-          <motion.ul className="space-y-4 mb-8">
+          <ul className="space-y-4 mb-8">
             {guideSteps.map((step, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.2 }}
-                className="flex items-center text-gray-700"
-              >
-                <span className="mr-3 text-blue-600">•</span>
-                {step}
-              </motion.li>
+              <li key={index} className="flex items-center text-gray-700">
+                <span className="mr-3 text-blue-600">•</span> {step}
+              </li>
             ))}
-          </motion.ul>
-
+          </ul>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setStep(0)}
-            className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center"
+            className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center justify-center shadow-md transition"
           >
-            Start Test
-            <FaArrowRight className="ml-2" />
+            Start Test <FaArrowRight className="ml-2" />
           </motion.button>
         </div>
       </motion.div>
@@ -88,33 +72,18 @@ const CogTest = () => {
 
   if (step >= questions.length) {
     return (
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-        variants={containerVariants}
-        className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8"
-      >
-        <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8 text-center">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
-          >
+      <motion.div className="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div className="max-w-xl w-full bg-white shadow-lg rounded-2xl p-8 text-center">
+          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <FaCheck className="text-green-500 text-3xl" />
-          </motion.div>
-
+          </div>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Test Completed!</h2>
-          <p className="text-2xl font-semibold text-blue-600 mb-4">
-            Your MoCA score: {score} / 30
-          </p>
-          
-          <div className="bg-gray-50 rounded-lg p-6 mb-6">
+          <p className="text-2xl font-semibold text-blue-600 mb-4">Your MoCA score: {score} / 30</p>
+          <div className="bg-gray-50 rounded-lg p-6">
             {score >= 26 ? (
-              <p className="text-green-600">This is considered normal cognitive function.</p>
+              <p className="text-green-600 font-medium">This is considered normal cognitive function.</p>
             ) : (
-              <p className="text-yellow-600">You may want to consult a medical professional for further evaluation.</p>
+              <p className="text-yellow-600 font-medium">Consider consulting a medical professional for further evaluation.</p>
             )}
           </div>
         </div>
@@ -123,34 +92,20 @@ const CogTest = () => {
   }
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={containerVariants}
-      className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-8"
-    >
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-8">
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-gray-800">Question {step + 1}/{questions.length}</h2>
-            <span className="text-3xl">{questions[step].icon}</span>
-          </div>
-          
-          <div className="h-2 bg-gray-200 rounded-full">
-            <motion.div
-              className="h-full bg-blue-600 rounded-full"
-              initial={{ width: "0%" }}
-              animate={{ width: `${((step + 1) / questions.length) * 100}%` }}
-              transition={{ duration: 0.3 }}
-            />
-          </div>
+    <motion.div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-8">
+      <div className="max-w-xl w-full bg-white shadow-lg rounded-2xl p-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Question {step + 1}/{questions.length}</h2>
+        <p className="text-xl text-gray-700 mb-6 flex items-center">
+          <span className="text-3xl mr-3">{questions[step].icon}</span> {questions[step].question}
+        </p>
+        <div className="h-2 bg-gray-200 rounded-full overflow-hidden mb-6">
+          <motion.div
+            className="h-full bg-blue-600 rounded-full"
+            initial={{ width: "0%" }}
+            animate={{ width: `${((step + 1) / questions.length) * 100}%` }}
+            transition={{ duration: 0.3 }}
+          />
         </div>
-
-        <div className="mb-8">
-          <p className="text-xl text-gray-700">{questions[step].question}</p>
-        </div>
-
         <div className="space-y-4">
           {["Done Correctly", "Unsatisfied"].map((option) => (
             <motion.button
@@ -159,21 +114,19 @@ const CogTest = () => {
               whileTap={{ scale: 0.98 }}
               onClick={() => {
                 setAnswers({ ...answers, [questions[step].key]: option });
-                if (option === "Done Correctly") setScore(score + 1);
+                if (option === "Done Correctly") {
+                  setScore(score + (difficultQuestions.has(questions[step].key) ? 2 : 1));
+                }
                 setStep(step + 1);
               }}
-              className={`w-full p-4 rounded-lg border-2 transition-colors flex items-center justify-between ${
+              className={`w-full py-3 rounded-lg border-2 flex items-center justify-between transition ${
                 option === "Done Correctly"
                   ? "border-green-500 text-green-700 hover:bg-green-50"
                   : "border-red-500 text-red-700 hover:bg-red-50"
               }`}
             >
               {option}
-              {option === "Done Correctly" ? (
-                <FaCheck className="text-green-500" />
-              ) : (
-                <FaTimes className="text-red-500" />
-              )}
+              {option === "Done Correctly" ? <FaCheck className="text-green-500" /> : <FaTimes className="text-red-500" />}
             </motion.button>
           ))}
         </div>

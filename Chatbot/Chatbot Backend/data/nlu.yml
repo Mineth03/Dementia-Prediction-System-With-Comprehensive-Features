@@ -1,0 +1,326 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good morning
+    - hey
+    - hi there
+    - hey chatbot
+    - good afternoon
+    - good evening
+    - hi there!
+    - hello chatbot
+    - hey there!
+    - greetings
+    - what's up?
+    - hello there
+    - hiya!
+    - howdy
+    - yo!
+    - hey there!
+    - nice to meet you
+    - sup?
+
+- intent: ask_dementia_definition
+  examples: |
+    - What is dementia?
+    - Can you explain dementia?
+    - Define dementia.
+    - Give me a simple explanation of dementia.
+    - How do you describe dementia?
+    - Definition of dementia.
+
+- intent: ask_dementia_symptoms
+  examples: |
+    - What are the symptoms of dementia?
+    - Tell me about dementia symptoms.
+    - How do I know if someone has dementia?
+    - Dementia symptoms?
+    - What are the early signs of dementia?
+    - Does dementia affect speech?
+    - Can dementia cause hallucinations?
+    - What are the signs of dementia in young adults?
+
+- intent: ask_dementia_causes
+  examples: |
+    - What causes dementia?
+    - Can dementia be inherited?
+    - Can stress cause dementia?
+    - What lifestyle factors contribute to dementia?
+    - What environmental factors increase dementia risk?
+    - Can brain injuries cause dementia?
+    - Is dementia a mental illness?
+
+- intent: ask_dementia_types
+  examples: |
+    - Are there different types of dementia?
+    - What is vascular dementia?
+    - What is frontotemporal dementia?
+    - Is dementia the same as Alzheimer's?
+    - What are the rarest forms of dementia?
+    - How fast does dementia progress?
+    - What are the differences between mild and severe dementia?
+ 
+- intent: ask_dementia_diagnosis_prevention
+  examples: |
+    - How do doctors diagnose dementia?
+    - Can dementia be prevented?
+    - How does dementia differ from normal aging?
+    - Can dementia patients live alone?
+    - Does dementia always get worse?
+
+- intent: ask_dementia_treatment_medical
+  examples: |
+    - Are there medications for dementia?
+    - Can doctors prescribe medicine for dementia?
+    - What drugs are used to treat dementia?
+    - Are there FDA-approved treatments for dementia?
+
+- intent: ask_dementia_treatment_lifestyle
+  examples: |
+    - Can lifestyle changes help dementia?
+    - How does diet affect dementia?
+    - What exercises help dementia patients?
+    - Can brain games slow down dementia?
+
+- intent: ask_dementia_risk_factors
+  examples: |
+    - What increases the risk of dementia?
+    - What factors contribute to dementia?
+    - Does stress cause dementia?
+    - Can lack of sleep lead to dementia?
+
+- intent: ask_dementia_early_signs
+  examples: |
+    - What are the first signs of dementia?
+    - How do I know if someone is developing dementia?
+    - What are the early warning signs of dementia?
+    - How soon can dementia symptoms appear?
+
+- intent: ask_dementia_vs_normal_aging
+  examples: |
+    - How is dementia different from normal aging?
+    - Is forgetfulness always dementia?
+    - How do I know if memory loss is dementia or aging?
+    - Can old age cause dementia-like symptoms?
+
+- intent: ask_caregiver_tips
+  examples: |
+    - How do I take care of someone with dementia?
+    - What are some tips for dementia caregivers?
+    - How can I support a dementia patient?
+    - What are the best caregiving practices?
+    - How do I ensure a dementia patient’s safety?
+
+- intent: ask_caregiver_stress_management
+  examples: |
+    - How do I manage stress as a caregiver?
+    - Caring for someone with dementia is exhausting. Any advice?
+    - What should I do if I feel overwhelmed as a caregiver?
+    - How do I prevent burnout while taking care of a dementia patient?
+    - How can I balance my life and caregiving responsibilities?
+
+- intent: ask_caregiver_patient_interaction
+  examples: |
+    - How do I communicate with a dementia patient?
+    - What should I say to someone with dementia?
+    - How do I handle repetitive questions from a dementia patient?
+    - What do I do if a dementia patient gets aggressive?
+    - How can I help a dementia patient feel comfortable?
+
+- intent: ask_dementia_misconceptions
+  examples: |
+    - What are some common misconceptions about dementia?
+    - Is dementia just memory loss?
+    - Do only elderly people get dementia?
+    - Can dementia be reversed?
+    - Are all types of dementia the same?
+
+- intent: ask_dementia_statistics
+  examples: |
+    - How many people have dementia worldwide?
+    - What percentage of elderly people get dementia?
+    - What are the chances of developing dementia?
+    - How common is Alzheimer’s compared to other dementias?
+    - What is the dementia prevalence rate?
+
+- intent: ask_dementia_patient_aggression
+  examples: |
+    - How do I handle aggression in dementia patients?
+    - Why do dementia patients become aggressive?
+    - What should I do if a dementia patient is violent?
+    - How do I calm down an aggressive dementia patient?
+    - Are aggression and mood swings common in dementia?
+
+- intent: ask_dementia_patient_wandering
+  examples: |
+    - How do I prevent a dementia patient from wandering?
+    - Why do dementia patients wander?
+    - What should I do if a dementia patient gets lost?
+    - Are there tracking devices for dementia patients?
+    - How can I keep a dementia patient safe from wandering?
+
+- intent: ask_dementia_patient_sleep_issues
+  examples: |
+    - Why do dementia patients have trouble sleeping?
+    - How do I help a dementia patient sleep better?
+    - What is sundowning in dementia?
+    - How does dementia affect sleep patterns?
+    - Can sleep medications help dementia patients?
+
+
+- intent: ask_dementia_stages
+  examples: |
+    - What are the stages of dementia?
+    - Can you explain the stages of dementia?
+    - How does dementia progress over time?
+    - What happens in the late stage of dementia?
+    - What is early-stage dementia like?
+    - How does mid-stage dementia affect behavior?
+    - What are the signs of late-stage dementia?
+    - Do dementia stages progress at the same rate for everyone?
+    - Can someone skip stages in dementia?
+    - How does dementia affect mobility?
+    - What happens in the final stage?
+    - What is the first noticeable sign of dementia?
+    - Does dementia progress the same in everyone?
+    - How long does each dementia stage last?
+    - Can someone stay in early-stage dementia for years?
+    - What happens during mid-stage dementia?
+    - What physical symptoms appear in late-stage dementia?
+
+- intent: ask_treatment
+  examples: |
+    - How is dementia treated?
+    - What treatments are available for dementia?
+    - Are there lifestyle changes that help dementia?
+    - Can therapy slow down dementia?
+    - What kinds of therapies are available for dementia patients?
+    - Can a healthy diet improve dementia symptoms?
+    - What role does mental stimulation play in dementia treatment?
+    - Does music therapy help dementia patients?
+    - Can exercise help slow dementia?
+    - Is cognitive behavioral therapy effective for dementia?
+    - How can social interaction improve dementia symptoms?
+    - Can memory training help with dementia?
+    - Does counseling help dementia patients?
+    - Can certain foods slow down dementia?
+    - How does socializing affect dementia patients?
+    - Can pets help dementia patients?
+    - Does playing music help dementia patients?
+    - How do caregivers support dementia treatment?
+    - What is speech therapy for dementia?
+
+- intent: ask_prevention
+  examples: |
+    - How can dementia be prevented?
+    - Are there ways to reduce dementia risk?
+    - What lifestyle changes help prevent dementia?
+    - Can exercise or diet prevent dementia?
+    - Can brain games prevent dementia?
+    - Does diet affect dementia risk?
+    - Does smoking increase dementia risk?
+    - Can regular exercise help prevent dementia?
+    - Does good sleep lower dementia risk?
+    - What are the best foods to eat to prevent dementia?
+    - Can stress management help prevent dementia?
+    - How important is hydration in brain health?
+    - Is there a link between heart disease and dementia?
+    - Does drinking water help brain function?
+    - Does meditation lower dementia risk?
+    - Can reading books prevent dementia?
+    - Is staying social good for brain health?
+    - How does gut health impact dementia risk?
+    - Are there brain exercises for dementia prevention?
+    - Does controlling blood pressure prevent dementia?
+    - Can wearing hearing aids reduce dementia risk?
+
+- intent: ask_about_memory_aids
+  examples: |
+    - What memory aids are helpful for dementia patients?
+    - Can tools help with memory loss?
+    - Are there devices for managing memory problems?
+    - How do I help someone remember their tasks?
+    - What apps can help dementia patients with memory loss?
+    - Are there books to help with dementia memory loss?
+    - Do voice assistants help dementia patients?
+    - Can alarms and reminders improve daily life for dementia patients?
+    - Are there wearable devices for dementia patients?
+    - How do memory boxes help dementia patients?
+    - Can simple home modifications help dementia patients remember things?
+    - What are the best note taking strategies?
+    - Can writing lists help dementia patients?
+    - Do dementia patients benefit from GPS trackers?
+    - What household modifications help dementia patients?
+    - Are there daily planners for dementia patients?
+    - How do caregivers use memory aids?
+    - What simple tricks help dementia patients remember things?
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - take care
+    - talk to you soon
+    - catch you later
+    - see you
+    - see ya!
+    - have a great day!
+    - until next time
+
+- intent: thank_you
+  examples: |
+    - thanks
+    - thank you
+    - I appreciate it
+    - thanks a lot
+    - many thanks
+    - thank you very much
+    - much appreciated
+    - big thanks
+
+- intent: who_are_you
+  examples: |
+    - who are you?
+    - what is your name?
+    - introduce yourself
+    - tell me about yourself
+    - what do you do?
+
+
+- intent: how_are_you
+  examples: |
+    - how are you?
+    - how’s it going?
+    - how do you feel?
+    - how are you doing today?
+
+- intent: what_can_you_do
+  examples: |
+    - what can you do?
+    - how can you help me?
+    - what are your abilities?
+    - tell me what you can do
+    - what services do you offer?
+
+- intent: out_of_scope
+  examples: |
+    - What's the weather like?
+    - Who is the president?
+    - How do I cook pasta?
+    - What is 2 + 2?
+    - Can you sing a song?
+    - What is the capital of France?
+    - Give me stock market advice
+    - Who won the last football match?
+    - Can you order food for me?
+    - Who won the grammy for the best song of the year?
+    - Philip Thompson
+    - John Smith
+    - Elon Musk
+    - Travis Scott
+    - Cristiano Ronaldo
+    - Messi

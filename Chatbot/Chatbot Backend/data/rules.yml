@@ -1,0 +1,136 @@
+version: "3.1"
+
+rules:
+  - rule: Respond to greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Respond to user gratitude
+    steps:
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - rule: Answer user’s question about the bot
+    steps:
+      - intent: who_are_you
+      - action: utter_who_are_you
+
+  - rule: Answer how the bot is doing
+    steps:
+      - intent: how_are_you
+      - action: utter_how_are_you
+
+  - rule: Explain chatbot abilities
+    steps:
+      - intent: what_can_you_do
+      - action: utter_what_can_you_do
+
+  - rule: Answer dementia definition questions
+    steps:
+      - intent: ask_dementia_definition
+      - action: utter_dementia_definition
+
+  - rule: Answer dementia symptoms questions
+    steps:
+      - intent: ask_dementia_symptoms
+      - action: utter_dementia_symptoms
+
+  - rule: Answer dementia causes questions
+    steps:
+      - intent: ask_dementia_causes
+      - action: utter_dementia_causes
+
+  - rule: Answer dementia types questions
+    steps:
+      - intent: ask_dementia_types
+      - action: utter_dementia_types
+
+  - rule: Answer dementia diagnosis and prevention questions
+    steps:
+      - intent: ask_dementia_diagnosis_prevention
+      - action: utter_dementia_diagnosis_prevention
+
+  - rule: Answer caregiver tips
+    steps:
+      - intent: ask_caregiver_tips
+      - action: utter_caregiver_tips
+
+  - rule: Respond to stress concerns
+    steps:
+      - intent: ask_caregiver_stress_management
+      - action: utter_caregiver_stress_management
+
+  - rule: Help with patient interaction
+    steps:
+      - intent: ask_caregiver_patient_interaction
+      - action: utter_caregiver_patient_interaction
+
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Answer bot challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_group_made_me
+
+  - rule: Respond to a greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Explain dementia stages
+    steps:
+      - intent: ask_dementia_stages
+      - action: utter_dementia_stages
+
+  - rule: Answer dementia misconceptions
+    steps:
+      - intent: ask_dementia_misconceptions
+      - action: utter_dementia_misconceptions
+
+  - rule: Answer dementia statistics
+    steps:
+      - intent: ask_dementia_statistics
+      - action: utter_dementia_statistics
+
+  - rule: Answer dementia patient aggression
+    steps:
+      - intent: ask_dementia_patient_aggression
+      - action: utter_dementia_patient_aggression
+
+  - rule: Answer dementia patient wandering concerns
+    steps:
+      - intent: ask_dementia_patient_wandering
+      - action: utter_dementia_patient_wandering
+
+  - rule: Answer dementia patient sleep issues
+    steps:
+      - intent: ask_dementia_patient_sleep_issues
+      - action: utter_dementia_patient_sleep_issues
+  - rule: Respond to treatment questions
+    steps:
+      - intent: ask_treatment
+      - action: utter_treatment
+
+  - rule: Provide prevention tips
+    steps:
+      - intent: ask_prevention
+      - action: utter_prevention
+
+  - rule: Suggest memory aids
+    steps:
+      - intent: ask_about_memory_aids
+      - action: utter_memory_aids
+
+  - rule: Fallback rule
+    steps:
+      - intent: nlu_fallback
+      - action: utter_ask_clarification
+
+  - rule: Handle out-of-scope queries
+    steps:
+    - intent: out_of_scope
+    - action: utter_out_of_scope
