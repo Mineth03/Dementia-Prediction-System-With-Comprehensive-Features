@@ -7,6 +7,7 @@ import CogTest from "./pages/CogTest.jsx";
 import Profile from "./pages/Profile.jsx";
 import Layout from "./components/Layout.jsx";
 import PredictionForm from "./pages/PredictionForm.jsx";
+import DementiaRiskForm from "./pages/DementiaRiskForm.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import SlidingPuzzle from "./Games/SlidingPuzzle.jsx";
 import FlipCards from "./Games/FlipCards.jsx";
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/about-us" element={<Layout><AboutUs /></Layout>} />
       <Route path="/depression-test" element={<Layout><DepressionTest /></Layout>} />
       <Route path="/prediction-form" element={<Layout><PredictionForm /></Layout>} />
+      <Route path="/dementia-risk-form" element={<Layout><DementiaRiskForm /></Layout>} />
       <Route path="/sliding-puzzle" element={<Layout><SlidingPuzzle /></Layout>} />
       <Route path="/flip-cards" element={<Layout><FlipCards /></Layout>} />
       <Route path="/cross-words" element={<Layout><CrossWords /></Layout>} />
