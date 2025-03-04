@@ -54,7 +54,7 @@ const NavBar = () => {
                             <Link to="/prediction-form" className="block px-4 py-2 hover:bg-gray-200">
                               Early Detection
                             </Link>
-                            <Link to="/risk-prediction" className="block px-4 py-2 hover:bg-gray-200">
+                            <Link to="/dementia-risk-form" className="block px-4 py-2 hover:bg-gray-200">
                               Risk Prediction
                             </Link>
                           </>

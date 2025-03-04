@@ -95,7 +95,7 @@ const HomePage = () => {
             icon: <FaHeartbeat className="w-16 h-16 mx-auto text-indigo-600" />, title: "Depression Screening", description: "AI-powered analysis for early detection of depression symptoms", link: "/depression-test", bgColor: "bg-indigo-600",
           },
           {
-            icon: <FaChartLine className="w-16 h-16 mx-auto text-purple-600" />, title: "Risk Assessment", description: "Personalized dementia risk prediction based on multiple factors", link: "/prediction-form", bgColor: "bg-purple-600",
+            icon: <FaChartLine className="w-16 h-16 mx-auto text-purple-600" />, title: "Risk Assessment", description: "Personalized dementia risk prediction based on multiple factors", link: "/dementia-risk-form", bgColor: "bg-purple-600",
           },
         ].map((item, index) => (
           <motion.div
