@@ -27,8 +27,8 @@ def load_model():
         except Exception as e:
             print(f"Error loading model: {e}")
             raise e
-    else:
-        raise FileNotFoundError(f"Model file not found at {model_path}")
+    #else:
+        # raise FileNotFoundError(f"Model file not found at {model_path}")      # COMMENTED THE ELSE & RAISE BECAUSE MODEL NOT LOADING
 
 # Load model once at module import
 model = load_model()

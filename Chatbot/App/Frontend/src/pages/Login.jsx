@@ -9,6 +9,7 @@ const LoginForm = () => {
     password: ''
   });
   const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
@@ -21,11 +22,27 @@ const LoginForm = () => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Login Successful!", formData);
-      navigate('/dashboard');
+      try {
+        const response = await fetch("http://localhost:5000/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          setSuccessMessage("Successfully logged in");
+          console.log("Login Successful!", data);
+          setTimeout(() => navigate("/"), 2000); // Redirect after 2 seconds
+        } else {
+          setErrors({ general: data.error || "Login failed" });
+        }
+      } catch (error) {
+        setErrors({ general: "Server error. Please try again later." });
+      }
     }
   };
 
@@ -37,6 +54,8 @@ const LoginForm = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold text-center mb-4">Login</h2>
+      {successMessage && <p className="text-green-500 text-sm text-center">{successMessage}</p>}
+      {errors.general && <p className="text-red-500 text-sm text-center">{errors.general}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label className="block text-gray-700">Email</label>
