@@ -2279,3 +2279,17 @@ nlu:
     - Can you tell me a fun fact?
     - What’s the most expensive car in the world?
     - How do I play poker?
+
+- intent: request_weekly_report
+  examples: |
+    - Show me my weekly reports.
+    - Can I see my past reports?
+    - What reports are available?
+    - Give me the list of reports.
+    - I need to check a previous weekly report.
+    - Can i view my reports?
+    - Show the reports.
+    - Where can i see my reports?
+    - Are there reports?
+    - Where are my weekly reports?
+    - Can i know where my reports are?
