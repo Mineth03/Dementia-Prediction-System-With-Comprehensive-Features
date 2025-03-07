@@ -467,3 +467,10 @@ stories:
   steps:
     - intent: ask_dementia_patient_legal_rights
     - action: utter_dementia_patient_legal_rights
+
+- story: User requests weekly reports and selects one
+  steps:
+      - intent: request_weekly_report
+      - action: action_list_weekly_reports
+      - intent: select_specific_report
+      - action: action_provide_selected_report

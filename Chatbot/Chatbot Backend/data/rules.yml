@@ -471,3 +471,8 @@ rules:
     steps:
         - intent: ask_dementia_patient_legal_rights
         - action: utter_dementia_patient_legal_rights
+
+  - rule: Show list of available weekly reports
+    steps:
+        - intent: request_weekly_report
+        - action: action_list_weekly_reports
