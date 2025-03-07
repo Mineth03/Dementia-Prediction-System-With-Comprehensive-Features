@@ -26,7 +26,7 @@ const RegistrationForm = () => {
     if (step === 1) {
       if (!formData.fullName) tempErrors.fullName = "Full Name is required";
       if (!formData.gender) tempErrors.gender = "Gender is required";
-      if (!formData.age || isNaN(formData.age) || formData.age < 1) tempErrors.age = "Valid age is required";
+      if (!formData.age || isNaN(formData.age) || formData.age < 1 || formData.age > 120) tempErrors.age = "Age must be between 1 and 120";
       if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) tempErrors.email = "Invalid email format";
       if (!formData.phone.match(/^\d{10}$/)) tempErrors.phone = "Invalid phone number";
     } else if (step === 2) {
@@ -46,11 +46,26 @@ const RegistrationForm = () => {
     setStep(step - 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateStep()) {
-      console.log("Registration Successful!", formData);
-      navigate('/welcome');
+      try {
+        const response = await fetch("http://localhost:5000/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          console.log("Registration Successful!", data);
+          navigate("/login");
+        } else {
+          setErrors({ general: data.error || "Registration failed" });
+        }
+      } catch (error) {
+        setErrors({ general: "Server error. Please try again later." });
+      }
     }
   };
 
@@ -65,16 +80,15 @@ const RegistrationForm = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
       <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
+      {errors.general && <p className="text-red-500 text-sm text-center">{errors.general}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         {step === 1 && (
           <>
-            {['fullName', 'email', 'phone'].map(field => (
-              <div key={field}>
-                <label className="block text-gray-700 capitalize">{field.replace(/([A-Z])/g, ' $1')}</label>
-                <input type="text" name={field} value={formData[field]} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
-                {errors[field] && <p className="text-red-500 text-sm">{errors[field]}</p>}
-              </div>
-            ))}
+            <div>
+              <label className="block text-gray-700">Full Name</label>
+              <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
+              {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
+            </div>
 
             <div>
               <label className="block text-gray-700">Gender</label>
@@ -91,6 +105,18 @@ const RegistrationForm = () => {
               <label className="block text-gray-700">Age</label>
               <input type="number" name="age" value={formData.age} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
               {errors.age && <p className="text-red-500 text-sm">{errors.age}</p>}
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Email</label>
+              <input type="text" name="email" value={formData.email} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
+              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Phone</label>
+              <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
+              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
             </div>
 
             <button type="button" onClick={handleNext} className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Next</button>
@@ -121,8 +147,6 @@ const RegistrationForm = () => {
               <input type="checkbox" name="termsAccepted" checked={formData.termsAccepted} onChange={handleChange} className="mr-2" />
               <label className="text-gray-700">I agree to the Terms & Conditions</label>
             </div>
-            {errors.termsAccepted && <p className="text-red-500 text-sm">{errors.termsAccepted}</p>}
-
             <button type="button" onClick={handleBack} className="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">Back</button>
             <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Register</button>
           </>
