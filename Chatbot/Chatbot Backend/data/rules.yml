@@ -14,7 +14,7 @@ rules:
   - rule: Answer user’s question about the bot
     steps:
       - intent: who_are_you
-      - action: utter_who_are_you
+      - action: utter_group_made_me
 
   - rule: Answer how the bot is doing
     steps:
@@ -71,20 +71,10 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
 
-  - rule: Answer bot challenges
-    steps:
-      - intent: bot_challenge
-      - action: utter_group_made_me
-
   - rule: Respond to a greeting
     steps:
       - intent: greet
       - action: utter_greet
-
-  - rule: Explain dementia stages
-    steps:
-      - intent: ask_dementia_stages
-      - action: utter_dementia_stages
 
   - rule: Answer dementia misconceptions
     steps:
@@ -110,20 +100,311 @@ rules:
     steps:
       - intent: ask_dementia_patient_sleep_issues
       - action: utter_dementia_patient_sleep_issues
-  - rule: Respond to treatment questions
-    steps:
-      - intent: ask_treatment
-      - action: utter_treatment
 
-  - rule: Provide prevention tips
+  - rule: Answer dementia prevention questions
     steps:
-      - intent: ask_prevention
-      - action: utter_prevention
+      - intent: ask_dementia_prevention_methods
+      - action: utter_dementia_prevention_methods
 
-  - rule: Suggest memory aids
+  - rule: Answer dementia brain exercise questions
     steps:
-      - intent: ask_about_memory_aids
-      - action: utter_memory_aids
+      - intent: ask_dementia_brain_exercises
+      - action: utter_dementia_brain_exercises
+
+  - rule: Answer dementia diet impact questions
+    steps:
+      - intent: ask_dementia_impact_of_diet
+      - action: utter_dementia_impact_of_diet
+
+  - rule: Provide caregiver financial assistance details
+    steps:
+      - intent: ask_caregiver_financial_assistance
+      - action: utter_caregiver_financial_assistance
+
+  - rule: Answer repetitive question concerns
+    steps:
+      - intent: ask_dementia_patient_repetitive_questions
+      - action: utter_dementia_patient_repetitive_questions
+
+  - rule: Answer paranoia in dementia patients
+    steps:
+      - intent: ask_dementia_patient_paranoia
+      - action: utter_dementia_patient_paranoia
+
+  - rule: Answer emotional changes in dementia patients
+    steps:
+      - intent: ask_dementia_patient_emotional_changes
+      - action: utter_dementia_patient_emotional_changes
+
+  - rule: Answer dementia-friendly home tips
+    steps:
+      - intent: ask_dementia_friendly_home_tips
+      - action: utter_dementia_friendly_home_tips
+
+  - rule: Answer daily routine questions for dementia patients
+    steps:
+      - intent: ask_dementia_patient_daily_routines
+      - action: utter_dementia_patient_daily_routines
+
+  - rule: Answer dementia patient confusion
+    steps:
+      - intent: ask_dementia_patient_confusion
+      - action: utter_dementia_patient_confusion
+
+  - rule: Answer dementia patient loss of interest
+    steps:
+      - intent: ask_dementia_patient_loss_of_interest
+      - action: utter_dementia_patient_loss_of_interest
+
+  - rule: Answer dementia patient hallucinations
+    steps:
+      - intent: ask_dementia_patient_hallucinations
+      - action: utter_dementia_patient_hallucinations
+
+  - rule: Answer dementia patient eating habits
+    steps:
+      - intent: ask_dementia_patient_eating_habits
+      - action: utter_dementia_patient_eating_habits
+
+  - rule: Answer dementia patient communication issues
+    steps:
+      - intent: ask_dementia_patient_communication_issues
+      - action: utter_dementia_patient_communication_issues
+
+  - rule: Answer dementia patient lack of awareness
+    steps:
+      - intent: ask_dementia_patient_lack_of_awareness
+      - action: utter_dementia_patient_lack_of_awareness
+
+  - rule: Answer dementia patient personality changes
+    steps:
+      - intent: ask_dementia_patient_personality_changes
+      - action: utter_dementia_patient_personality_changes
+
+  - rule: Answer caregiver time management
+    steps:
+      - intent: ask_caregiver_time_management
+      - action: utter_caregiver_time_management
+
+  - rule: Answer caregiver burnout prevention
+    steps:
+      - intent: ask_caregiver_burnout_prevention
+      - action: utter_caregiver_burnout_prevention
+
+  - rule: Answer dementia wandering prevention
+    steps:
+      - intent: ask_dementia_patient_wandering_prevention
+      - action: utter_dementia_patient_wandering_prevention
+
+  - rule: Answer late-stage dementia care
+    steps:
+      - intent: ask_dementia_patient_late_stage_care
+      - action: utter_dementia_patient_late_stage_care
+
+  - rule: Answer dementia patient pain management
+    steps:
+      - intent: ask_dementia_patient_pain_management
+      - action: utter_dementia_patient_pain_management
+
+  - rule: Answer caregiver setting boundaries
+    steps:
+      - intent: ask_caregiver_setting_boundaries
+      - action: utter_caregiver_setting_boundaries
+
+  - rule: Answer dementia patient fidgeting
+    steps:
+      - intent: ask_dementia_patient_fidgeting
+      - action: utter_dementia_patient_fidgeting
+
+  - rule: Answer dementia patient social withdrawal
+    steps:
+      - intent: ask_dementia_patient_social_withdrawal
+      - action: utter_dementia_patient_social_withdrawal
+
+  - rule: Answer dementia support services
+    steps:
+      - intent: ask_dementia_support_services
+      - action: utter_dementia_support_services
+
+  - rule: Answer dementia palliative care questions
+    steps:
+      - intent: ask_dementia_palliative_care
+      - action: utter_dementia_palliative_care
+
+  - rule: Answer dementia hospice care questions
+    steps:
+      - intent: ask_dementia_hospice_care
+      - action: utter_dementia_hospice_care
+
+  - rule: Answer nursing home decisions for dementia patients
+    steps:
+      - intent: ask_dementia_nursing_home_decision
+      - action: utter_dementia_nursing_home_decision
+
+  - rule: Answer dementia patient hygiene questions
+    steps:
+      - intent: ask_dementia_patient_hygiene_care
+      - action: utter_dementia_patient_hygiene_care
+
+  - rule: Answer dementia patient speech changes questions
+    steps:
+      - intent: ask_dementia_patient_speech_changes
+      - action: utter_dementia_patient_speech_changes
+
+  - rule: Answer dementia patient physical disability questions
+    steps:
+      - intent: ask_dementia_patient_physical_disability
+      - action: utter_dementia_patient_physical_disability
+
+  - rule: Answer dementia patient recognition loss questions
+    steps:
+      - intent: ask_dementia_patient_personal_recognition_loss
+      - action: utter_dementia_patient_personal_recognition_loss
+
+  - rule: Answer dementia patient aggression management questions
+    steps:
+      - intent: ask_dementia_patient_aggression_management
+      - action: utter_dementia_patient_aggression_management
+
+  - rule: Answer sundowning management questions
+    steps:
+      - intent: ask_dementia_sundowning_management
+      - action: utter_dementia_sundowning_management
+
+  - rule: Answer caregiver support for family members
+    steps:
+      - intent: ask_caregiver_support_for_family_members
+      - action: utter_caregiver_support_for_family_members
+
+  - rule: Answer caregiver dementia patient denial questions
+    steps:
+      - intent: ask_caregiver_dementia_patient_denial
+      - action: utter_caregiver_dementia_patient_denial
+
+  - rule: Answer caregiver long-distance care questions
+    steps:
+      - intent: ask_caregiver_long_distance_care
+      - action: utter_caregiver_long_distance_care
+
+  - rule: Answer caregiver sibling disagreement questions
+    steps:
+      - intent: ask_caregiver_sibling_disagreements
+      - action: utter_caregiver_sibling_disagreements
+
+  - rule: Answer caregiver mental health questions
+    steps:
+      - intent: ask_caregiver_effect_on_mental_health
+      - action: utter_caregiver_effect_on_mental_health
+
+  - rule: Answer caregiver guilt questions
+    steps:
+      - intent: ask_caregiver_dealing_with_guilt
+      - action: utter_caregiver_dealing_with_guilt
+
+  - rule: Answer dementia patient fear and anxiety questions
+    steps:
+      - intent: ask_dementia_patient_fear_and_anxiety
+      - action: utter_dementia_patient_fear_and_anxiety
+
+  - rule: Answer dementia patient sensitivity to noise questions
+    steps:
+      - intent: ask_dementia_patient_sensitivity_to_noise
+      - action: utter_dementia_patient_sensitivity_to_noise
+
+  - rule: Answer dementia patient loss of time awareness
+    steps:
+      - intent: ask_dementia_patient_loss_of_time_awareness
+      - action: utter_dementia_patient_loss_of_time_awareness
+
+  - rule: Answer dementia patient difficulty swallowing
+    steps:
+      - intent: ask_dementia_patient_difficulty_swallowing
+      - action: utter_dementia_patient_difficulty_swallowing
+
+  - rule: Answer dementia patient hiding objects
+    steps:
+      - intent: ask_dementia_patient_hiding_objects
+      - action: utter_dementia_patient_hiding_objects
+
+  - rule: Answer dementia patient fixation on past events
+    steps:
+      - intent: ask_dementia_patient_fixation_on_past_events
+      - action: utter_dementia_patient_fixation_on_past_events
+
+  - rule: Answer dementia patient resistance to change
+    steps:
+      - intent: ask_dementia_patient_resistance_to_change
+      - action: utter_dementia_patient_resistance_to_change
+
+  - rule: Answer caregiver helping dementia patient make decisions
+    steps:
+      - intent: ask_caregiver_helping_dementia_patient_make_decisions
+      - action: utter_caregiver_helping_dementia_patient_make_decisions
+
+  - rule: Answer caregiver understanding dementia patient emotions
+    steps:
+      - intent: ask_caregiver_understanding_dementia_patient_emotions
+      - action: utter_caregiver_understanding_dementia_patient_emotions
+
+  - rule: Answer caregiver handling dementia patient refusing medication
+    steps:
+      - intent: ask_caregiver_how_to_handle_dementia_patient_refusing_medication
+      - action: utter_caregiver_how_to_handle_dementia_patient_refusing_medication
+
+  - rule: Rephrase chatbot response
+    steps:
+      - intent: ask_chatbot_rephrase_answer
+      - action: utter_chatbot_rephrase_answer
+
+  - rule: Skip chatbot question
+    steps:
+      - intent: ask_chatbot_skip_question
+      - action: utter_chatbot_skip_question
+
+  - rule: Answer dementia patient excessive repetitive movements questions
+    steps:
+      - intent: ask_dementia_patient_excessive_repetitive_movements
+      - action: utter_dementia_patient_excessive_repetitive_movements
+
+  - rule: Answer dementia patient shadowing behavior questions
+    steps:
+      - intent: ask_dementia_patient_shadowing_behavior
+      - action: utter_dementia_patient_shadowing_behavior
+
+  - rule: Answer dementia patient hyperorality questions
+    steps:
+      - intent: ask_dementia_patient_hyperorality
+      - action: utter_dementia_patient_hyperorality
+
+  - rule: Answer dementia patient dressing difficulties questions
+    steps:
+      - intent: ask_dementia_patient_dressing_difficulties
+      - action: utter_dementia_patient_dressing_difficulties
+
+  - rule: Answer dementia patient wandering outside questions
+    steps:
+      - intent: ask_dementia_patient_wandering_outside
+      - action: utter_dementia_patient_wandering_outside
+
+  - rule: Answer caregiver setting up routines for dementia patient questions
+    steps:
+      - intent: ask_caregiver_setting_up_routines_for_dementia_patient
+      - action: utter_caregiver_setting_up_routines_for_dementia_patient
+
+  - rule: Answer caregiver managing dementia patient social isolation questions
+    steps:
+      - intent: ask_caregiver_managing_dementia_patient_social_isolation
+      - action: utter_caregiver_managing_dementia_patient_social_isolation
+
+  - rule: Answer dementia patient resisting help questions
+    steps:
+      - intent: ask_dementia_patient_resisting_help
+      - action: utter_dementia_patient_resisting_help
+
+  - rule: Answer dementia patient not recognizing home questions
+    steps:
+      - intent: ask_dementia_patient_not_recognizing_home
+      - action: utter_dementia_patient_not_recognizing_home
 
   - rule: Fallback rule
     steps:
@@ -132,5 +413,61 @@ rules:
 
   - rule: Handle out-of-scope queries
     steps:
-    - intent: out_of_scope
-    - action: utter_out_of_scope
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - rule: Answer dementia medical treatment questions
+    steps:
+      - intent: ask_dementia_treatment_medical
+      - action: utter_dementia_treatment_medical
+
+
+  - rule: Answer dementia assistive devices questions
+    steps:
+      - intent: ask_dementia_assistive_devices
+      - action: utter_dementia_assistive_devices
+
+  - rule: Answer dementia patient sleep cycle disruption questions
+    steps:
+      - intent: ask_dementia_patient_sleep_cycle_disruption
+      - action: utter_dementia_patient_sleep_cycle_disruption
+
+  - rule: Answer dementia early signs questions
+    steps:
+      - intent: ask_dementia_early_signs
+      - action: utter_dementia_early_signs
+
+  - rule: Answer dementia risk factors questions
+    steps:
+      - intent: ask_dementia_risk_factors
+      - action: utter_dementia_risk_factors
+
+  - rule: Answer dementia technology assistance questions
+    steps:
+      - intent: ask_dementia_technology_assistance
+      - action: utter_dementia_technology_assistance
+
+  - rule: Answer dementia vs normal aging questions
+    steps:
+      - intent: ask_dementia_vs_normal_aging
+      - action: utter_dementia_vs_normal_aging
+
+  - rule: Answer dementia lifestyle treatment questions
+    steps:
+      - intent: ask_dementia_treatment_lifestyle
+      - action: utter_dementia_treatment_lifestyle
+
+  - rule: Answer dementia transportation challenges questions
+    steps:
+      - intent: ask_dementia_transportation_challenges
+      - action: utter_dementia_transportation_challenges
+
+  - rule: Answer dementia reminiscence therapy questions
+    steps:
+      - intent: ask_dementia_patient_reminiscence_therapy
+      - action: utter_dementia_patient_reminiscence_therapy
+
+  - rule: Answer dementia patient legal rights questions
+    steps:
+        - intent: ask_dementia_patient_legal_rights
+        - action: utter_dementia_patient_legal_rights

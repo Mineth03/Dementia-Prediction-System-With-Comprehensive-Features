@@ -16,15 +16,15 @@ class ActionTestMongoConnection(Action):
         try:
             client = pymongo.MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)
             client.admin.command('ping')
-            dispatcher.utter_message("✅ Successfully connected to MongoDB!")
-            logging.debug("✅ MongoDB connection successful.")
+            dispatcher.utter_message("Successfully connected to MongoDB!")
+            logging.debug("MongoDB connection successful.")
         except pymongo.errors.ServerSelectionTimeoutError:
-            dispatcher.utter_message("❌ Could not connect to MongoDB. Connection timed out.")
-            logging.error("❌ MongoDB connection timed out.")
+            dispatcher.utter_message("Could not connect to MongoDB. Connection timed out.")
+            logging.error("MongoDB connection timed out.")
         except Exception as e:
-            dispatcher.utter_message(f"❌ Connection failed: {e}")
-            logging.error(f"❌ Connection failed: {e}")
+            dispatcher.utter_message(f"Connection failed: {e}")
+            logging.error(f"Connection failed: {e}")
         finally:
             client.close()
-            logging.debug("🚪 MongoDB connection closed.")
+            logging.debug("MongoDB connection closed.")
         return []
