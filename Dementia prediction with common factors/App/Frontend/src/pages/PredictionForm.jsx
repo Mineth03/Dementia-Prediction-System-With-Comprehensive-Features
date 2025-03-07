@@ -135,7 +135,30 @@ const PredictionForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    let newValue = value;
+  
+    if (name === "Age") {
+      if (value < 20) newValue = 20;
+      if (value > 100) newValue = 100;
+    }
+  
+    if (name === "EducationYears") {
+      if (value < 0) newValue = 0;
+      if (value > 30) newValue = 30;
+      if (parseInt(value) >= parseInt(formData.Age)) newValue = formData.Age - 1;
+    }
+  
+    if (name === "SmokingYears") {
+      if (parseInt(value) >= parseInt(formData.Age)) newValue = formData.Age - 1;
+      if (value < 0) newValue = 0;
+    }
+  
+    if (name === "CognitiveTestScore") {
+      if (value < 0) newValue = 0;
+      if (value > 30) newValue = 30;
+    }
+  
+    setFormData(prev => ({ ...prev, [name]: newValue }));
   };
 
   const nextSection = () => setCurrentSection(prev => Math.min(prev + 1, sections.length - 1));
