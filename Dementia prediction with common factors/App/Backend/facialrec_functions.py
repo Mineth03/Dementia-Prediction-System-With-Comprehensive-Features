@@ -69,11 +69,6 @@ def calculate_depression_risk(predictions):
     return drs, risk_level
 
 def analyze_face(file):
-    """
-    Given a file-like object from the request, open the image,
-    detect the face, preprocess it, and use the model to predict emotions.
-    Then, compute and return the depression risk score.
-    """
     if file is None:
         return {"error": "No image provided"}
     
