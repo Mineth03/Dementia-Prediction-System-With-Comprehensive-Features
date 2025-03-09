@@ -34,10 +34,6 @@ def load_model():
 model = load_model()
 
 def predict_basicdp(data):
-    """
-    Given JSON data from the request, process the input and
-    use the pre-loaded model to make a prediction.
-    """
     try:
         # Define expected feature order
         features = [
@@ -62,17 +58,16 @@ def predict_basicdp(data):
                 except (ValueError, TypeError):
                     user_input.append(-1)
 
-        # Debug: Print processed input data
-        print("Processed Input Data:", user_input)
+        
         input_data = np.array(user_input).reshape(1, -1)
 
         # Make prediction; use predict_proba if available
         if hasattr(model, "predict_proba"):
             probability = model.predict_proba(input_data)[0][1]
-            result = "Positive" if probability >= 0.5 else "Negative"
+            result = "You have a risk of having dementia. Please involve some medical tests to clarify furthermore." if probability >= 0.5 else "You have low risk of having dementia."
         else:
             prediction = model.predict(input_data)
-            result = "Positive" if prediction[0] >= 0.5 else "Negative"
+            result = "You have a risk of having dementia. Please involve some medical tests to clarify furthermore." if prediction[0] >= 0.5 else "You have low risk of having dementia."
 
         return {"prediction": result}
     except Exception as e:

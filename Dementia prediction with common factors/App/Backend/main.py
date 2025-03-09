@@ -1,35 +1,62 @@
-# main.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import logging
-
-# Import the functions from our modules
 from basicdp_functions import predict_basicdp
 from facialrec_functions import analyze_face
+from register import register_user
+from login import login_user
 
+# Initialize Flask App
 app = Flask(__name__)
-# Enable CORS as needed (adjust origins as required)
-CORS(app, resources={r"/predict": {"origins": "http://localhost:5173"}})
-CORS(app)  # Enable for all routes
 
+# Enable CORS for all routes
+CORS(app)
+
+# Configure Logging
 logging.basicConfig(level=logging.INFO)
+
+# User Registration Endpoint
+@app.route('/register', methods=['POST'])
+def register():
+    try:
+        return register_user()
+    except Exception as e:
+        logging.error(f"Error in registration: {str(e)}")
+        return jsonify({"error": "Server error during registration"}), 500
+
+# User Login Endpoint
+@app.route('/login', methods=['POST'])
+def login():
+    try:
+        return login_user()
+    except Exception as e:
+        logging.error(f"Error in login: {str(e)}")
+        return jsonify({"error": "Server error during login"}), 500
 
 # Endpoint for the basic depression prediction
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
-    result = predict_basicdp(data)
-    return jsonify(result)
+    try:
+        data = request.get_json()
+        result = predict_basicdp(data)
+        return jsonify(result)
+    except Exception as e:
+        logging.error(f"Error in prediction: {str(e)}")
+        return jsonify({"error": "Server error during prediction"}), 500
 
 # Endpoint for facial analysis
 @app.route('/faceAnalysis', methods=['POST'])
 def face_analysis():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No image provided'}), 400
-    file = request.files['image']
-    result = analyze_face(file)
-    return jsonify(result)
+    try:
+        if 'image' not in request.files:
+            return jsonify({'error': 'No image provided'}), 400
+        file = request.files['image']
+        result = analyze_face(file)
+        return jsonify(result)
+    except Exception as e:
+        logging.error(f"Error in face analysis: {str(e)}")
+        return jsonify({"error": "Server error during face analysis"}), 500
 
+# Run Flask Server
 if __name__ == '__main__':
-    # Running on host '0.0.0.0' and port 5000 so it can be accessible on the network.
     app.run(debug=True, host='0.0.0.0', port=5000)
