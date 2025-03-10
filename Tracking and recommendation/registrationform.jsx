@@ -30,8 +30,40 @@ const PatientRegistration = () => {
         setFormData({ ...formData, [field]: [...formData[field], newItem] });
     };
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePhone = (phone) => {
+        const phoneRegex = /^\d{10}$/;  // Exactly 10 digits
+        return phoneRegex.test(phone);
+    };
+
+    const validateAge = (age) => {
+        return age >= 5 && age <= 120;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Perform validation
+        if (!validateEmail(formData.email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        if (!validatePhone(formData.phone)) {
+            alert('Phone number must be exactly 10 digits.');
+            return;
+        }
+
+        if (!validateAge(formData.age)) {
+            alert('Age must be between 5 and 120.');
+            return;
+        }
+
+        // If validations pass, proceed with form submission
         try {
             await axios.post('http://localhost:5000/register-patient', formData);
             alert('Patient registered successfully!');
@@ -101,3 +133,6 @@ const PatientRegistration = () => {
 };
 
 export default PatientRegistration;
+
+
+
