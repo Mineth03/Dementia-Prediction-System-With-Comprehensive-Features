@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaRobot, FaPaperPlane, FaTimes } from "react-icons/fa";
+import axios from "axios"; // ADDED: To communicate with Flask backend
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,19 +9,40 @@ const Chatbot = () => {
     { sender: "bot", text: "Hello! How can I assist you today?" },
   ]);
   const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // ADDED: Track if bot is "thinking"
+  const messagesEndRef = useRef(null); // ADDED: Reference for auto-scrolling
 
-  const handleSendMessage = () => {
+  // ADDED: Auto-scroll to bottom when messages update
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const handleSendMessage = async () => {
     if (!input.trim()) return;
 
     const userMessage = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    setIsLoading(true); // ADDED: Show "thinking" animation
 
-    // Simulated bot response for demo
-    setTimeout(() => {
-      const botResponse = { sender: "bot", text: "I'm just a demo bot for now!" };
+    try {
+      // ADDED: Send user message to Flask backend
+      const response = await axios.post("http://localhost:5000/chat", {
+        message: input,
+      });
+
+      // ADDED: Receive chatbot response from Flask and update chat
+      const botResponse = { sender: "bot", text: response.data.response };
       setMessages((prev) => [...prev, botResponse]);
-    }, 1000);
+    } catch (error) {
+      console.error("Error communicating with chatbot:", error);
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "Sorry, I'm having trouble responding right now." },
+      ]);
+    } finally {
+      setIsLoading(false); // ADDED: Hide "thinking" animation when response arrives
+    }
   };
 
   const handleKeyPress = (e) => {
@@ -64,12 +86,29 @@ const Chatbot = () => {
               <div
                 key={index}
                 className={`p-2 rounded-lg max-w-3/4 ${
-                  msg.sender === "user" ? "bg-blue-500 text-white self-end" : "bg-gray-200 text-gray-800 self-start"
+                  msg.sender === "user"
+                    ? "bg-blue-500 text-white self-end"
+                    : "bg-gray-200 text-gray-800 self-start"
                 }`}
               >
                 {msg.text}
               </div>
             ))}
+
+            {/* ADDED: Dots animation while bot is processing */}
+            {isLoading && (
+              <div className="self-start bg-gray-200 text-gray-800 p-2 rounded-lg">
+                <motion.span
+                  animate={{ opacity: [1, 1, 1, 0] }}
+                  transition={{ repeat: Infinity, duration: 1 }}
+                >
+                  ● ● ●
+                </motion.span>
+              </div>
+            )}
+
+            {/* ADDED: Invisible div to force auto-scroll to bottom */}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Input Field */}
