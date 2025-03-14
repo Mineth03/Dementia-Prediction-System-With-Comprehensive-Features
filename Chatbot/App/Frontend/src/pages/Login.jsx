@@ -5,7 +5,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '', // ✅ REPLACED EMAIL WITH USERNAME
     password: ''
   });
   const [errors, setErrors] = useState({});
@@ -15,7 +15,7 @@ const LoginForm = () => {
 
   const validateForm = () => {
     let tempErrors = {};
-    if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) tempErrors.email = "Invalid email format";
+    if (!formData.username) tempErrors.username = "Username is required"; // ✅ UPDATED VALIDATION FOR USERNAME
     if (formData.password.length < 6) tempErrors.password = "Password must be at least 6 characters";
 
     setErrors(tempErrors);
@@ -58,15 +58,15 @@ const LoginForm = () => {
       {errors.general && <p className="text-red-500 text-sm text-center">{errors.general}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-gray-700">Email</label>
+          <label className="block text-gray-700">Username</label>  {/* ✅ UPDATED LABEL */}
           <input
             type="text"
-            name="email"
-            value={formData.email}
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded-lg"
           />
-          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
         </div>
 
         <div>
