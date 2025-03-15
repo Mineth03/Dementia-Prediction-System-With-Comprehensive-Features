@@ -94,12 +94,6 @@ const RegistrationForm = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700">Username</label>
-              <input type="text" name="username" value={formData.username} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
-              {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
-            </div>
-
-            <div>
               <label className="block text-gray-700">Gender</label>
               <select name="gender" value={formData.gender} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg">
                 <option value="">Select Gender</option>
@@ -134,6 +128,12 @@ const RegistrationForm = () => {
 
         {step === 2 && (
           <>
+            <div>
+              <label className="block text-gray-700">Username</label>
+              <input type="text" name="username" value={formData.username} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
+              {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
+            </div>
+
             <div>
               <label className="block text-gray-700">Password</label>
               <div className="relative">
