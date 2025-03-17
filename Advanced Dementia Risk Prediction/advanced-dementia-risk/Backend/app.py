@@ -13,7 +13,6 @@ model_path = os.path.join(os.path.dirname(__file__), "rf_model.pkl")
 with open(model_path, "rb") as f:
     model = pickle.load(f)
 
-
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
@@ -35,4 +34,4 @@ def predict():
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5001)

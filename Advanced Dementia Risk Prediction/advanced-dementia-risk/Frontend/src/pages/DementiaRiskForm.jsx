@@ -22,9 +22,9 @@ const DementiaRiskForm = () => {
     if (height && weight) {
       const heightMeters = height / 100;
       const bmiValue = (weight / (heightMeters * heightMeters)).toFixed(1);
-      setFormData((prev) => ({ ...prev, bmi: bmiValue }));
+      setFormData((prev) => ({ ...prev, NACCBMI: bmiValue }));
     } else {
-      setFormData((prev) => ({ ...prev, bmi: '' }));
+      setFormData((prev) => ({ ...prev, NACCBMI: '' }));
     }
   }, [formData.height, formData.weight]);
 
@@ -67,62 +67,52 @@ const DementiaRiskForm = () => {
   };
 
 
-  const calculateCOGDP = () => {
-    const { ABRUPT, COURSE } = formData;
-    let cogdpValue = "";
-  
-    if (ABRUPT === "0" && COURSE === "1") cogdpValue = 2;
-    else if (ABRUPT === "0" && COURSE === "3") cogdpValue = 2;
-    else if (ABRUPT === "0" && COURSE === "4") cogdpValue = 3;
-    else if (ABRUPT === "0" && COURSE === "2") cogdpValue = 4;
-    else if (ABRUPT === "0" && COURSE === "5") cogdpValue = 1;
-    else if (ABRUPT === "2" && COURSE === "1") cogdpValue = 4;
-    else if (ABRUPT === "2" && COURSE === "2") cogdpValue = 6;
-    else if (ABRUPT === "2" && COURSE === "3") cogdpValue = 4;
-    else if (ABRUPT === "2" && COURSE === "4") cogdpValue = 5;
-    else if (ABRUPT === "2" && COURSE === "5") cogdpValue = 6;
-    else if (ABRUPT === "-4" || COURSE === "9") cogdpValue = 6;
-  
-    // Store the cogdpValue in formData for future use
-    formData.COGDP = cogdpValue;
-  
-    return {
-      value: cogdpValue,
-      interpretation: getCOGDPInterpretation(cogdpValue)
-    };
-  };
-  
-  const getCOGDPInterpretation = (value) => {
-    if (value === 1 || value === 2) return "Stable or Gradual Decline";
-    if (value === 3) return "Fluctuating Symptoms or Mild Worsening";
-    if (value === 4 || value === 5) return "Stepwise Worsening or Sudden Decline";
-    if (value === 6) return "Severe Cognitive Decline (Abrupt Onset + Stepwise Course)";
-    return "Invalid Selection";
-  };
- 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-        const response = await fetch("http://127.0.0.1:5000/predict", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+    // Define the exact features expected by the model
+    const expectedFeatures = [
+        "NACCAGE", "SEX", "NACCLIVS", "DEM_TYPE", "NACCBMI", "BPSYS", "BPDIAS", "HRATE", "VB12DEF",
+        "VISIMP", "HEARING", "MOT", "RIGIDITY", "HANDMOVS", "FTAPS", "AMOVS", "LEGAGILITS", "SLOWING",
+        "FOCL_STATUS", "INDEPEND", "SMOKING", "ALCFREQ", "APP", "HAS_SLEEP_PROBLEMS", "APNEA", "REMDIS",
+        "NITE", "SPEECH", "DROPACT", "FACEXP", "URINEINC", "BOWLINC", "MOGAIT", "MOFALLS", "MOTREM",
+        "MOSLOW", "MOMODE", "MOMOPARK", "INSOMN", "DIABET", "HYPERTEN", "HYPERCHO", "THYDIS", "CVANGINA",
+        "CVCHF", "CVHATT", "CVAFIB", "CVOTHR", "TIA", "STROKE", "TBI", "TBI_LOC", "SEIZURES", "DEPRESSION",
+        "BEANX", "BEDEL", "BEAGIT", "BEIRRIT", "BEDISIN", "APATHY", "ELAT", "EMOT", "BIPOLAR", "SCHIZ",
+        "PSYCDIS", "ARISING", "POSTURE", "GAITDRISK", "POSSTAB", "BRADYKIN", "NACCBEHF", "BEPERCH",
+        "COMPORT", "AFRAID", "PERSCARE", "STAYHOME", "BILLS", "TAXES", "STOVE", "MEALPREP", "EVENTS",
+        "PAYATTN", "REMDATES", "TRAVEL", "COGMEM", "COGORI", "COGJUDG", "COGLANG", "COGVIS", "COGATTN",
+        "COGFLUC", "COGOTHR", "ABRUPT", "COURSE", "NACCMMSE"
+    ];
 
-        const data = await response.json();
+    const cleanedFormData = Object.fromEntries(
+      expectedFeatures.map((feature) => [feature, formData[feature] || "0"]) // Assign 0 if missing
+  );
+    
+  console.log("Sending cleaned data:", cleanedFormData);
 
-        if (data.risk_level) {
-            setRiskLevel(data.risk_level);
-        } else {
-            console.error("Error in response:", data);
-        }
-    } catch (error) {
-        console.error("Error submitting form:", error);
+  try {
+    const response = await fetch("http://127.0.0.1:5001/predict", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cleanedFormData),
+    });
+
+    const data = await response.json();
+
+    if (data.risk_level !== undefined) {
+        // Convert numerical risk levels to text labels
+        const riskLabels = ["Low", "Moderate", "High"];
+        setRiskLevel(riskLabels[data.risk_level]);
+        setSubmitted(true); 
+    } else {
+        console.error("Error in response:", data);
     }
+} catch (error) {
+    console.error("Error submitting form:", error);
+}
 };
 
   const handleClosePopup = () => {
@@ -136,9 +126,9 @@ const DementiaRiskForm = () => {
     if (height && weight) {
       const heightMeters = height / 100;
       const bmiValue = (weight / (heightMeters * heightMeters)).toFixed(1);
-      setFormData((prev) => ({ ...prev, bmi: bmiValue }));
+      setFormData((prev) => ({ ...prev, NACCBMI: bmiValue }));
     } else {
-      setFormData((prev) => ({ ...prev, bmi: '' }));
+      setFormData((prev) => ({ ...prev, NACCBMI: '' }));
     }
   }, [formData.height, formData.weight]);
 
@@ -296,8 +286,8 @@ const DementiaRiskForm = () => {
             </div>
 
             <div className="flex items-center space-x-2 mb-4">
-              <label className="font-bold text-gray-800">BMI:</label>
-              <span className="font-semibold">{formData.bmi || 'N/A'}</span>
+              <label className="font-bold text-gray-800">NACCBMI:</label>
+              <span className="font-semibold">{formData.NACCBMI || 'N/A'}</span>
             </div>
 
             <div className="space-y-2 mb-4">
@@ -1815,8 +1805,8 @@ const DementiaRiskForm = () => {
     onChange={handleChange} 
     className="border p-2 w-full" required>
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
   </select>
 </div>
 
@@ -1840,8 +1830,8 @@ const DementiaRiskForm = () => {
     required
   >
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
   </select>
 </div>
 
@@ -1865,8 +1855,8 @@ const DementiaRiskForm = () => {
     required
   >
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
   </select>
 </div>
 
@@ -1890,8 +1880,8 @@ const DementiaRiskForm = () => {
     required
   >
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
   </select>
 </div>
 
@@ -1915,8 +1905,8 @@ const DementiaRiskForm = () => {
     required
   >
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
   </select>
 </div>
 
@@ -1940,8 +1930,8 @@ const DementiaRiskForm = () => {
     required
   >
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
+    <option value="1">Yes</option>
+    <option value="0">No</option>
   </select>
 </div>
 
@@ -1960,24 +1950,21 @@ const DementiaRiskForm = () => {
   <select 
     name="COGFLUC" value={formData.COGFLUC || ""} onChange={handleChange} className="border p-2 w-full" required>
     <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-  </select>
+    <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
             </div>
 
             <div className="space-y-2 mb-4">
-  <label className="font-bold text-gray-800">
-    Does the patient have cognitive problems that don’t fit into the previous categories?
-  </label>
-  <select name="COGOTHR" value={formData.COGOTHR || ""} onChange={handleChange} className="border p-2 w-full" required>
-    <option value="">Select</option>
-    <option value="Yes">Yes</option>
-    <option value="No">No</option>
-  </select>
+              <label className="font-bold text-gray-800">
+                Does the patient have cognitive problems that don’t fit into the previous categories?
+              </label>
+              <select name="COGOTHR" value={formData.COGOTHR || ""} onChange={handleChange} className="border p-2 w-full" required>
+                <option value="">Select</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
              </div>
-
-
-
 
             <div className="space-y-2 mb-4">
               <label className="font-bold text-gray-800">Has the patient's memory or thinking ability declined suddenly?</label>
@@ -1987,34 +1974,12 @@ const DementiaRiskForm = () => {
                 <option value="1">Yes, the decline happened suddenly</option>
                 <option value="-4">Unknown</option>  
                </select>
-            </div>
-
-            <div className="space-y-2 mb-4">
-              <label className="font-bold text-gray-800">How would you describe the patient’s cognitive decline pattern?</label>
-              <select name="COURSE" value={formData.COURSE || ""} onChange={handleChange} className="border p-2 w-full" required>
-                <option value="">Select</option>
-                <option value="1">Gradual Decline</option>
-                <option value="3">Static (No Change)</option>
-                <option value="4">Fluctuating Symptoms</option>
-                <option value="2">Stepwise Decline</option>
-                <option value="5">Improved Condition</option>
-                <option value="-4">Unknown</option>  
-               </select>
-            </div>
-
-    {formData.ABRUPT && formData.COURSE && (
-      <div className="p-4 bg-gray-100 rounded-md mt-4">
-        <h3 className="font-bold text-gray-800">Cognitive Decline Pattern</h3>
-        <p>The patient's cognitive decline pattern is categorized as:</p>        
-        <p><i>{calculateCOGDP().interpretation}</i></p>
-      </div>
-    )}
+            </div>           
     
               <div className="space-y-2 mt-4">
                 <label className="font-bold text-gray-800">Enter the patient's cognitive test score:</label>
                 <input type="number" name="NACCMMSE" value={formData.NACCMMSE || ""} onChange={handleChange} className="border p-2 rounded-md w-full" required />
-              </div>
-    
+              </div>   
    
   </div>
 )}
@@ -2044,7 +2009,14 @@ const DementiaRiskForm = () => {
               )}
             </div>
             {!submitted && (
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded-md w-full">Assess Risk</button>
+            <button 
+            type="submit" 
+            className="bg-blue-500 text-white p-2 rounded-md w-full"
+            onClick={handleSubmit} 
+          >
+            Assess Risk
+          </button>          
+            
           )} 
           </div>
         )}
