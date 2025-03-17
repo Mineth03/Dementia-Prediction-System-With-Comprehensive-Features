@@ -1,0 +1,751 @@
+version: "3.1"
+
+actions:
+  - action_list_weekly_reports
+  - action_correct_spelling
+  - action_provide_selected_report
+intents:
+  - request_weekly_report
+  - select_specific_report
+  - greet
+  - thank_you
+  - who_are_you
+  - how_are_you
+  - what_can_you_do
+  - ask_dementia_definition
+  - ask_dementia_symptoms
+  - ask_dementia_causes
+  - ask_dementia_types
+  - ask_dementia_diagnosis_prevention
+  - ask_dementia_treatment_medical
+  - ask_dementia_treatment_lifestyle
+  - ask_dementia_risk_factors
+  - ask_dementia_early_signs
+  - ask_dementia_vs_normal_aging
+  - ask_dementia_misconceptions
+  - ask_dementia_statistics
+  - ask_dementia_patient_aggression
+  - ask_dementia_patient_wandering
+  - ask_dementia_patient_sleep_issues
+  - ask_caregiver_tips
+  - ask_caregiver_stress_management
+  - ask_caregiver_patient_interaction
+  - ask_dementia_prevention_methods
+  - ask_dementia_brain_exercises
+  - ask_dementia_impact_of_diet
+  - ask_caregiver_financial_assistance
+  - ask_dementia_patient_repetitive_questions
+  - ask_dementia_patient_paranoia
+  - ask_dementia_patient_emotional_changes
+  - ask_dementia_friendly_home_tips
+  - ask_dementia_patient_daily_routines
+  - ask_dementia_patient_confusion
+  - ask_dementia_patient_loss_of_interest
+  - ask_dementia_patient_hallucinations
+  - ask_dementia_patient_eating_habits
+  - ask_dementia_patient_communication_issues
+  - ask_dementia_patient_lack_of_awareness
+  - ask_dementia_patient_personality_changes
+  - ask_caregiver_time_management
+  - ask_caregiver_burnout_prevention
+  - ask_dementia_patient_wandering_prevention
+  - ask_dementia_patient_late_stage_care
+  - ask_dementia_support_services
+  - ask_dementia_patient_legal_rights
+  - ask_dementia_patient_pain_management
+  - ask_caregiver_setting_boundaries
+  - ask_dementia_patient_fidgeting
+  - ask_dementia_patient_social_withdrawal
+  - ask_dementia_palliative_care
+  - ask_dementia_hospice_care
+  - ask_dementia_nursing_home_decision
+  - ask_dementia_patient_hygiene_care
+  - ask_dementia_patient_speech_changes
+  - ask_dementia_patient_physical_disability
+  - ask_dementia_patient_personal_recognition_loss
+  - ask_dementia_patient_aggression_management
+  - ask_dementia_sundowning_management
+  - ask_dementia_patient_sleep_cycle_disruption
+  - ask_dementia_patient_reminiscence_therapy
+  - ask_dementia_technology_assistance
+  - ask_dementia_assistive_devices
+  - ask_dementia_transportation_challenges
+  - ask_caregiver_support_for_family_members
+  - ask_caregiver_dementia_patient_denial
+  - ask_caregiver_long_distance_care
+  - ask_caregiver_sibling_disagreements
+  - ask_caregiver_effect_on_mental_health
+  - ask_caregiver_dealing_with_guilt
+  - ask_dementia_patient_fear_and_anxiety
+  - ask_dementia_patient_sensitivity_to_noise
+  - ask_dementia_patient_loss_of_time_awareness
+  - ask_dementia_patient_difficulty_swallowing
+  - ask_dementia_patient_hiding_objects
+  - ask_dementia_patient_fixation_on_past_events
+  - ask_dementia_patient_resistance_to_change
+  - ask_caregiver_helping_dementia_patient_make_decisions
+  - ask_caregiver_understanding_dementia_patient_emotions
+  - ask_caregiver_how_to_handle_dementia_patient_refusing_medication
+  - ask_dementia_patient_excessive_repetitive_movements
+  - ask_dementia_patient_shadowing_behavior
+  - ask_dementia_patient_hyperorality
+  - ask_dementia_patient_dressing_difficulties
+  - ask_dementia_patient_wandering_outside
+  - ask_caregiver_setting_up_routines_for_dementia_patient
+  - ask_caregiver_managing_dementia_patient_social_isolation
+  - ask_dementia_patient_resisting_help
+  - ask_dementia_patient_not_recognizing_home
+  - ask_chatbot_rephrase_answer
+  - ask_chatbot_skip_question
+  - nlu_fallback
+  - out_of_scope
+  - goodbye
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+    - text: "Hey there! What can I help you with?"
+    - text: "Hi! I'm here to answer your questions."
+    - text: "Greetings! Let me know what you need."
+    - text: "Hey! Hope you're having a great day. How can I assist you?"
+
+  utter_thank_you:
+    - text: "You're very welcome! Let me know if there's anything else I can do for you."
+    - text: "Happy to help! Don't hesitate to ask if you need more information."
+    - text: "Anytime! If you have more questions, I’m here for you."
+    - text: "Glad I could assist! Let me know if you need anything else."
+    - text: "You're welcome! I’m always here to help."
+
+  utter_how_are_you:
+    - text: "I don't have feelings like humans do, but I'm always here to help!"
+    - text: "I’m functioning at full capacity and ready to assist you!"
+    - text: "I’m doing great, thanks for asking! How can I support you today?"
+    - text: "I don’t experience emotions, but I’m here and ready to assist you anytime!"
+    - text: "I don’t have feelings, but I’m happy to help however I can!"
+
+  utter_what_can_you_do:
+    - text: "I can provide information about dementia, caregiving tips, memory aids, and answer your questions."
+    - text: "I help caregivers and patients by offering guidance on dementia, lifestyle support, and resources."
+    - text: "I provide insights on dementia symptoms, treatments, caregiving strategies, and how to support loved ones."
+    - text: "From dementia facts to caregiving support, I can help with a variety of dementia-related questions."
+    - text: "Need advice on dementia care? I can provide tips on managing symptoms, treatments, and caregiver well-being."
+
+  utter_dementia_treatment_medical:
+    - text: "Doctors may prescribe medications like cholinesterase inhibitors to help manage symptoms, though there is no cure."
+    - text: "Medications like donepezil and memantine can help slow cognitive decline but won’t stop dementia progression."
+    - text: "There are prescription medications that may ease dementia symptoms, but treatment plans vary based on individual needs."
+    - text: "Dementia treatments include medications that help with memory and thinking, but they work differently for each person."
+    - text: "Doctors use different medications to help manage symptoms, but treatment should be personalized based on the type of dementia."
+
+  utter_dementia_treatment_lifestyle:
+    - text: "Staying active, eating a brain-healthy diet, and engaging in social activities can help support cognitive function."
+    - text: "A combination of regular exercise, mental stimulation, and healthy eating may help slow cognitive decline."
+    - text: "Engaging in puzzles, music therapy, and social interactions can provide cognitive benefits for dementia patients."
+    - text: "Simple lifestyle changes, like staying mentally and physically active, can contribute to better brain health."
+    - text: "A well-balanced routine with physical activity and cognitive exercises can help maintain brain function for longer."
+
+  utter_dementia_risk_factors:
+    - text: "Risk factors for dementia include age, genetics, high blood pressure, and lifestyle habits like diet and exercise."
+    - text: "While aging is the biggest risk factor, things like smoking, poor sleep, and lack of physical activity also play a role."
+    - text: "Some factors, like genetics, can’t be changed, but managing diet, exercise, and blood pressure can help lower dementia risk."
+    - text: "Dementia risk increases with conditions like diabetes, heart disease, and social isolation."
+    - text: "Living a heart-healthy lifestyle—staying active, eating well, and avoiding smoking—may help reduce dementia risk."
+
+  utter_dementia_early_signs:
+    - text: "Early signs of dementia include memory loss, difficulty finding words, confusion with time or place, and mood changes."
+    - text: "If someone forgets recent events, struggles with problem-solving, or has trouble managing daily tasks, these could be early symptoms."
+    - text: "Early dementia symptoms often include repeating questions, losing track of conversations, and becoming easily frustrated."
+    - text: "Subtle changes in personality, increased forgetfulness, and difficulty planning may indicate early-stage dementia."
+    - text: "If someone experiences confusion, withdrawal from social activities, or trouble remembering appointments, it could be an early sign."
+
+  utter_dementia_vs_normal_aging:
+    - text: "Occasionally forgetting names or misplacing items is normal aging, but consistent memory loss affecting daily life may indicate dementia."
+    - text: "Forgetting where you put your keys is normal, but forgetting what keys are used for might be a sign of dementia."
+    - text: "Normal aging includes mild forgetfulness, but dementia involves more persistent memory issues that interfere with independence."
+    - text: "It's normal to forget details occasionally, but struggling with familiar tasks or getting lost in familiar places may signal dementia."
+    - text: "If forgetfulness leads to confusion or difficulty following conversations, it may be more than just normal aging."
+
+  utter_dementia_misconceptions:
+    - text: "A common misconception is that dementia only affects memory, but it also impacts reasoning, personality, and daily activities."
+    - text: "Not all dementia is Alzheimer’s—there are different types, including vascular dementia and Lewy body dementia."
+    - text: "Dementia is not a normal part of aging—while memory decline can happen, dementia is a disease that disrupts daily life."
+    - text: "Some believe dementia only happens to elderly people, but younger-onset dementia can occur before age 65."
+    - text: "Many think dementia patients become completely unaware, but some retain awareness and emotions even in later stages."
+
+  utter_dementia_statistics:
+    - text: "Currently, over 55 million people worldwide are living with dementia, and this number is expected to triple by 2050."
+    - text: "Alzheimer’s disease accounts for 60-70% of dementia cases, making it the most common type."
+    - text: "Dementia affects millions globally, with cases rising due to aging populations. Early detection and awareness are crucial."
+    - text: "By 2050, the number of dementia cases worldwide could exceed 150 million, highlighting the need for research and care advancements."
+    - text: "Dementia is a growing health concern, with one new case diagnosed every 3 seconds worldwide."
+
+  utter_dementia_patient_aggression:
+    - text: "Aggression in dementia can be caused by frustration, confusion, or discomfort. Staying calm and redirecting their attention can help."
+    - text: "When a dementia patient becomes aggressive, try to identify the trigger—pain, confusion, or fear—and respond with patience and reassurance."
+    - text: "Handling aggression requires a gentle approach. Speak in a soft voice, offer comfort, and avoid arguing."
+    - text: "Sudden aggression in dementia patients is often linked to unmet needs. Check if they are hungry, in pain, or feeling anxious."
+    - text: "If a dementia patient becomes aggressive, take a deep breath, step back, and use a soothing tone to help them feel safe."
+
+  utter_dementia_patient_wandering:
+    - text: "Wandering is common in dementia and can be dangerous. Keep doors secured, use ID bracelets, and create a safe environment."
+    - text: "Many dementia patients wander due to confusion or restlessness. Keeping them engaged in activities can help reduce this behavior."
+    - text: "To prevent wandering, try to maintain familiar surroundings, establish routines, and avoid overstimulation in the evening."
+    - text: "If your loved one tends to wander, consider using a GPS tracker or alert system to ensure their safety."
+    - text: "Wandering often happens when dementia patients feel lost or anxious. Gentle reassurance and structured routines can help."
+
+  utter_dementia_patient_sleep_issues:
+    - text: "Sleep disturbances are common in dementia. A consistent bedtime routine and limiting daytime naps may help improve sleep quality."
+    - text: "Many dementia patients experience sundowning, leading to restlessness at night. Keeping evening activities calm can ease symptoms."
+    - text: "A dark, quiet, and cool sleeping environment can help dementia patients sleep better and reduce nighttime confusion."
+    - text: "Try reducing caffeine, increasing physical activity during the day, and using soft lighting to improve sleep for a dementia patient."
+    - text: "Poor sleep in dementia patients can be caused by discomfort or confusion. Ensuring a soothing bedtime routine can make a difference."
+
+  utter_dementia_definition:
+    - text: "Dementia is a condition that affects memory, thinking, and daily functioning. It is not a specific disease but a collection of symptoms."
+    - text: "Dementia is a syndrome that causes a decline in cognitive abilities, including memory loss and difficulty with problem-solving."
+    - text: "Dementia refers to a group of conditions that impair brain function, affecting reasoning, behavior, and the ability to perform everyday tasks."
+    - text: "Dementia is a progressive condition that impacts memory, decision-making, and language skills over time."
+    - text: "Dementia is a term for disorders that affect cognitive function, leading to challenges in communication, memory, and daily life."
+
+  utter_dementia_symptoms:
+    - text: "Early dementia symptoms include forgetfulness, difficulty concentrating, and struggling with familiar tasks."
+    - text: "Signs of dementia can include memory loss, confusion about time or place, and mood or personality changes."
+    - text: "If someone is frequently misplacing items, forgetting recent conversations, or having trouble following instructions, these may be dementia symptoms."
+    - text: "Common dementia symptoms include difficulty communicating, disorientation, and challenges in managing finances or making decisions."
+    - text: "People with dementia may show signs like repeating questions, forgetting appointments, or getting lost in familiar places."
+
+  utter_dementia_causes:
+    - text: "Dementia can be caused by conditions like Alzheimer’s, strokes, or brain injuries that affect cognitive function."
+    - text: "Certain medical conditions, genetics, and lifestyle factors like poor diet and lack of exercise can contribute to dementia."
+    - text: "Dementia develops due to brain cell damage, which can be triggered by diseases, vascular issues, or head trauma."
+    - text: "Some risk factors for dementia include aging, family history, cardiovascular disease, and chronic stress."
+    - text: "Dementia has multiple causes, ranging from neurodegenerative diseases to conditions that reduce oxygen flow to the brain."
+
+  utter_dementia_types:
+    - text: "Dementia comes in different forms, including Alzheimer’s, vascular dementia, Lewy body dementia, and frontotemporal dementia."
+    - text: "Alzheimer’s is the most common type of dementia, but other types like vascular and Lewy body dementia also exist."
+    - text: "Dementia is an umbrella term for several conditions that affect brain function, each with unique symptoms and causes."
+    - text: "While Alzheimer’s is widely known, other types of dementia can present with distinct symptoms, such as behavioral changes in frontotemporal dementia."
+    - text: "Different types of dementia progress at different rates and affect various parts of the brain, leading to unique challenges in each case."
+
+  utter_dementia_diagnosis_prevention:
+    - text: "Dementia is diagnosed using cognitive tests, medical history evaluations, brain imaging, and sometimes genetic testing."
+    - text: "Doctors diagnose dementia through a series of memory assessments, neurological exams, and brain scans like MRIs or CT scans."
+    - text: "To diagnose dementia, healthcare professionals assess memory, reasoning, and language skills, often through standardized tests."
+    - text: "While there is no single test for dementia, early screening and regular medical check-ups can help detect cognitive decline."
+    - text: "Preventing dementia involves staying mentally and physically active, eating a healthy diet, and managing risk factors like blood pressure."
+
+  utter_dementia_prevention_methods:
+    - text: "Leading a brain-healthy lifestyle, including regular exercise and a nutritious diet, may help reduce the risk of dementia."
+    - text: "Engaging in cognitive activities like reading, puzzles, and social interactions can contribute to better brain health."
+    - text: "A combination of physical activity, balanced nutrition, and maintaining strong social connections may help lower dementia risk."
+    - text: "Keeping the brain active through learning new skills and maintaining a healthy lifestyle may reduce cognitive decline."
+    - text: "Reducing stress, getting quality sleep, and managing health conditions like diabetes or high blood pressure can help protect brain function."
+
+  utter_dementia_brain_exercises:
+    - text: "Keeping the brain active with puzzles, reading, and learning new skills can help maintain cognitive function."
+    - text: "Engaging in activities like chess, crosswords, and creative hobbies can support brain health and memory."
+    - text: "Stimulating the brain through problem-solving games, social interactions, and learning new languages can be beneficial."
+    - text: "Regular mental exercises, such as storytelling, board games, and brain-training apps, can help improve cognitive resilience."
+    - text: "Brain workouts like playing musical instruments, journaling, and engaging in discussions can keep the mind sharp."
+
+  utter_dementia_impact_of_diet:
+    - text: "A well-balanced diet rich in antioxidants, healthy fats, and lean proteins can support brain health and reduce dementia risk."
+    - text: "Eating more leafy greens, nuts, and fish while cutting down on processed foods and sugar may help maintain cognitive function."
+    - text: "The Mediterranean diet, rich in fruits, vegetables, and healthy fats, is linked to a lower risk of cognitive decline."
+    - text: "Staying hydrated and avoiding excessive alcohol and sugary drinks can benefit brain health over time."
+    - text: "What we eat affects brain function. Prioritizing whole foods and minimizing junk food intake can support long-term cognitive well-being."
+
+  utter_caregiver_financial_assistance:
+    - text: "Dementia care can be costly, but financial aid options include insurance, government assistance, and caregiver grants."
+    - text: "Planning ahead for dementia care involves researching long-term healthcare costs, available support services, and insurance coverage."
+    - text: "Medicaid, veteran benefits, and non-profit grants may help cover some dementia care expenses."
+    - text: "Some organizations offer financial relief for caregivers. It’s worth exploring local and national programs."
+    - text: "Seeking financial advice and budgeting for future care can help ease the burden of dementia-related expenses."
+
+  utter_dementia_patient_repetitive_questions:
+    - text: "Repetition in dementia is common due to memory loss. Try answering with patience or gently redirecting the conversation."
+    - text: "Calm reassurance can help when a dementia patient asks the same question repeatedly. Visual reminders may also be useful."
+    - text: "Instead of pointing out the repetition, acknowledge their concern and provide a comforting response."
+    - text: "Redirecting their attention to an activity or familiar object can help manage repetitive questioning."
+    - text: "Repetitive questions can stem from anxiety. A consistent routine and clear communication can help ease their distress."
+
+  utter_dementia_patient_paranoia:
+    - text: "Paranoia in dementia patients can be distressing. Stay calm, validate their feelings, and gently redirect their attention."
+    - text: "Avoid arguing with a paranoid dementia patient. Instead, acknowledge their concerns and offer reassurance."
+    - text: "If a dementia patient believes something untrue, don’t challenge them harshly. Instead, provide comfort and redirect their focus."
+    - text: "Paranoia is often caused by confusion or fear. Familiar objects and environments can help them feel more secure."
+    - text: "When responding to paranoia, speak softly, maintain eye contact, and assure them they are safe."
+
+  utter_dementia_patient_emotional_changes:
+    - text: "Mood swings and emotional outbursts in dementia are common. Patience and reassurance can help ease distress."
+    - text: "Dementia affects brain function, leading to emotional ups and downs. A calm approach and familiar routines can bring comfort."
+    - text: "If a dementia patient becomes upset, try using soothing words, gentle touch, or soft music to help them feel at ease."
+    - text: "Emotional changes in dementia patients can be unpredictable. Staying positive and providing emotional support can help manage their reactions."
+    - text: "Sudden frustration or sadness is common in dementia. Responding with empathy and a reassuring presence can make a difference."
+
+  utter_dementia_friendly_home_tips:
+    - text: "A dementia-friendly home should be safe, clutter-free, and easy to navigate. Use clear labels and remove tripping hazards."
+    - text: "Good lighting, simple room layouts, and minimal noise can help dementia patients feel more comfortable at home."
+    - text: "Adding contrasting colors, motion sensor lights, and safety locks can enhance home safety for dementia patients."
+    - text: "Familiar items, memory aids, and well-placed signs can help a dementia patient feel more oriented in their environment."
+    - text: "Keeping pathways clear, securing doors, and labeling essential items can make daily life easier for someone with dementia."
+
+  utter_dementia_patient_daily_routines:
+    - text: "Establishing a structured daily routine can help dementia patients feel more secure and reduce confusion."
+    - text: "Consistent meal times, regular physical activity, and relaxing bedtime habits can improve a dementia patient’s well-being."
+    - text: "Familiar activities, such as listening to music or folding laundry, can create a sense of purpose and engagement for dementia patients."
+    - text: "Keeping daily schedules predictable helps dementia patients navigate their day with less frustration."
+    - text: "Encouraging light physical activities and cognitive stimulation as part of a routine can help maintain overall health."
+
+  utter_dementia_patient_confusion:
+    - text: "Confusion in dementia patients is common due to memory loss. Reassurance and a calm tone can help them feel more secure."
+    - text: "If a dementia patient is confused, avoid correcting them too harshly. Instead, use simple explanations and visual cues."
+    - text: "Repeating information patiently and using familiar objects can help reduce confusion in dementia patients."
+    - text: "When a dementia patient seems lost or disoriented, gently guide them back to familiarity without causing distress."
+    - text: "Providing structure, using clocks and calendars, and maintaining consistency can reduce episodes of confusion."
+
+  utter_dementia_patient_loss_of_interest:
+    - text: "It’s common for dementia patients to lose interest in activities. Try introducing simple and familiar hobbies to re-engage them."
+    - text: "Encouraging participation in music, gentle exercise, or sensory activities can help reignite interest in daily life."
+    - text: "Loss of interest may be due to cognitive decline or emotional changes. Providing encouragement without pressure can help."
+    - text: "Even small interactions, like looking through old photos or listening to favorite songs, can help bring joy to a dementia patient."
+    - text: "Stimulation should be tailored to their abilities—low-stress activities like gardening or folding towels can offer comfort and engagement."
+
+  utter_dementia_patient_hallucinations:
+    - text: "Hallucinations can be unsettling for dementia patients. Stay calm, acknowledge their feelings, and gently reassure them."
+    - text: "If hallucinations cause distress, try adjusting lighting or reducing noise to minimize potential triggers."
+    - text: "Avoid arguing with a dementia patient about hallucinations. Instead, offer comfort and gently redirect their focus."
+    - text: "Hallucinations in dementia are often caused by brain changes. Creating a familiar, calming environment can help."
+    - text: "If hallucinations become frequent or distressing, consult a doctor to explore possible causes or treatment options."
+
+  utter_dementia_patient_eating_habits:
+    - text: "Dementia can affect appetite and eating habits. Offer soft, easy-to-eat foods and create a quiet, distraction-free mealtime."
+    - text: "If a dementia patient struggles with eating, try serving smaller portions or using colorful plates to encourage interest."
+    - text: "Hydration is just as important as food. If they’re not drinking enough water, try offering flavored drinks or soups."
+    - text: "Changes in taste and appetite are common in dementia. Experiment with different textures and flavors to find what they enjoy."
+    - text: "If a dementia patient forgets to eat, gentle reminders and a structured mealtime routine can help maintain good nutrition."
+
+  utter_dementia_patient_communication_issues:
+    - text: "Dementia can make communication difficult. Speak slowly, use simple words, and maintain eye contact to aid understanding."
+    - text: "If a dementia patient struggles with words, try using gestures, pictures, or written notes to help them express themselves."
+    - text: "Patience is key when communicating with dementia patients. Give them time to respond and avoid overwhelming them with long questions."
+    - text: "If words are difficult for them, use familiar songs, objects, or facial expressions to encourage interaction."
+    - text: "Maintaining a calm and reassuring tone can help a dementia patient feel more at ease when struggling to communicate."
+
+  utter_dementia_patient_lack_of_awareness:
+    - text: "Some dementia patients are unaware of their condition (anosognosia). Instead of forcing recognition, focus on their well-being."
+    - text: "Arguing about their condition may cause distress. Provide reassurance and adapt their environment to keep them safe."
+    - text: "If a dementia patient doesn’t recognize their memory issues, gentle support is more effective than correction."
+    - text: "It’s common for dementia patients to deny their symptoms. Rather than challenging them, find ways to assist discreetly."
+    - text: "Their awareness may vary daily. Stay patient and guide them through daily tasks with encouragement."
+
+  utter_dementia_patient_personality_changes:
+    - text: "Dementia can cause personality changes, leading to mood swings or unexpected behaviors. Staying patient and calm can help."
+    - text: "Sudden personality shifts may be due to confusion or frustration. Identifying triggers can help manage reactions."
+    - text: "If a dementia patient becomes aggressive or withdrawn, try to create a calm environment and offer reassurance."
+    - text: "Changes in personality are common in dementia. Focusing on their emotions rather than their words can help navigate interactions."
+    - text: "Providing a structured routine and familiar surroundings may reduce distress and stabilize mood changes."
+
+  utter_caregiver_time_management:
+    - text: "Balancing caregiving with daily life requires prioritization. Use planners and set realistic goals to manage tasks efficiently."
+    - text: "Maintaining a structured routine can help caregivers stay organized while ensuring the patient’s needs are met."
+    - text: "If caregiving feels overwhelming, delegate tasks when possible and take short breaks to recharge."
+    - text: "Time management as a caregiver means focusing on what’s most important while ensuring self-care isn’t neglected."
+    - text: "Using caregiver support apps and setting daily schedules can help maintain balance and reduce stress."
+
+  utter_caregiver_burnout_prevention:
+    - text: "Caregiver burnout is real. Taking short breaks, setting boundaries, and asking for help are key to long-term well-being."
+    - text: "Self care isn’t selfish. caregivers need rest, support, and time for themselves to provide the best care possible."
+    - text: "Joining a support group or talking to a trusted friend can help caregivers manage stress and prevent emotional exhaustion."
+    - text: "If caregiving feels overwhelming, consider respite care or asking family members to share responsibilities."
+    - text: "Make time for relaxation techniques like deep breathing, meditation, or light exercise to relieve stress."
+
+  utter_dementia_patient_wandering_prevention:
+    - text: "Wandering can be risky for dementia patients. Keeping doors locked and using motion sensors can help prevent unsupervised exits."
+    - text: "Establishing a structured daily routine and engaging activities may reduce restlessness and wandering behavior."
+    - text: "If wandering is a concern, consider ID bracelets or GPS tracking devices for added safety."
+    - text: "Labeling doors and placing familiar objects around the home can help dementia patients feel more oriented."
+    - text: "Creating a safe, enclosed outdoor space may allow a dementia patient to move freely while reducing wandering risks."
+
+  utter_dementia_patient_late_stage_care:
+    - text: "Late-stage dementia care focuses on comfort, safety, and emotional support. Creating a soothing environment can help ease distress."
+    - text: "As dementia progresses, patients may need full-time care. Hospice or professional caregivers can provide additional support."
+    - text: "Ensuring proper nutrition, hydration, and pain management becomes a priority in late-stage dementia care."
+    - text: "Communication may become difficult in later stages, but gentle touch and familiar voices can still provide comfort."
+    - text: "Providing emotional support and dignity in late-stage dementia care is as important as managing physical needs."
+
+  utter_dementia_support_services:
+    - text: "There are many dementia support services available, including helplines, community programs, and caregiver resources."
+    - text: "Organizations like Alzheimer’s support groups provide valuable guidance and emotional support for patients and caregivers."
+    - text: "Local community centers and healthcare providers may offer dementia related programs, workshops, or respite care services."
+    - text: "Online forums and support groups can connect caregivers with others going through similar experiences."
+    - text: "Seeking professional guidance from dementia specialists or social workers can help navigate care planning and available resources."
+
+  utter_dementia_patient_pain_management:
+    - text: "Dementia patients may struggle to express pain. Watch for signs like facial expressions, restlessness, or changes in appetite."
+    - text: "Unexplained agitation or withdrawal in a dementia patient may indicate discomfort. A doctor can help assess and manage pain."
+    - text: "Pain in dementia can be subtle. Look for nonverbal signs like grimacing, fidgeting, or changes in sleep patterns."
+    - text: "Since dementia patients may not verbalize pain, keeping track of behavior changes can help caregivers identify potential discomfort."
+    - text: "Gentle touch, massage, or adjusting their position may ease discomfort if a dementia patient shows signs of pain."
+
+  utter_caregiver_setting_boundaries:
+    - text: "Setting boundaries is essential for caregivers. Taking breaks and prioritizing your well-being allows you to provide better care."
+    - text: "Healthy boundaries help prevent burnout. It’s okay to say no, ask for help, and take time for yourself."
+    - text: "Caregiving is demanding, but your needs matter too. Finding a balance between caregiving and self-care is key to long-term well-being."
+    - text: "You can’t pour from an empty cup—taking care of yourself ensures you can continue caring for your loved one effectively."
+    - text: "Asking for support and setting limits isn’t selfish—it’s necessary for sustainable caregiving."
+
+  utter_dementia_patient_fidgeting:
+    - text: "Fidgeting is common in dementia and may signal restlessness. Offering a soft object to hold or a gentle activity can help."
+    - text: "If a dementia patient keeps fidgeting, they may be feeling anxious or overstimulated. Try soothing activities like folding laundry or listening to soft music."
+    - text: "Frequent fidgeting may indicate a need for movement. Light stretching or a short walk might help ease restlessness."
+    - text: "Sensory items like textured fabrics, fidget blankets, or stress balls can help calm a restless dementia patient."
+    - text: "If fidgeting increases at certain times, look for possible triggers like hunger, discomfort, or fatigue."
+
+  utter_dementia_patient_social_withdrawal:
+    - text: "Social withdrawal in dementia may stem from confusion, frustration, or fear of embarrassment. Encouraging familiar, low-pressure activities can help."
+    - text: "If a dementia patient avoids socializing, gently include them in conversations or activities without forcing participation."
+    - text: "Feeling overwhelmed or unable to follow conversations may cause a dementia patient to withdraw. Simplified interactions may encourage engagement."
+    - text: "If your loved one is withdrawing socially, music, pets, or reminiscing about past experiences may help spark interest."
+    - text: "Creating a comfortable and familiar social environment can help reduce anxiety and encourage interaction."
+
+  utter_caregiver_support_for_family_members:
+    - text: "Supporting family members while caregiving involves open communication, sharing responsibilities, and keeping everyone informed."
+    - text: "Family caregiving is a team effort. Keeping an open dialogue and setting clear expectations can help prevent misunderstandings."
+    - text: "Encouraging family members to be involved, even in small ways, can ease the caregiving load and strengthen support."
+    - text: "Regular family meetings or discussions can help divide caregiving tasks and ensure everyone’s concerns are heard."
+    - text: "Balancing caregiving and family relationships takes effort, but honest conversations and shared responsibilities can make a difference."
+
+  utter_dementia_patient_fear_and_anxiety:
+    - text: "Fear and anxiety in dementia often stem from confusion. Providing a calm environment and familiar objects can help ease distress."
+    - text: "Changes in routine, unfamiliar settings, or sensory overload can trigger anxiety in dementia patients. Keeping a predictable schedule may help."
+    - text: "Reassurance, soft lighting, and gentle touch can help soothe a dementia patient experiencing anxiety."
+    - text: "Dementia patients may express fear when they don’t understand their surroundings. A soothing tone and familiar voices can help them feel safe."
+    - text: "Creating a quiet, structured environment can reduce anxiety episodes and provide a sense of stability."
+
+  utter_dementia_patient_sensitivity_to_noise:
+    - text: "Many dementia patients become sensitive to noise due to changes in sensory processing. Keeping the environment calm can reduce agitation."
+    - text: "Loud or sudden noises may be overwhelming for dementia patients. Soft music or white noise machines can help create a more soothing space."
+    - text: "Reducing background noise, such as turning off the TV during conversations, can help a dementia patient feel less overwhelmed."
+    - text: "A quiet, predictable environment helps dementia patients feel more secure and less reactive to noise."
+    - text: "If noise sensitivity is an issue, consider soft earplugs or noise-canceling headphones in busy environments."
+
+  utter_caregiver_dementia_patient_denial:
+    - text: "Dementia patients may deny their condition due to memory loss or fear. Rather than correcting them, focus on ensuring their safety and comfort."
+    - text: "Arguing about their condition can cause distress. Instead, provide gentle support and reassurance without forcing recognition."
+    - text: "Denial is a common response to dementia. Staying patient and offering help in a non-confrontational way can be more effective."
+    - text: "Rather than insisting they acknowledge their condition, focus on creating a supportive, structured environment."
+    - text: "If a dementia patient denies their symptoms, maintaining routines and using gentle guidance can help them feel more secure."
+
+  utter_caregiver_long_distance_care:
+    - text: "Long-distance caregivers can stay involved through regular check-ins, coordinating care plans, and using technology to stay connected."
+    - text: "Even from afar, you can provide support by arranging local caregiving assistance and staying updated on your loved one’s needs."
+    - text: "Remote caregiving tools, such as video calls and caregiver apps, can help you stay engaged in your loved one’s care."
+    - text: "If you live far away, working closely with local family members or professional caregivers can help ensure consistent care."
+    - text: "Planning ahead, setting up emergency contacts, and maintaining open communication with caregivers can help long-distance caregiving run smoothly."
+
+  utter_caregiver_sibling_disagreements:
+    - text: "Caregiver conflicts among siblings are common. Open discussions, shared responsibilities, and compromise can help ease tensions."
+    - text: "When disagreements arise, focusing on the best interests of your loved one can guide decision-making."
+    - text: "Dividing tasks fairly and maintaining clear communication can prevent caregiving disputes among siblings."
+    - text: "If conflicts persist, a family meeting or professional mediator can help find solutions and balance responsibilities."
+    - text: "Understanding each sibling’s strengths and limitations can help create a caregiving plan that works for everyone."
+
+  utter_caregiver_effect_on_mental_health:
+    - text: "Caregiving can be emotionally and physically exhausting. Seeking support, taking breaks, and prioritizing self-care are essential."
+    - text: "If you’re feeling overwhelmed by caregiving, talking to a professional or joining a support group can help."
+    - text: "Mental health is just as important as physical health. Caregivers should seek help when stress becomes too much to handle."
+    - text: "Caring for a loved one can take a toll on your well-being. It’s okay to ask for help and set boundaries to protect your mental health."
+    - text: "Recognizing signs of stress, burnout, or anxiety early can help caregivers take action before feeling completely overwhelmed."
+
+  utter_caregiver_dealing_with_guilt:
+    - text: "Feeling guilty as a caregiver is natural, but remember that taking care of yourself allows you to provide better care for your loved one."
+    - text: "Caregiver guilt is common, but you are doing your best. It’s okay to ask for help and take time for yourself."
+    - text: "You don’t have to do everything alone. Accepting support and setting realistic expectations can ease caregiver guilt."
+    - text: "It's impossible to be a perfect caregiver. Focus on what you can do rather than what you can’t."
+    - text: "Caring for someone is challenging. Be kind to yourself and recognize the effort you put in every day."
+
+  utter_goodbye:
+    - text: "Goodbye! Take care, and remember, I’m here whenever you need help."
+    - text: "See you later! Feel free to return if you have more questions."
+    - text: "Take care! Don’t hesitate to ask me anything in the future."
+    - text: "Wishing you well! Reach out anytime you need support."
+    - text: "Goodbye for now! Stay safe, and I’m always here if you need me."
+
+  utter_dementia_palliative_care:
+    - text: "Palliative care helps improve the quality of life for dementia patients by managing symptoms and providing emotional support."
+    - text: "This type of care focuses on comfort, dignity, and easing distress for dementia patients and their families."
+    - text: "Palliative care teams can assist with pain management, emotional support, and personalized care for dementia patients."
+    - text: "Even in advanced dementia, palliative care can enhance well-being by ensuring the patient’s needs are met with compassion."
+    - text: "Palliative care is about more than medical treatment—it provides holistic support for both patients and caregivers."
+
+  utter_dementia_hospice_care:
+    - text: "Hospice care provides comfort and dignity for dementia patients in the final stages of the illness."
+    - text: "End-of-life care in hospice focuses on pain relief, emotional well-being, and family support."
+    - text: "Hospice services ensure that late-stage dementia patients receive compassionate care tailored to their needs."
+    - text: "This type of care helps families navigate the emotional and practical aspects of supporting a loved one in late-stage dementia."
+    - text: "Hospice care is about providing peace, comfort, and respect during the final stages of dementia."
+
+  utter_dementia_nursing_home_decision:
+    - text: "Deciding on a nursing home for a dementia patient depends on their care needs, safety, and level of independence."
+    - text: "If a dementia patient needs 24/7 supervision or medical care, a nursing home may be the best option."
+    - text: "Choosing a dementia care facility should involve considering staff expertise, safety measures, and the patient’s comfort."
+    - text: "Transitioning to a nursing home can be challenging, but the right environment can provide structure and specialized care."
+    - text: "A dementia-friendly nursing home can offer the medical support, security, and daily assistance that may no longer be manageable at home."
+
+  utter_dementia_patient_hygiene_care:
+    - text: "Helping a dementia patient with hygiene is easier with a consistent routine and gentle reminders."
+    - text: "Encouraging independence with step-by-step instructions can make hygiene tasks less overwhelming."
+    - text: "Use familiar bathing products, keep the environment warm, and offer reassurance to ease hygiene-related stress."
+    - text: "If a dementia patient resists bathing, try making it a relaxing experience with soft music and warm water."
+    - text: "Creating a calm, familiar routine can help dementia patients feel more comfortable with personal care."
+
+  utter_dementia_patient_speech_changes:
+    - text: "Dementia can make speech and communication difficult. Speaking slowly and using simple words can help."
+    - text: "If a dementia patient struggles with words, try non-verbal cues like gestures, pictures, or touch."
+    - text: "Encourage conversation by giving plenty of time to respond and using familiar topics."
+    - text: "Using visual aids and maintaining eye contact can make communication easier for dementia patients."
+    - text: "Sometimes, music or singing can help a dementia patient express themselves more easily."
+
+  utter_dementia_patient_physical_disability:
+    - text: "As dementia progresses, mobility challenges may arise. Gentle exercises and physical therapy can help maintain strength."
+    - text: "Falls are a concern for dementia patients. Ensuring home safety and using assistive devices can prevent accidents."
+    - text: "Regular movement, even simple chair exercises, can support balance and coordination."
+    - text: "If a dementia patient struggles with walking, a walker or cane may provide extra support."
+    - text: "Adapting daily routines with accessible seating, grab bars, and clear pathways can improve mobility."
+
+  utter_dementia_patient_personal_recognition_loss:
+    - text: "If a dementia patient forgets loved ones, use familiar photos, soft reminders, and a reassuring tone."
+    - text: "Gently introducing yourself each time can help if a dementia patient struggles to recognize you."
+    - text: "Rather than correcting them, engage with their memories in a way that makes them feel safe and comfortable."
+    - text: "Sometimes, a warm smile, a familiar scent, or a song can trigger recognition in a dementia patient."
+    - text: "It’s normal for dementia patients to forget names but still recognize emotions and kindness."
+
+  utter_dementia_patient_aggression_management:
+    - text: "Aggression in dementia can stem from frustration or confusion. Staying calm and using a soothing tone can help."
+    - text: "If a dementia patient becomes aggressive, try to identify the cause—pain, discomfort, or overstimulation."
+    - text: "Redirecting their focus with a calming activity or a familiar object may ease agitation."
+    - text: "Avoid arguing or forcing situations. Instead, offer reassurance and give them space if needed."
+    - text: "Soft lighting, calming music, and a predictable routine can help reduce aggression episodes."
+
+  utter_dementia_sundowning_management:
+    - text: "Sundowning can cause confusion and agitation in the evening. Keeping lights on and reducing noise may help."
+    - text: "A predictable routine and a relaxing nighttime environment can ease sundowning symptoms."
+    - text: "Limiting naps and increasing daylight exposure during the day can help regulate sleep patterns."
+    - text: "Soothing activities like listening to calming music or having a warm drink before bed may reduce sundowning effects."
+    - text: "If sundowning worsens, tracking triggers like hunger, overstimulation, or medication effects can be useful."
+
+  utter_dementia_patient_sleep_cycle_disruption:
+    - text: "Sleep disruptions are common in dementia. Keeping a bedtime routine and avoiding caffeine can improve sleep quality."
+    - text: "If a dementia patient wakes up at night, gentle reassurance and a dim nightlight can help them feel safe."
+    - text: "Creating a quiet, dark, and comfortable sleeping environment can reduce nighttime confusion."
+    - text: "Encouraging physical activity during the day can help regulate sleep-wake cycles for dementia patients."
+    - text: "Using a weighted blanket or calming bedtime rituals may help dementia patients sleep better."
+
+  utter_dementia_patient_reminiscence_therapy:
+    - text: "Reminiscence therapy uses past memories to help dementia patients feel engaged and connected."
+    - text: "Talking about old photos, music, or familiar places can spark joy and improve mood in dementia patients."
+    - text: "Encouraging a dementia patient to share stories from their past can strengthen their sense of identity."
+    - text: "Simple activities like flipping through a scrapbook or watching classic movies can be comforting."
+    - text: "Reminiscence therapy helps dementia patients feel valued by celebrating their life experiences."
+
+  utter_dementia_technology_assistance:
+    - text: "Technology like smart home devices and GPS trackers can support dementia patients' safety and independence."
+    - text: "Memory aids, voice-activated assistants, and medication reminders can help dementia patients manage daily tasks."
+    - text: "Wearable tracking devices can help locate a dementia patient if they wander."
+    - text: "Smart lighting, automatic pill dispensers, and door alarms can improve home safety for dementia patients."
+    - text: "Technology can provide reminders, companionship, and peace of mind for caregivers and dementia patients alike."
+
+  utter_dementia_assistive_devices:
+    - text: "Assistive devices for dementia include memory aids, GPS trackers, and simplified communication tools to enhance safety and independence."
+    - text: "Technology like smart pill dispensers, digital clocks with reminders, and voice assistants can support daily tasks for dementia patients."
+    - text: "Dementia-friendly devices such as locator tags, picture-based phones, and motion sensor lights can improve quality of life."
+    - text: "Adaptive tools, like easy-to-use utensils and weighted blankets, can provide comfort and help manage dementia symptoms."
+    - text: "Assistive devices can make caregiving easier by reducing risks and providing dementia patients with gentle guidance."
+
+  utter_dementia_transportation_challenges:
+    - text: "As dementia progresses, navigating transportation safely can become difficult. Assistance may be needed for planning trips or using public transport."
+    - text: "Dementia patients may struggle with directions or recognizing familiar places. Using transportation services designed for seniors can help."
+    - text: "Memory loss and confusion can make driving unsafe for dementia patients. Family support or community transport programs may be needed."
+    - text: "Ride-sharing apps, dementia-friendly transport services, or caregiver accompaniment can help dementia patients travel more safely."
+    - text: "Ensuring a dementia patient carries identification and contact information can be helpful in case of disorientation while traveling."
+
+  utter_group_made_me:
+    - text: "I was created by Group 23 to assist with dementia-related questions and provide caregiving support."
+    - text: "Group 23 designed me to help caregivers and dementia patients with useful information and guidance."
+    - text: "I was developed by Group 23 to offer support and resources for dementia care."
+    - text: "Group 23 built me to help answer questions about dementia and provide assistance to caregivers."
+    - text: "My purpose, created by Group 23, is to offer dementia-related insights and caregiving advice."
+
+  utter_ask_clarification:
+    - text: "I didn’t quite catch that. Could you rephrase or ask in a different way?"
+    - text: "I’m not sure I understand. Can you clarify what you mean?"
+    - text: "Could you try asking that in a different way? I’d love to help!"
+    - text: "Hmm, I’m not quite sure what you mean. Can you explain it another way?"
+    - text: "I’d be happy to help! Could you provide a little more detail about what you’re asking?"
+
+  utter_dementia_patient_excessive_repetitive_movements:
+    - text: "Repetitive movements like pacing or tapping can be a sign of restlessness in dementia. Gentle reassurance and engaging activities may help."
+    - text: "If a dementia patient repeatedly fidgets or moves, it could be due to anxiety or excess energy. Providing a calming routine may reduce this behavior."
+    - text: "Some dementia patients engage in repetitive movements when they feel unsettled. Offering sensory activities or soft items to hold may bring comfort."
+    - text: "Restlessness and repetitive movements in dementia can stem from unmet needs. Checking for hunger, discomfort, or stress can be helpful."
+    - text: "Structured activities like sorting objects, folding towels, or stretching exercises can help redirect repetitive movements in dementia patients."
+
+  utter_dementia_patient_shadowing_behavior:
+    - text: "If a dementia patient follows you everywhere, they may feel anxious or insecure. Offering familiar objects or soothing words can help them feel safe."
+    - text: "Shadowing is common in dementia due to fear of being alone. Encouraging independent activities while staying nearby can help."
+    - text: "Dementia patients may shadow caregivers for reassurance. Leaving calming background noise or a comforting object can ease their anxiety."
+    - text: "To reduce shadowing, try involving the dementia patient in small tasks or routines they find familiar."
+    - text: "Maintaining a structured daily schedule can help reduce anxiety-driven shadowing behavior in dementia patients."
+
+  utter_dementia_patient_hyperorality:
+    - text: "Hyperorality in dementia, where patients put objects in their mouth, may be due to sensory changes. Keeping non-food items out of reach can help."
+    - text: "Some dementia patients develop a habit of excessive eating or chewing on objects. Providing safe oral stimulation, like sugar-free gum, may help."
+    - text: "If a dementia patient constantly puts things in their mouth, offering textured foods or sensory items can help redirect the behavior."
+    - text: "Hyperorality can be a sign of unmet needs. Ensuring the patient is hydrated, well-fed, and not experiencing anxiety may help."
+    - text: "To prevent unsafe oral behaviors, make sure hazardous objects are out of reach and offer safe alternatives like soft chewable items."
+
+  utter_dementia_patient_dressing_difficulties:
+    - text: "Dementia can make dressing challenging due to confusion or mobility issues. Providing step-by-step assistance can help."
+    - text: "If a dementia patient struggles with clothing, choose easy-to-wear outfits with minimal buttons or zippers."
+    - text: "To make dressing easier, lay clothes out in the order they should be worn and provide verbal or visual guidance."
+    - text: "Loose-fitting, soft, and familiar clothing can make dressing more comfortable for dementia patients."
+    - text: "Using adaptive clothing, such as Velcro-fastened or slip-on garments, can make dressing simpler for a dementia patient."
+
+  utter_dementia_patient_wandering_outside:
+    - text: "Dementia patients may wander outside due to confusion or restlessness. Ensuring they wear an ID bracelet can help in case they get lost."
+    - text: "To reduce wandering, keep doors locked, use motion sensors, and provide engaging activities to prevent boredom."
+    - text: "If a dementia patient insists on going outside, offering supervised walks or safe outdoor spaces can help."
+    - text: "Wandering often happens when dementia patients feel disoriented. A familiar and structured environment can minimize this behavior."
+    - text: "Providing a dementia-friendly path, such as a secured garden, can help meet the patient’s need for movement while ensuring safety."
+
+  utter_caregiver_setting_up_routines_for_dementia_patient:
+    - text: "A structured routine provides stability for dementia patients. Keeping meal times, activities, and sleep schedules consistent can help reduce anxiety."
+    - text: "Familiar routines create a sense of security for dementia patients. Try setting up predictable daily activities to ease confusion."
+    - text: "Maintaining a regular schedule for meals, bathing, and relaxation can help dementia patients feel more at ease."
+    - text: "Having a daily structure allows dementia patients to navigate their day with less stress. Small adjustments can make a big difference."
+    - text: "Routine builds familiarity. Keeping daily activities simple and repetitive can improve comfort and reduce frustration in dementia patients."
+
+  utter_caregiver_managing_dementia_patient_social_isolation:
+    - text: "Encouraging social interaction in dementia patients can be done through simple activities like listening to music, reminiscing, or light group activities."
+    - text: "If a dementia patient avoids socializing, gently involving them in familiar group settings without pressure may help them feel more comfortable."
+    - text: "Small social interactions, like chatting with a caregiver or participating in light activities, can prevent isolation in dementia patients."
+    - text: "Bringing familiar faces into a dementia patient's routine can ease anxiety and promote engagement."
+    - text: "Encouraging safe and familiar social settings, even for short periods, can help dementia patients feel connected and reduce loneliness."
+
+  utter_dementia_patient_resisting_help:
+    - text: "Dementia patients may resist help due to confusion or fear. Offering gentle encouragement and giving choices can improve cooperation."
+    - text: "If a dementia patient refuses assistance, try approaching with patience and explaining each step calmly."
+    - text: "Resistance to help is common in dementia. Speaking softly and making the task feel familiar can ease their concerns."
+    - text: "Allowing a dementia patient to have a sense of control by offering choices can reduce resistance to care."
+    - text: "Building trust by maintaining a calm, friendly approach can help a dementia patient accept assistance more easily."
+
+  utter_dementia_patient_not_recognizing_home:
+    - text: "If a dementia patient doesn’t recognize their home, reassuring them and redirecting their focus to familiar objects can help ease distress."
+    - text: "Feeling lost at home is common in dementia. Try using familiar scents, favorite furniture, or personal items to create a sense of belonging."
+    - text: "When a dementia patient says they want to go home, acknowledge their feelings and gently guide them to a familiar, comforting space."
+    - text: "Rather than correcting them, validate their emotions and redirect their attention to something reassuring, like a photo or a favorite chair."
+    - text: "A familiar environment with consistent furniture placement and lighting can help a dementia patient feel more at home."
+
+  utter_caregiver_tips:
+    - text: "Caring for someone with dementia requires patience and consistency. Keeping routines predictable can help reduce stress."
+    - text: "Creating a dementia-friendly environment with clear labels, reminders, and minimal distractions can support daily activities."
+    - text: "Encouraging familiar activities and using simple instructions can make caregiving smoother and less stressful."
+    - text: "Engaging in music, gentle physical activities, and reminiscing can improve interactions with a dementia patient."
+    - text: "Prioritizing self-care and seeking support from others can help caregivers manage the challenges of dementia care."
+
+  utter_caregiver_stress_management:
+    - text: "Caregiving can be exhausting. Taking regular breaks, seeking support, and practicing relaxation techniques can help reduce stress."
+    - text: "Burnout is real—prioritize your well-being by setting boundaries and making time for self-care."
+    - text: "Joining a caregiver support group or talking to others who understand your challenges can provide emotional relief."
+    - text: "Managing stress as a caregiver involves asking for help when needed and allowing yourself moments to recharge."
+    - text: "Balancing caregiving and personal well-being is crucial. Even small self-care moments, like deep breathing or a short walk, can make a difference."
+
+  utter_caregiver_patient_interaction:
+    - text: "When communicating with a dementia patient, use a calm voice, speak slowly, and avoid overwhelming them with complex sentences."
+    - text: "Clear, simple language and gentle gestures can help dementia patients feel more comfortable in conversations."
+    - text: "Patience is key. Allow a dementia patient time to respond and avoid rushing or correcting them harshly."
+    - text: "Engaging in familiar activities, like listening to music or looking at old photos, can encourage meaningful interaction."
+    - text: "Using short sentences, making eye contact, and smiling can create a positive and reassuring communication experience."
+
+  utter_dementia_patient_loss_of_time_awareness:
+    - text: "Dementia patients may lose track of time due to memory impairment. Using large clocks, calendars, and reminders can help."
+    - text: "Feeling disoriented about time is common in dementia. Maintaining a consistent daily schedule can provide stability."
+    - text: "If a dementia patient confuses the time of day, gentle reminders and natural light exposure can help regulate their internal clock."
+    - text: "Time confusion can cause anxiety. Simple cues, like digital clocks displaying the time and date, can offer reassurance."
+    - text: "Providing gentle reminders and using labeled schedules can help dementia patients stay oriented throughout the day."
+
+  utter_dementia_patient_difficulty_swallowing:
+    - text: "Swallowing difficulties, or dysphagia, in dementia can be managed by offering softer foods and thickened liquids to prevent choking."
+    - text: "If a dementia patient struggles to swallow, adjusting food textures and providing small sips of thickened fluids may help."
+    - text: "Supervising mealtimes and ensuring a calm, distraction-free environment can improve swallowing safety for dementia patients."
+    - text: "To reduce choking risks, serve bite-sized foods and encourage slow eating with proper posture."
+    - text: "Working with a speech therapist can help develop safe swallowing techniques for dementia patients with dysphagia."
+
+  utter_dementia_patient_hiding_objects:
+    - text: "Dementia patients may hide objects due to confusion or a sense of security. Keeping frequently used items in the same place can help."
+    - text: "If your loved one misplaces or hides objects, gentle reminders and clear labels may make it easier for them to find things."
+    - text: "Hiding belongings is common in dementia. Try creating a designated space for important items to prevent frustration."
+    - text: "This behavior may be linked to memory loss or anxiety. Providing a familiar and structured environment can help."
+    - text: "If a dementia patient frequently hides things, avoid scolding them. Instead, use reassurance and help them locate missing items calmly."
+
+  utter_dementia_patient_fixation_on_past_events:
+    - text: "Dementia patients often recall past events because they feel more familiar. Engaging in reminiscence therapy with photos or music can be comforting."
+    - text: "If a dementia patient repeatedly talks about the past, validating their feelings and listening with interest can bring them joy."
+    - text: "Focusing on past memories is common in dementia. Try using familiar stories or personal mementos to create meaningful conversations."
+    - text: "Instead of correcting their perception of time, gently acknowledge their memories and encourage positive reflections."
+    - text: "If a dementia patient is fixated on a past event, redirecting their attention to a related, enjoyable activity can be soothing."
+
+  utter_dementia_patient_resistance_to_change:
+    - text: "Dementia patients may struggle with change. Introducing adjustments gradually and keeping routines consistent can ease transitions."
+    - text: "If a dementia patient resists change, offering gentle explanations and maintaining familiar surroundings can help them feel more secure."
+    - text: "Change can be overwhelming for dementia patients. Preparing them in advance and using visual cues can make transitions smoother."
+    - text: "Sudden changes may cause distress. Providing reassurance and introducing modifications one step at a time may help them adjust."
+    - text: "To ease resistance to change, try keeping parts of their daily routine the same while slowly introducing new elements."
+
+  utter_caregiver_helping_dementia_patient_make_decisions:
+    - text: "When helping a dementia patient make decisions, offer simple choices rather than open-ended questions to prevent confusion."
+    - text: "Too many options can be overwhelming. Present two clear choices to make decision-making easier."
+    - text: "Encouraging independence while offering gentle guidance can help dementia patients feel more in control of their decisions."
+    - text: "Break decisions into small steps and use familiar items or routines to help them choose more comfortably."
+    - text: "If decision-making is difficult, using visual prompts or demonstrating options can provide helpful guidance."
+
+  utter_caregiver_understanding_dementia_patient_emotions:
+    - text: "Dementia patients may have difficulty expressing emotions. Paying attention to facial expressions and tone can help you understand their needs."
+    - text: "Emotions in dementia can be unpredictable. Responding with patience and reassurance can help create a sense of safety."
+    - text: "Even if words are hard to find, dementia patients still feel emotions. Gentle touch and a calm voice can provide comfort."
+    - text: "Sudden mood swings may be caused by confusion or frustration. Offering a soothing presence can ease their distress."
+    - text: "Encouraging familiar routines and validating their emotions can help dementia patients feel more secure and understood."
+
+  utter_caregiver_how_to_handle_dementia_patient_refusing_medication:
+    - text: "If a dementia patient refuses medication, try offering it in a familiar setting and explaining its benefits calmly."
+    - text: "Medication refusal is common in dementia. Using a calm, reassuring tone and offering choices can sometimes help."
+    - text: "Try offering medication with their favorite drink or food if swallowing pills is difficult."
+    - text: "Using a routine and associating medication with a familiar habit, like mealtime, can make it easier for them to accept it."
+    - text: "If they repeatedly refuse, talk to their doctor about alternative options or adjusting the medication schedule."
+
+  utter_chatbot_rephrase_answer:
+    - text: "Sure! Let me put it another way for you."
+    - text: "Of course! Here’s a different way to explain it."
+    - text: "Let me simplify that for you."
+    - text: "Absolutely! I'll say it in another way."
+    - text: "No problem! I’ll rephrase it for clarity."
+
+  utter_chatbot_skip_question:
+    - text: "No worries! Let’s move on to the next topic."
+    - text: "Okay, skipping that. What else would you like to ask?"
+    - text: "Got it! Let me know what else I can help with."
+    - text: "That’s fine! We can talk about something else."
+    - text: "Alright, skipping this one. Let me know what’s on your mind!"
+
+  utter_out_of_scope:
+    - text: "I'm here to assist with dementia-related topics. Could you ask something related?"
+    - text: "I specialize in dementia care and support. Let me know how I can help in that area!"
+    - text: "That topic is outside my expertise, but I’d be happy to assist with dementia-related questions!"
+    - text: "I focus on dementia care and caregiving. Do you have any related concerns?"
+    - text: "I’m best at answering questions about dementia and caregiving. Let me know how I can help!"
+
+  utter_dementia_patient_legal_rights:
+    - text: "Dementia patients have legal rights, including the right to medical care, privacy, and autonomy when possible. However, legal decisions may require power of attorney or guardianship if cognitive decline progresses."
+    - text: "The legal rights of dementia patients vary by region, but they generally include the right to make decisions until they are deemed unable to do so. A lawyer specializing in elder law can provide more guidance."
