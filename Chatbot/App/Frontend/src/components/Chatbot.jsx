@@ -31,9 +31,37 @@ const Chatbot = () => {
         message: input,
       });
 
-      // ADDED: Receive chatbot response from Flask and update chat
-      const botResponse = { sender: "bot", text: response.data.response };
-      setMessages((prev) => [...prev, botResponse]);
+      const botMessage = response.data.response;
+
+      // NEW: CHECK IF RESPONSE CONTAINS REPORTS (JSON PARSING)
+      let formattedMessage;
+      try {
+        const parsedData = JSON.parse(botMessage);
+        if (parsedData.reports) {
+          formattedMessage = (
+            <div>
+              <p>📂 <strong>{parsedData.message}</strong></p>
+              <ul className="mt-2">
+                {parsedData.reports.map((report, index) => (
+                  <li key={index} className="mb-2">
+                    📅 <strong>{report.date}</strong> -
+                    <a href={report.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline ml-2">
+                      🔗 View Report
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        } else {
+          formattedMessage = botMessage;
+        }
+      } catch (error) {
+        formattedMessage = botMessage;
+      }
+
+      // NEW: ADD FORMATTED MESSAGE TO CHAT
+      setMessages((prev) => [...prev, { sender: "bot", text: formattedMessage }]);
     } catch (error) {
       console.error("Error communicating with chatbot:", error);
       setMessages((prev) => [
@@ -91,7 +119,11 @@ const Chatbot = () => {
                     : "bg-gray-200 text-gray-800 self-start"
                 }`}
               >
-                {msg.text}
+                {typeof msg.text === "string" ? (
+                  msg.text
+                ) : (
+                  msg.text  // ✅ RENDER HTML WHEN REPORT JSON IS DETECTED
+                )}
               </div>
             ))}
 
