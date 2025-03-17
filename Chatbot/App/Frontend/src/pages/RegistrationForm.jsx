@@ -7,6 +7,7 @@ const RegistrationForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: '',
+    username: '',
     gender: '',
     age: '',
     email: '',
@@ -25,6 +26,7 @@ const RegistrationForm = () => {
     let tempErrors = {};
     if (step === 1) {
       if (!formData.fullName) tempErrors.fullName = "Full Name is required";
+      if (!formData.username) tempErrors.username = "Username is required";
       if (!formData.gender) tempErrors.gender = "Gender is required";
       if (!formData.age || isNaN(formData.age) || formData.age < 1 || formData.age > 120) tempErrors.age = "Age must be between 1 and 120";
       if (!formData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) tempErrors.email = "Invalid email format";
@@ -82,6 +84,7 @@ const RegistrationForm = () => {
       <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
       {errors.general && <p className="text-red-500 text-sm text-center">{errors.general}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
+
         {step === 1 && (
           <>
             <div>
@@ -126,6 +129,12 @@ const RegistrationForm = () => {
         {step === 2 && (
           <>
             <div>
+              <label className="block text-gray-700">Username</label>
+              <input type="text" name="username" value={formData.username} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
+              {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
+            </div>
+
+            <div>
               <label className="block text-gray-700">Password</label>
               <div className="relative">
                 <input type={showPassword ? 'text' : 'password'} name="password" value={formData.password} onChange={handleChange} className="w-full p-2 border border-gray-300 rounded-lg" />
@@ -134,6 +143,7 @@ const RegistrationForm = () => {
                 </button>
               </div>
             </div>
+
             <div>
               <label className="block text-gray-700">Confirm Password</label>
               <div className="relative">
@@ -143,10 +153,12 @@ const RegistrationForm = () => {
                 </button>
               </div>
             </div>
+
             <div className="flex items-center">
               <input type="checkbox" name="termsAccepted" checked={formData.termsAccepted} onChange={handleChange} className="mr-2" />
               <label className="text-gray-700">I agree to the Terms & Conditions</label>
             </div>
+
             <button type="button" onClick={handleBack} className="w-full bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">Back</button>
             <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Register</button>
           </>
