@@ -1,0 +1,34 @@
+1.create directory
+mkdir IIT
+2.Navigating to the directory
+cd IIt
+3.Create a python file inthe directory called IIT
+nano home.py
+***********direct to a python env then write a code***************
+4.To exit and save the work done in python
+ctrl+x   <----Save
+  |
+y or n 
+Enter
+5.To create files 2 ways
+1-->nano <filename>
+2-->touch <filename> ** still u hv to make it again a nano 
+#############touch file.txt --->nano file.txt
+6. To view the containing
+cat file.txt
+7.to clear the console 
+clear
+8.to exit
+exit+enter 
+9.If the console says logout then close the console
+
+yasanthi2002--pws
+
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+sudo apt install mysql-cilent ----->  if this isnt working then use the bellow
+sudo apt-get update
+
+
+my-first-database.ctieo4i0mu8d.eu-north-1.rds.amazonaws.com
