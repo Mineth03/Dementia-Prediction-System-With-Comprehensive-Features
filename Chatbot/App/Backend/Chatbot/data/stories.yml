@@ -406,17 +406,10 @@ stories:
     - intent: ask_chatbot_rephrase_answer
     - action: utter_chatbot_rephrase_answer
 
-- story: User asks chatbot to skip a question
-  steps:
-    - intent: ask_chatbot_skip_question
-    - action: utter_chatbot_skip_question
-
 - story: user says goodbye
   steps:
     - intent: goodbye
     - action: utter_goodbye
-
-
 
 - story: User asks about dementia assistive devices
   steps:
@@ -463,10 +456,105 @@ stories:
     - intent: ask_dementia_patient_reminiscence_therapy
     - action: utter_dementia_patient_reminiscence_therapy
 
+- story: Gait disorder info
+  steps:
+    - intent: ask_definition_gait_disorder
+    - action: utter_definition_gait_disorder
+
+- story: Motor symptoms info
+  steps:
+    - intent: ask_definition_motor_symptoms
+    - action: utter_definition_motor_symptoms
+
+- story: Parkinsonism info
+  steps:
+    - intent: ask_definition_parkinsonism
+    - action: utter_definition_parkinsonism
+
+- story: Hypertension info
+  steps:
+    - intent: ask_definition_hypertension
+    - action: utter_definition_hypertension
+
+- story: Hypercholesterolemia info
+  steps:
+    - intent: ask_definition_hypercholesterolemia
+    - action: utter_definition_hypercholesterolemia
+
 - story: User asks about dementia patient legal rights
   steps:
     - intent: ask_dementia_patient_legal_rights
     - action: utter_dementia_patient_legal_rights
+
+- story: Thyroid disease definition
+  steps:
+    - intent: ask_definition_thyroid_disease
+    - action: utter_definition_thyroid_disease
+
+- story: Atrial fibrillation definition
+  steps:
+    - intent: ask_definition_atrial_fibrillation
+    - action: utter_definition_atrial_fibrillation
+
+- story: Cardiovascular disease definition
+  steps:
+    - intent: ask_definition_cardiovascular_disease
+    - action: utter_definition_cardiovascular_disease
+
+- story: Psychiatric condition definition
+  steps:
+    - intent: ask_definition_psychiatric_condition
+    - action: utter_definition_psychiatric_condition
+
+- story: Hallucinations definition
+  steps:
+    - intent: ask_definition_hallucinations
+    - action: utter_definition_hallucinations
+
+- story: Delusions definition
+  steps:
+    - intent: ask_definition_delusions
+    - action: utter_definition_delusions
+
+- story: Severe agitation or aggression definition
+  steps:
+    - intent: ask_definition_severe_agitation_or_aggression
+    - action: utter_definition_severe_agitation_or_aggression
+
+- story: Diuretic medication definition
+  steps:
+    - intent: ask_definition_diuretic_medication
+    - action: utter_definition_diuretic_medication
+
+- story: Cardioselective beta-blockers definition
+  steps:
+    - intent: ask_definition_cardioselective_beta_blockers
+    - action: utter_definition_cardioselective_beta_blockers
+
+- story: Non-cardioselective beta-blockers definition
+  steps:
+    - intent: ask_definition_non_cardioselective_beta_blockers
+    - action: utter_definition_non_cardioselective_beta_blockers
+
+- story: Antiadrenergic agents definition
+  steps:
+    - intent: ask_definition_antiadrenergic_agents
+    - action: utter_definition_antiadrenergic_agents
+
+- story: Angiotensin II inhibitor definition
+  steps:
+    - intent: ask_definition_angiotensin_ii_inhibitor
+    - action: utter_definition_angiotensin_ii_inhibitor
+
+- story: Calcium channel blocking agent definition
+  steps:
+    - intent: ask_definition_calcium_channel_blocking_agent
+    - action: utter_definition_calcium_channel_blocking_agent
+
+- story: ACE inhibitor definition
+  steps:
+    - intent: ask_definition_ace_inhibitor
+    - action: utter_definition_ace_inhibitor
 
 - story: User requests weekly reports and selects one
   steps:

@@ -2073,28 +2073,414 @@ nlu:
     - I still don’t understand. Can you try a different approach?
     - Can you rephrase that in layman's terms?
 
-- intent: ask_chatbot_skip_question
+- intent: ask_definition_gait_disorder
   examples: |
-    - Skip this question.
-    - I don’t want to talk about this right now.
-    - Let’s move on to another topic.
-    - Can we change the subject?
-    - Ignore that, let’s discuss something else.
-    - I’d rather not answer that.
-    - Let's skip that one.
-    - Not interested in this question.
-    - Let’s go to the next one.
-    - Can we talk about something else?
-    - I prefer not to answer this.
-    - Move on to the next question.
-    - This topic is not relevant to me. Let’s change it.
-    - I’d like to discuss a different subject.
-    - That’s not important to me. Let’s skip it.
-    - No need to answer that. Move forward.
-    - I don’t feel like talking about that right now.
-    - Can we switch to another topic?
-    - I don’t have an answer for that. Next question.
-    - Let’s change the conversation to something else.
+    - What is a gait disorder?
+    - What does gait disorder mean?
+    - Can you explain gait disorder?
+    - What do you mean by gait disorder?
+    - What's the meaning of gait disorder?
+    - Gait disorder — what is it?
+    - Define gait disorder
+    - I want to know what gait disorder is
+    - What is the definition of gait disorder?
+    - Could you tell me what gait disorder means?
+    - Explain gait disorder to me
+    - Gait disorder meaning?
+    - What is meant by gait disorder?
+    - What is considered a gait disorder?
+    - What does it mean to have a gait disorder?
+    - Can you tell me what gait disorder means?
+    - Gait disorder explanation?
+    - What is a gait issue?
+    - What do they mean by gait disorder?
+
+- intent: ask_definition_motor_symptoms
+  examples: |
+    - What are motor symptoms?
+    - What does motor symptoms mean?
+    - Can you explain motor symptoms?
+    - What do you mean by motor symptoms?
+    - Define motor symptoms
+    - What's the meaning of motor symptoms?
+    - Motor symptoms — what are they?
+    - What is the definition of motor symptoms?
+    - What is meant by motor symptoms?
+    - Could you tell me what motor symptoms means?
+    - I want to know what motor symptoms are
+    - Motor symptoms meaning?
+    - What do motor symptoms refer to?
+    - What is considered a motor symptom?
+    - Can you tell me what motor symptoms are?
+    - What do they mean by motor symptoms?
+    - What is a motor symptom?
+
+- intent: ask_definition_parkinsonism
+  examples: |
+    - What is parkinsonism?
+    - What does parkinsonism mean?
+    - Can you explain parkinsonism?
+    - What do you mean by parkinsonism?
+    - Define parkinsonism
+    - Parkinsonism — what is it?
+    - What's the meaning of parkinsonism?
+    - I want to know what parkinsonism is
+    - What is meant by parkinsonism?
+    - What is the definition of parkinsonism?
+    - Could you tell me what parkinsonism means?
+    - Explain parkinsonism to me
+    - Parkinsonism meaning?
+    - What is considered parkinsonism?
+    - What do they mean by parkinsonism?
+
+- intent: ask_definition_hypertension
+  examples: |
+    - What is hypertension?
+    - What does hypertension mean?
+    - Can you explain hypertension?
+    - What do you mean by hypertension?
+    - Define hypertension
+    - Hypertension — what is it?
+    - What's the meaning of hypertension?
+    - I want to know what hypertension is
+    - What is meant by hypertension?
+    - What is the definition of hypertension?
+    - Could you tell me what hypertension means?
+    - Explain hypertension to me
+    - Hypertension meaning?
+    - What is considered hypertension?
+    - What do they mean by hypertension?
+
+- intent: ask_definition_hypercholesterolemia
+  examples: |
+    - What is hypercholesterolemia?
+    - What does hypercholesterolemia mean?
+    - Can you explain hypercholesterolemia?
+    - What do you mean by hypercholesterolemia?
+    - Define hypercholesterolemia
+    - Hypercholesterolemia — what is it?
+    - What's the meaning of hypercholesterolemia?
+    - I want to know what hypercholesterolemia is
+    - What is the definition of hypercholesterolemia?
+    - Could you tell me what hypercholesterolemia means?
+    - Explain hypercholesterolemia to me
+    - Hypercholesterolemia meaning?
+    - What is meant by hypercholesterolemia?
+    - What is considered hypercholesterolemia?
+    - What do they mean by hypercholesterolemia?
+
+- intent: ask_definition_thyroid_disease
+  examples: |
+    - What is thyroid disease?
+    - What does thyroid disease mean?
+    - Can you explain thyroid disease?
+    - Tell me the meaning of thyroid disease
+    - What do you mean by thyroid disease?
+    - Thyroid disease — what is it?
+    - Define thyroid disease
+    - What's thyroid disease?
+    - What is the definition of thyroid disease?
+    - I want to know what thyroid disease is
+    - Explain thyroid disease in simple terms
+    - What does it mean to have thyroid disease?
+    - Meaning of thyroid disease?
+    - What does thyroid disease refer to?
+    - What do they mean by thyroid disease?
+    - Thyroid disease meaning?
+    - What is considered thyroid disease?
+    - Could you tell me what thyroid disease means?
+    - What’s meant by thyroid disease?
+
+- intent: ask_definition_atrial_fibrillation
+  examples: |
+    - What is atrial fibrillation?
+    - What does atrial fibrillation mean?
+    - Can you explain atrial fibrillation?
+    - What do you mean by atrial fibrillation?
+    - Atrial fibrillation — what is it?
+    - Define atrial fibrillation
+    - What's atrial fibrillation?
+    - Tell me the meaning of atrial fibrillation
+    - What is the definition of atrial fibrillation?
+    - I want to know what atrial fibrillation is
+    - Explain atrial fibrillation simply
+    - What does it mean to have atrial fibrillation?
+    - What do they mean by atrial fibrillation?
+    - What’s meant by atrial fibrillation?
+    - Meaning of atrial fibrillation?
+    - Atrial fibrillation meaning?
+    - Could you tell me what atrial fibrillation means?
+    - What is considered atrial fibrillation?
+
+- intent: ask_definition_cardiovascular_disease
+  examples: |
+    - What is cardiovascular disease?
+    - Can you explain cardiovascular disease?
+    - What does cardiovascular disease mean?
+    - What do you mean by cardiovascular disease?
+    - Define cardiovascular disease
+    - What's cardiovascular disease?
+    - Cardiovascular disease — what is it?
+    - What is the definition of cardiovascular disease?
+    - Tell me the meaning of cardiovascular disease
+    - What does cardiovascular disease refer to?
+    - What is considered cardiovascular disease?
+    - What’s meant by cardiovascular disease?
+    - Could you tell me what cardiovascular disease is?
+    - Meaning of cardiovascular disease?
+    - I want to know what cardiovascular disease is
+    - What do they mean by cardiovascular disease?
+    - Explain cardiovascular disease in simple terms
+    - What is meant by cardiovascular disease?
+
+- intent: ask_definition_psychiatric_condition
+  examples: |
+    - What is a psychiatric condition?
+    - Can you explain psychiatric condition?
+    - What do you mean by psychiatric condition?
+    - What does psychiatric condition mean?
+    - Psychiatric condition — what is it?
+    - What's a psychiatric condition?
+    - Define psychiatric condition
+    - What is meant by psychiatric condition?
+    - Tell me the meaning of psychiatric condition
+    - Explain psychiatric condition in simple words
+    - What’s meant by psychiatric condition?
+    - Meaning of psychiatric condition?
+    - I want to know what psychiatric condition is
+    - What does psychiatric condition refer to?
+    - What is the definition of psychiatric condition?
+    - Could you tell me what a psychiatric condition means?
+    - What is considered a psychiatric condition?
+
+- intent: ask_definition_hallucinations
+  examples: |
+    - What are hallucinations?
+    - Can you explain hallucinations?
+    - What do you mean by hallucinations?
+    - What does hallucinations mean?
+    - Hallucinations — what is it?
+    - What's a hallucination?
+    - Define hallucinations
+    - What is meant by hallucinations?
+    - Tell me the meaning of hallucinations
+    - What’s meant by hallucinations?
+    - I want to know what hallucinations are
+    - Explain hallucinations in simple words
+    - What is the definition of hallucinations?
+    - What does it mean to have hallucinations?
+    - What is considered hallucination?
+    - What do they mean by hallucinations?
+    - What do hallucinations refer to?
+
+- intent: ask_definition_delusions
+  examples: |
+    - What are delusions?
+    - What does delusions mean?
+    - Can you explain delusions?
+    - What do you mean by delusions?
+    - Define delusions
+    - Delusions — what are they?
+    - What's the meaning of delusions?
+    - I want to know what delusions are
+    - What is the definition of delusions?
+    - Could you tell me what delusions means?
+    - Explain delusions to me
+    - Delusions meaning?
+    - What is meant by delusions?
+    - What do delusions refer to?
+    - What is considered a delusion?
+    - What’s meant by delusions?
+    - Can you tell me what delusions are?
+    - What do they mean by delusions?
+    - What are considered delusions?
+    - What is a delusion in simple terms?
+
+- intent: ask_definition_severe_agitation_or_aggression
+  examples: |
+    - What is severe agitation?
+    - What does severe agitation mean?
+    - What do you mean by severe aggression?
+    - Can you explain agitation or aggression?
+    - Define severe agitation or aggression
+    - What is meant by agitation or aggression?
+    - Agitation or aggression — what is it?
+    - What's the meaning of severe agitation?
+    - I want to know what agitation means
+    - What is the definition of aggression?
+    - Could you tell me what severe agitation is?
+    - Explain severe aggression to me
+    - What does aggression mean in medical terms?
+    - What do they mean by agitation or aggression?
+    - What is considered severe agitation?
+    - Severe agitation meaning?
+    - What’s meant by aggression?
+    - What is agitation in simple words?
+    - What does it mean when someone is severely agitated?
+
+- intent: ask_definition_diuretic_medication
+  examples: |
+    - What is a diuretic medication?
+    - What does diuretic medication mean?
+    - Can you explain diuretic medication?
+    - What do you mean by diuretic medication?
+    - Define diuretic medication
+    - Diuretic medication — what is it?
+    - What's the meaning of diuretic medication?
+    - I want to know what diuretic medication is
+    - What is the definition of diuretic medication?
+    - Could you tell me what a diuretic is?
+    - Explain diuretic medication to me
+    - What is meant by diuretic medication?
+    - What is considered a diuretic medication?
+    - What’s meant by diuretic medication?
+    - What do they mean by diuretic medication?
+    - Diuretic medicine meaning?
+    - What is a water pill?
+    - What are diuretics in simple terms?
+
+- intent: ask_definition_cardioselective_beta_blockers
+  examples: |
+    - What are cardioselective beta-blockers?
+    - What does cardioselective beta-blockers mean?
+    - Can you explain cardioselective beta-blockers?
+    - What do you mean by cardioselective beta-blockers?
+    - Define cardioselective beta-blockers
+    - Cardioselective beta-blockers — what are they?
+    - What's the meaning of cardioselective beta-blockers?
+    - I want to know what cardioselective beta-blockers are
+    - What is the definition of cardioselective beta-blockers?
+    - Could you tell me what cardioselective beta-blockers means?
+    - Explain cardioselective beta-blockers to me
+    - What is meant by cardioselective beta-blockers?
+    - What do cardioselective beta-blockers refer to?
+    - What is considered a cardioselective beta-blocker?
+    - What do they mean by cardioselective beta-blockers?
+
+- intent: ask_definition_non_cardioselective_beta_blockers
+  examples: |
+    - What are non-cardioselective beta-blockers?
+    - What does non-cardioselective beta-blockers mean?
+    - Can you explain non-cardioselective beta-blockers?
+    - What do you mean by non-cardioselective beta-blockers?
+    - Define non-cardioselective beta-blockers
+    - Non-cardioselective beta-blockers — what are they?
+    - What's the meaning of non-cardioselective beta-blockers?
+    - I want to know what non-cardioselective beta-blockers are
+    - What is the definition of non-cardioselective beta-blockers?
+    - Could you tell me what non-cardioselective beta-blockers means?
+    - Explain non-cardioselective beta-blockers to me
+    - What is meant by non-cardioselective beta-blockers?
+    - What do non-cardioselective beta-blockers refer to?
+    - What is considered a non-cardioselective beta-blocker?
+    - What do they mean by non-cardioselective beta-blockers?
+
+- intent: ask_definition_antiadrenergic_agents
+  examples: |
+    - What are antiadrenergic agents?
+    - What does antiadrenergic agents mean?
+    - Can you explain antiadrenergic agents?
+    - What do you mean by antiadrenergic agents?
+    - Define antiadrenergic agents
+    - Antiadrenergic agents — what are they?
+    - What's the meaning of antiadrenergic agents?
+    - I want to know what antiadrenergic agents are
+    - What is the definition of antiadrenergic agents?
+    - Could you tell me what antiadrenergic agents means?
+    - Explain antiadrenergic agents to me
+    - What is meant by antiadrenergic agents?
+    - What are considered antiadrenergic agents?
+    - What’s meant by antiadrenergic agents?
+    - What do they mean by antiadrenergic agents?
+    - What are antiadrenergic drugs?
+    - What are antiadrenergics?
+    - What is an antiadrenergic medication?
+    - What is an antiadrenergic in simple terms?
+    - Can you define antiadrenergic in plain words?
+
+- intent: ask_definition_angiotensin_ii_inhibitor
+  examples: |
+    - What is an angiotensin II inhibitor?
+    - What does angiotensin II inhibitor mean?
+    - Can you explain angiotensin II inhibitor?
+    - What do you mean by angiotensin II inhibitor?
+    - Define angiotensin II inhibitor
+    - Angiotensin II inhibitor — what is it?
+    - What's the meaning of angiotensin II inhibitor?
+    - I want to know what angiotensin II inhibitor is
+    - What is the definition of angiotensin II inhibitor?
+    - Could you tell me what angiotensin II inhibitor means?
+    - Explain angiotensin II inhibitor to me
+    - What is meant by angiotensin II inhibitor?
+    - What do they mean by angiotensin II inhibitor?
+    - What is an angiotensin II blocker?
+    - What does an angiotensin II blocker do?
+    - What is considered an angiotensin II inhibitor?
+    - What’s meant by angiotensin II medicine?
+    - What is an angiotensin II inhibitor used for?
+
+- intent: ask_definition_calcium_channel_blocking_agent
+  examples: |
+    - What is a calcium channel blocking agent?
+    - What does calcium channel blocking agent mean?
+    - Can you explain calcium channel blockers?
+    - What do you mean by calcium channel blocking agent?
+    - Define calcium channel blockers
+    - Calcium channel blocker — what is it?
+    - What's the meaning of calcium channel blocking agent?
+    - I want to know what a calcium channel blocker is
+    - What is the definition of calcium channel blockers?
+    - Could you tell me what calcium channel blocking agent means?
+    - Explain calcium channel blocking agent to me
+    - What is meant by calcium channel blocking agent?
+    - What do they mean by calcium channel blockers?
+    - What is considered a calcium channel blocker?
+    - What’s meant by calcium channel blocking agent?
+    - What are calcium channel blockers?
+    - What is a calcium channel blocking drug?
+    - Can you define calcium channel blocker?
+
+- intent: ask_definition_calcium_channel_blocking_agent
+  examples: |
+    - What is a calcium channel blocking agent?
+    - What does calcium channel blocking agent mean?
+    - Can you explain calcium channel blockers?
+    - What do you mean by calcium channel blocking agent?
+    - Define calcium channel blockers
+    - Calcium channel blocker — what is it?
+    - What's the meaning of calcium channel blocking agent?
+    - I want to know what a calcium channel blocker is
+    - What is the definition of calcium channel blockers?
+    - Could you tell me what calcium channel blocking agent means?
+    - Explain calcium channel blocking agent to me
+    - What is meant by calcium channel blocking agent?
+    - What do they mean by calcium channel blockers?
+    - What is considered a calcium channel blocker?
+    - What’s meant by calcium channel blocking agent?
+    - What are calcium channel blockers?
+    - What is a calcium channel blocking drug?
+    - Can you define calcium channel blocker?
+
+- intent: ask_definition_ace_inhibitor
+  examples: |
+    - What is an ACE inhibitor?
+    - What does ACE inhibitor mean?
+    - Can you explain ACE inhibitor?
+    - What do you mean by ACE inhibitor?
+    - Define ACE inhibitor
+    - ACE inhibitor — what is it?
+    - What's the meaning of ACE inhibitor?
+    - I want to know what ACE inhibitor is
+    - What is the definition of ACE inhibitor?
+    - Could you tell me what ACE inhibitor means?
+    - Explain ACE inhibitor to me
+    - What is meant by ACE inhibitor?
+    - What do they mean by ACE inhibitor?
+    - What are ACE inhibitors?
+    - What is an ACE inhibitor in simple words?
+    - What is considered an ACE inhibitor?
+    - What’s meant by ACE medicine?
+    - What is an ACE drug?
 
 - intent: goodbye
   examples: |
