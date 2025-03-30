@@ -1,0 +1,94 @@
+,precision,recall,f1-score,support,confused_with
+ask_dementia_patient_eating_habits,1.0,1.0,1.0,20,{}
+ask_dementia_patient_resistance_to_change,1.0,1.0,1.0,20,{}
+ask_dementia_assistive_devices,1.0,1.0,1.0,20,{}
+ask_dementia_patient_communication_issues,1.0,1.0,1.0,19,{}
+ask_dementia_patient_reminiscence_therapy,1.0,1.0,1.0,19,{}
+ask_dementia_patient_wandering_prevention,1.0,1.0,1.0,20,{}
+ask_dementia_statistics,1.0,1.0,1.0,20,{}
+ask_dementia_patient_personal_recognition_loss,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_hospice_care,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_transportation_challenges,1.0,1.0,1.0,20,{}
+ask_dementia_patient_lack_of_awareness,1.0,1.0,1.0,19,{}
+ask_dementia_patient_daily_routines,1.0,0.9,0.9473684210526316,20,{'ask_caregiver_setting_up_routines_for_dementia_patient': 2}
+ask_caregiver_helping_dementia_patient_make_decisions,1.0,1.0,1.0,19,{}
+ask_dementia_nursing_home_decision,1.0,1.0,1.0,20,{}
+ask_dementia_patient_fidgeting,1.0,1.0,1.0,20,{}
+ask_dementia_diagnosis_prevention,1.0,1.0,1.0,19,{}
+ask_dementia_patient_aggression,0.9047619047619048,0.95,0.9268292682926829,20,{'ask_dementia_patient_aggression_management': 1}
+ask_dementia_misconceptions,1.0,1.0,1.0,20,{}
+ask_caregiver_how_to_handle_dementia_patient_refusing_medication,1.0,1.0,1.0,20,{}
+ask_dementia_sundowning_management,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_palliative_care,1.0,1.0,1.0,20,{}
+ask_dementia_patient_hiding_objects,1.0,1.0,1.0,20,{}
+ask_dementia_friendly_home_tips,1.0,1.0,1.0,20,{}
+ask_dementia_patient_resisting_help,1.0,1.0,1.0,20,{}
+ask_dementia_treatment_medical,1.0,1.0,1.0,19,{}
+ask_dementia_patient_aggression_management,0.9473684210526315,0.9,0.9230769230769231,20,{'ask_dementia_patient_aggression': 2}
+ask_dementia_early_signs,1.0,0.95,0.9743589743589743,20,{'ask_dementia_symptoms': 1}
+ask_caregiver_sibling_disagreements,1.0,0.9714285714285714,0.9855072463768115,35,{'ask_caregiver_support_for_family_members': 1}
+ask_caregiver_dementia_patient_denial,1.0,1.0,1.0,34,{}
+ask_dementia_patient_late_stage_care,1.0,0.95,0.9743589743589743,20,{'ask_dementia_hospice_care': 1}
+ask_dementia_symptoms,0.95,1.0,0.9743589743589743,19,{}
+ask_caregiver_tips,1.0,1.0,1.0,18,{}
+ask_caregiver_financial_assistance,1.0,1.0,1.0,20,{}
+ask_dementia_treatment_lifestyle,1.0,1.0,1.0,20,{}
+ask_dementia_patient_social_withdrawal,0.95,0.95,0.9500000000000001,20,{'ask_caregiver_managing_dementia_patient_social_isolation': 1}
+ask_dementia_causes,1.0,1.0,1.0,20,{}
+ask_dementia_patient_excessive_repetitive_movements,1.0,1.0,1.0,20,{}
+who_are_you,1.0,0.95,0.9743589743589743,20,{'what_can_you_do': 1}
+ask_dementia_patient_physical_disability,1.0,1.0,1.0,20,{}
+ask_dementia_patient_fear_and_anxiety,1.0,1.0,1.0,20,{}
+ask_caregiver_time_management,1.0,1.0,1.0,20,{}
+ask_dementia_patient_shadowing_behavior,1.0,1.0,1.0,20,{}
+ask_caregiver_setting_up_routines_for_dementia_patient,0.9090909090909091,1.0,0.9523809523809523,20,{}
+ask_caregiver_stress_management,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_definition,1.0,1.0,1.0,19,{}
+ask_dementia_patient_sleep_issues,1.0,0.9,0.9473684210526316,20,"{'ask_dementia_patient_sleep_cycle_disruption': 1, 'ask_dementia_sundowning_management': 1}"
+ask_chatbot_skip_question,1.0,1.0,1.0,20,{}
+goodbye,1.0,1.0,1.0,20,{}
+ask_dementia_patient_personality_changes,1.0,1.0,1.0,20,{}
+thank_you,1.0,1.0,1.0,20,{}
+request_weekly_report,1.0,1.0,1.0,11,{}
+ask_caregiver_managing_dementia_patient_social_isolation,0.95,0.95,0.9500000000000001,20,{'ask_dementia_patient_social_withdrawal': 1}
+ask_dementia_patient_hygiene_care,1.0,1.0,1.0,20,{}
+ask_chatbot_rephrase_answer,1.0,1.0,1.0,20,{}
+ask_dementia_patient_legal_rights,1.0,1.0,1.0,20,{}
+ask_dementia_patient_paranoia,1.0,1.0,1.0,20,{}
+how_are_you,1.0,0.95,0.9743589743589743,20,{'greet': 1}
+ask_caregiver_long_distance_care,1.0,1.0,1.0,35,{}
+ask_caregiver_burnout_prevention,1.0,0.9,0.9473684210526316,20,"{'ask_caregiver_stress_management': 1, 'ask_caregiver_setting_boundaries': 1}"
+ask_dementia_types,1.0,1.0,1.0,20,{}
+ask_dementia_brain_exercises,1.0,1.0,1.0,20,{}
+ask_caregiver_patient_interaction,1.0,1.0,1.0,17,{}
+ask_dementia_risk_factors,1.0,1.0,1.0,17,{}
+ask_dementia_patient_repetitive_questions,1.0,1.0,1.0,20,{}
+ask_dementia_patient_hallucinations,1.0,1.0,1.0,20,{}
+ask_dementia_support_services,1.0,1.0,1.0,20,{}
+greet,0.95,1.0,0.9743589743589743,19,{}
+ask_caregiver_understanding_dementia_patient_emotions,1.0,1.0,1.0,19,{}
+ask_dementia_patient_sensitivity_to_noise,1.0,1.0,1.0,20,{}
+ask_caregiver_dealing_with_guilt,1.0,1.0,1.0,34,{}
+ask_dementia_patient_pain_management,1.0,1.0,1.0,20,{}
+ask_dementia_patient_dressing_difficulties,1.0,1.0,1.0,20,{}
+ask_dementia_patient_speech_changes,1.0,1.0,1.0,20,{}
+ask_dementia_technology_assistance,1.0,1.0,1.0,20,{}
+ask_dementia_patient_wandering,1.0,1.0,1.0,20,{}
+ask_dementia_patient_hyperorality,1.0,1.0,1.0,20,{}
+ask_dementia_patient_sleep_cycle_disruption,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_patient_not_recognizing_home,1.0,1.0,1.0,20,{}
+out_of_scope,1.0,1.0,1.0,66,{}
+ask_dementia_impact_of_diet,1.0,1.0,1.0,20,{}
+ask_dementia_patient_loss_of_time_awareness,1.0,1.0,1.0,20,{}
+ask_dementia_patient_confusion,1.0,0.95,0.9743589743589743,20,{'ask_dementia_patient_personal_recognition_loss': 1}
+ask_dementia_patient_difficulty_swallowing,1.0,1.0,1.0,20,{}
+what_can_you_do,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_patient_emotional_changes,1.0,1.0,1.0,20,{}
+ask_caregiver_effect_on_mental_health,1.0,1.0,1.0,35,{}
+ask_caregiver_support_for_family_members,0.9714285714285714,1.0,0.9855072463768115,34,{}
+ask_dementia_prevention_methods,1.0,1.0,1.0,19,{}
+ask_caregiver_setting_boundaries,0.9523809523809523,1.0,0.975609756097561,20,{}
+ask_dementia_vs_normal_aging,1.0,1.0,1.0,19,{}
+ask_dementia_patient_wandering_outside,1.0,1.0,1.0,20,{}
+ask_dementia_patient_loss_of_interest,1.0,1.0,1.0,19,{}
+ask_dementia_patient_fixation_on_past_events,1.0,1.0,1.0,20,{}
