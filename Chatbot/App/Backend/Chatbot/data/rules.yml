@@ -364,11 +364,6 @@ rules:
       - intent: ask_chatbot_rephrase_answer
       - action: utter_chatbot_rephrase_answer
 
-  - rule: Skip chatbot question
-    steps:
-      - intent: ask_chatbot_skip_question
-      - action: utter_chatbot_skip_question
-
   - rule: Answer dementia patient excessive repetitive movements questions
     steps:
       - intent: ask_dementia_patient_excessive_repetitive_movements
@@ -470,10 +465,104 @@ rules:
       - intent: ask_dementia_patient_reminiscence_therapy
       - action: utter_dementia_patient_reminiscence_therapy
 
+  - rule: Respond to gait disorder question
+    steps:
+      - intent: ask_definition_gait_disorder
+      - action: utter_definition_gait_disorder
+
+  - rule: Respond to motor symptoms question
+    steps:
+      - intent: ask_definition_motor_symptoms
+      - action: utter_definition_motor_symptoms
+
+  - rule: Respond to parkinsonism question
+    steps:
+      - intent: ask_definition_parkinsonism
+      - action: utter_definition_parkinsonism
+
+  - rule: Respond to hypertension question
+    steps:
+      - intent: ask_definition_hypertension
+      - action: utter_definition_hypertension
+
+  - rule: Respond to hypercholesterolemia question
+    steps:
+      - intent: ask_definition_hypercholesterolemia
+      - action: utter_definition_hypercholesterolemia
   - rule: Answer dementia patient legal rights questions
     steps:
         - intent: ask_dementia_patient_legal_rights
         - action: utter_dementia_patient_legal_rights
+
+  - rule: Respond to thyroid disease question
+    steps:
+      - intent: ask_definition_thyroid_disease
+      - action: utter_definition_thyroid_disease
+
+  - rule: Respond to atrial fibrillation question
+    steps:
+      - intent: ask_definition_atrial_fibrillation
+      - action: utter_definition_atrial_fibrillation
+
+  - rule: Respond to cardiovascular disease question
+    steps:
+      - intent: ask_definition_cardiovascular_disease
+      - action: utter_definition_cardiovascular_disease
+
+  - rule: Respond to psychiatric condition question
+    steps:
+      - intent: ask_definition_psychiatric_condition
+      - action: utter_definition_psychiatric_condition
+
+  - rule: Respond to hallucinations question
+    steps:
+      - intent: ask_definition_hallucinations
+      - action: utter_definition_hallucinations
+
+  - rule: Respond to delusions question
+    steps:
+      - intent: ask_definition_delusions
+      - action: utter_definition_delusions
+
+  - rule: Respond to severe agitation or aggression question
+    steps:
+      - intent: ask_definition_severe_agitation_or_aggression
+      - action: utter_definition_severe_agitation_or_aggression
+
+  - rule: Respond to diuretic medication question
+    steps:
+      - intent: ask_definition_diuretic_medication
+      - action: utter_definition_diuretic_medication
+
+  - rule: Respond to cardioselective beta-blockers question
+    steps:
+      - intent: ask_definition_cardioselective_beta_blockers
+      - action: utter_definition_cardioselective_beta_blockers
+
+  - rule: Respond to non-cardioselective beta-blockers question
+    steps:
+      - intent: ask_definition_non_cardioselective_beta_blockers
+      - action: utter_definition_non_cardioselective_beta_blockers
+
+  - rule: Respond to antiadrenergic agents question
+    steps:
+      - intent: ask_definition_antiadrenergic_agents
+      - action: utter_definition_antiadrenergic_agents
+
+  - rule: Respond to angiotensin II inhibitor question
+    steps:
+      - intent: ask_definition_angiotensin_ii_inhibitor
+      - action: utter_definition_angiotensin_ii_inhibitor
+
+  - rule: Respond to calcium channel blocking agent question
+    steps:
+      - intent: ask_definition_calcium_channel_blocking_agent
+      - action: utter_definition_calcium_channel_blocking_agent
+
+  - rule: Respond to ACE inhibitor question
+    steps:
+      - intent: ask_definition_ace_inhibitor
+      - action: utter_definition_ace_inhibitor
 
   - rule: Show list of available weekly reports
     steps:

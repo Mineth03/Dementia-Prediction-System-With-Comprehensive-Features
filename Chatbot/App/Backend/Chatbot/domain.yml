@@ -96,7 +96,25 @@ intents:
   - ask_dementia_patient_resisting_help
   - ask_dementia_patient_not_recognizing_home
   - ask_chatbot_rephrase_answer
-  - ask_chatbot_skip_question
+  - ask_definition_gait_disorder
+  - ask_definition_motor_symptoms
+  - ask_definition_parkinsonism
+  - ask_definition_hypertension
+  - ask_definition_hypercholesterolemia
+  - ask_definition_thyroid_disease
+  - ask_definition_atrial_fibrillation
+  - ask_definition_cardiovascular_disease
+  - ask_definition_psychiatric_condition
+  - ask_definition_hallucinations
+  - ask_definition_delusions
+  - ask_definition_severe_agitation_or_aggression
+  - ask_definition_diuretic_medication
+  - ask_definition_cardioselective_beta_blockers
+  - ask_definition_non_cardioselective_beta_blockers
+  - ask_definition_antiadrenergic_agents
+  - ask_definition_angiotensin_ii_inhibitor
+  - ask_definition_calcium_channel_blocking_agent
+  - ask_definition_ace_inhibitor
   - nlu_fallback
   - out_of_scope
   - goodbye
@@ -732,19 +750,107 @@ responses:
     - text: "Absolutely! I'll say it in another way."
     - text: "No problem! I’ll rephrase it for clarity."
 
-  utter_chatbot_skip_question:
-    - text: "No worries! Let’s move on to the next topic."
-    - text: "Okay, skipping that. What else would you like to ask?"
-    - text: "Got it! Let me know what else I can help with."
-    - text: "That’s fine! We can talk about something else."
-    - text: "Alright, skipping this one. Let me know what’s on your mind!"
-
   utter_out_of_scope:
     - text: "I'm here to assist with dementia-related topics. Could you ask something related?"
     - text: "I specialize in dementia care and support. Let me know how I can help in that area!"
     - text: "That topic is outside my expertise, but I’d be happy to assist with dementia-related questions!"
     - text: "I focus on dementia care and caregiving. Do you have any related concerns?"
     - text: "I’m best at answering questions about dementia and caregiving. Let me know how I can help!"
+
+  utter_definition_gait_disorder:
+    - text: "Gait disorder is when someone has difficulty walking or balancing. It usually affects how they move their legs and maintain stability."
+    - text: "It's a condition where your walking pattern is off — you might feel unsteady, lose balance, or walk differently than usual."
+    - text: "Trouble walking or balancing? That could be a gait disorder, which affects how you move your legs and stay steady."
+
+  utter_definition_motor_symptoms:
+    - text: "Motor symptoms are body movement issues like tremors, stiffness, or slowed movements. They're common in neurological conditions."
+    - text: "They refer to physical symptoms such as shaking or muscle stiffness — things that affect how your body moves."
+    - text: "If someone is moving slower than usual or has muscle stiffness, those could be motor symptoms."
+
+  utter_definition_parkinsonism:
+    - text: "Parkinsonism is a group of symptoms like tremors and stiff muscles that look similar to Parkinson's disease."
+    - text: "It’s not exactly Parkinson’s, but it causes similar movement problems like slow motion and shaking."
+    - text: "Think of Parkinsonism as a set of movement issues — like trembling or stiffness — that resemble Parkinson’s disease."
+
+  utter_definition_hypertension:
+    - text: "Hypertension means high blood pressure — when your blood pushes too hard against your blood vessels."
+    - text: "It’s a condition where your blood pressure stays too high, which can put extra stress on your heart and arteries."
+    - text: "High blood pressure, also called hypertension, can quietly damage your body over time if left unmanaged."
+
+  utter_definition_hypercholesterolemia:
+    - text: "Hypercholesterolemia is just a fancy word for high cholesterol — too much fat in your blood can block healthy flow."
+    - text: "It means your cholesterol levels are higher than normal, which can lead to heart disease or other issues if not treated."
+    - text: "Too much cholesterol in the blood is called hypercholesterolemia. It can build up in your arteries and cause blockages."
+
+  utter_definition_thyroid_disease:
+    - text: "Thyroid disease is when your thyroid gland, located in your neck, makes too much or too little hormone. This can affect things like your energy, mood, or weight."
+    - text: "It means your thyroid isn’t working properly, which can lead to feeling tired, gaining or losing weight, or other health changes."
+    - text: "When someone has thyroid disease, their hormone levels can be out of balance. It often affects energy levels and metabolism."
+
+  utter_definition_atrial_fibrillation:
+    - text: "Atrial fibrillation, or AFib, is when the heart beats irregularly — too fast or out of rhythm. It can make you feel tired, dizzy, or short of breath."
+    - text: "It’s a type of irregular heartbeat where the heart doesn’t beat in a steady rhythm, which can lead to complications if untreated."
+    - text: "AFib means your heart's rhythm is off — it might flutter or beat unevenly, which can affect blood flow."
+
+  utter_definition_cardiovascular_disease:
+    - text: "Cardiovascular disease refers to any condition that affects the heart or blood vessels, like heart attacks, strokes, or blocked arteries."
+    - text: "It’s an umbrella term for heart-related problems, including high blood pressure and issues with blood circulation."
+    - text: "When someone has cardiovascular disease, it usually means their heart or blood vessels aren’t functioning properly, which can lead to serious health issues."
+
+  utter_definition_psychiatric_condition:
+    - text: "A psychiatric condition is a serious mental health issue like depression, anxiety, PTSD, or OCD. These conditions affect how people think, feel, and behave."
+    - text: "It refers to mental health disorders that can impact mood, thoughts, and daily activities. Examples include anxiety, bipolar disorder, and others."
+    - text: "Psychiatric conditions are mental health challenges that can affect your emotions and thinking — like depression or obsessive thoughts."
+
+  utter_definition_hallucinations:
+    - text: "Hallucinations are when someone sees, hears, or feels things that aren’t actually there. They may seem very real to the person experiencing them."
+    - text: "It means sensing something that isn’t really happening — like hearing a voice or seeing an image that doesn’t exist."
+    - text: "A hallucination is when the brain creates a false experience — such as seeing or hearing things no one else can detect."
+
+  utter_definition_delusions:
+    - text: "Delusions are strong beliefs that aren't based in reality. For example, someone might think others are out to get them without any real reason."
+    - text: "A delusion is when a person strongly believes something that isn’t true or real — like being convinced someone is watching them when they’re not."
+    - text: "It means holding a belief that isn’t based on facts or reality, such as thinking you're in danger when you're not."
+
+  utter_definition_severe_agitation_or_aggression:
+    - text: "Severe agitation or aggression is when someone becomes very upset, restless, or angry in a way that’s hard to calm down."
+    - text: "It refers to intense emotional outbursts or physical restlessness that may be hard to manage or understand."
+    - text: "When a person shows extreme anger or distress that’s difficult to control, that’s known as severe agitation or aggression."
+
+  utter_definition_diuretic_medication:
+    - text: "Diuretic medication, often called a water pill, helps your body get rid of extra water and salt by making you urinate more."
+    - text: "It’s a type of medicine that helps reduce fluid in the body, which is helpful for conditions like high blood pressure or swelling."
+    - text: "Diuretics help the kidneys remove excess water and salt from the body through urine."
+
+  utter_definition_cardioselective_beta_blockers:
+    - text: "Cardioselective beta-blockers are heart medicines that slow the heart rate and help manage high blood pressure or heart conditions."
+    - text: "They’re a type of beta-blocker that mainly targets the heart, making it beat more slowly and with less force."
+    - text: "This type of medication is used to treat heart problems by focusing only on the heart, helping it work more efficiently."
+
+  utter_definition_non_cardioselective_beta_blockers:
+    - text: "Non-cardioselective beta-blockers affect the whole body, not just the heart. They’re used to treat blood pressure and other issues."
+    - text: "Unlike cardioselective types, these beta-blockers also affect the lungs and other parts of the body, not just the heart."
+    - text: "This type of beta-blocker is broader in effect — it helps with heart issues but can also affect other body systems like breathing."
+
+  utter_definition_antiadrenergic_agents:
+    - text: "Antiadrenergic agents are medicines that help lower blood pressure by relaxing blood vessels or reducing certain nerve signals."
+    - text: "These are medications used to treat high blood pressure by calming the nerves that tighten blood vessels."
+    - text: "They work by blocking signals that cause your blood vessels to narrow, helping to keep blood pressure in check."
+
+  utter_definition_angiotensin_ii_inhibitor:
+    - text: "An angiotensin II inhibitor is a medicine that helps lower blood pressure and protect the heart by blocking a hormone that tightens blood vessels."
+    - text: "These medications prevent a chemical in your body from tightening blood vessels, making it easier for your heart to pump blood."
+    - text: "They’re used to treat high blood pressure and heart problems by relaxing the blood vessels and improving blood flow."
+
+  utter_definition_calcium_channel_blocking_agent:
+    - text: "Calcium channel blockers are medicines that relax the blood vessels and help lower blood pressure."
+    - text: "They work by stopping calcium from entering the cells of the heart and blood vessels, which helps reduce pressure."
+    - text: "These medications help your blood flow more easily by relaxing the muscles in the blood vessel walls."
+
+  utter_definition_ace_inhibitor:
+    - text: "An ACE inhibitor is a medicine that lowers blood pressure by helping your blood vessels relax and open up."
+    - text: "These medications stop a chemical that narrows blood vessels, making it easier for the heart to pump blood."
+    - text: "ACE inhibitors help treat high blood pressure and heart failure by improving blood flow and reducing strain on the heart."
 
   utter_dementia_patient_legal_rights:
     - text: "Dementia patients have legal rights, including the right to medical care, privacy, and autonomy when possible. However, legal decisions may require power of attorney or guardianship if cognitive decline progresses."
