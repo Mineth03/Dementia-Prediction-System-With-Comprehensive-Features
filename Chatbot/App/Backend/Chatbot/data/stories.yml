@@ -1,0 +1,476 @@
+version: "3.1"
+
+stories:
+- story: User greets the bot
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- story: User thanks the bot
+  steps:
+    - intent: thank_you
+    - action: utter_thank_you
+
+- story: User asks who the bot is
+  steps:
+    - intent: who_are_you
+    - action: utter_group_made_me
+
+- story: User asks how the bot is
+  steps:
+    - intent: how_are_you
+    - action: utter_how_are_you
+
+- story: User asks what the bot can do
+  steps:
+    - intent: what_can_you_do
+    - action: utter_what_can_you_do
+
+- story: User asks for caregiver tips
+  steps:
+    - intent: ask_caregiver_tips
+    - action: utter_caregiver_tips
+
+- story: User expresses stress
+  steps:
+    - intent: ask_caregiver_stress_management
+    - action: utter_caregiver_stress_management
+
+- story: User asks about patient interaction
+  steps:
+    - intent: ask_caregiver_patient_interaction
+    - action: utter_caregiver_patient_interaction
+
+- story: User asks what dementia is
+  steps:
+    - intent: ask_dementia_definition
+    - action: utter_dementia_definition
+
+- story: User asks about dementia symptoms
+  steps:
+    - intent: ask_dementia_symptoms
+    - action: utter_dementia_symptoms
+
+- story: User asks about dementia causes
+  steps:
+    - intent: ask_dementia_causes
+    - action: utter_dementia_causes
+
+- story: User asks about types of dementia
+  steps:
+    - intent: ask_dementia_types
+    - action: utter_dementia_types
+
+- story: User asks about dementia diagnosis and prevention
+  steps:
+    - intent: ask_dementia_diagnosis_prevention
+    - action: utter_dementia_diagnosis_prevention
+
+- story: User asks about dementia misconceptions
+  steps:
+    - intent: ask_dementia_misconceptions
+    - action: utter_dementia_misconceptions
+
+- story: User asks about dementia statistics
+  steps:
+    - intent: ask_dementia_statistics
+    - action: utter_dementia_statistics
+
+- story: User asks about dementia patient aggression
+  steps:
+    - intent: ask_dementia_patient_aggression
+    - action: utter_dementia_patient_aggression
+
+- story: User asks about dementia patient wandering
+  steps:
+    - intent: ask_dementia_patient_wandering
+    - action: utter_dementia_patient_wandering
+
+- story: User asks about dementia patient sleep issues
+  steps:
+    - intent: ask_dementia_patient_sleep_issues
+    - action: utter_dementia_patient_sleep_issues
+
+- story: User asks about dementia prevention
+  steps:
+    - intent: ask_dementia_prevention_methods
+    - action: utter_dementia_prevention_methods
+
+- story: User asks about brain exercises
+  steps:
+    - intent: ask_dementia_brain_exercises
+    - action: utter_dementia_brain_exercises
+
+- story: User asks about the impact of diet on dementia
+  steps:
+    - intent: ask_dementia_impact_of_diet
+    - action: utter_dementia_impact_of_diet
+
+- story: User asks about dementia prevention
+  steps:
+    - intent: ask_dementia_prevention_methods
+    - action: utter_dementia_prevention_methods
+
+- story: User asks about brain exercises
+  steps:
+    - intent: ask_dementia_brain_exercises
+    - action: utter_dementia_brain_exercises
+
+- story: User asks about the impact of diet on dementia
+  steps:
+    - intent: ask_dementia_impact_of_diet
+    - action: utter_dementia_impact_of_diet
+
+- story: User asks about repetitive questions in dementia patients
+  steps:
+    - intent: ask_dementia_patient_repetitive_questions
+    - action: utter_dementia_patient_repetitive_questions
+
+- story: User asks about paranoia in dementia patients
+  steps:
+    - intent: ask_dementia_patient_paranoia
+    - action: utter_dementia_patient_paranoia
+
+- story: User asks about emotional changes in dementia patients
+  steps:
+    - intent: ask_dementia_patient_emotional_changes
+    - action: utter_dementia_patient_emotional_changes
+
+- story: User asks about making a home dementia-friendly
+  steps:
+    - intent: ask_dementia_friendly_home_tips
+    - action: utter_dementia_friendly_home_tips
+
+- story: User asks about daily routines for dementia patients
+  steps:
+    - intent: ask_dementia_patient_daily_routines
+    - action: utter_dementia_patient_daily_routines
+
+- story: User asks about dementia confusion
+  steps:
+    - intent: ask_dementia_patient_confusion
+    - action: utter_dementia_patient_confusion
+
+- story: User asks about loss of interest in dementia patients
+  steps:
+    - intent: ask_dementia_patient_loss_of_interest
+    - action: utter_dementia_patient_loss_of_interest
+
+- story: User asks about hallucinations in dementia patients
+  steps:
+    - intent: ask_dementia_patient_hallucinations
+    - action: utter_dementia_patient_hallucinations
+
+- story: User asks about eating habits in dementia patients
+  steps:
+    - intent: ask_dementia_patient_eating_habits
+    - action: utter_dementia_patient_eating_habits
+
+- story: User asks about communication with dementia patients
+  steps:
+    - intent: ask_dementia_patient_communication_issues
+    - action: utter_dementia_patient_communication_issues
+
+- story: User asks about dementia patient lack of awareness
+  steps:
+    - intent: ask_dementia_patient_lack_of_awareness
+    - action: utter_dementia_patient_lack_of_awareness
+
+- story: User asks about dementia personality changes
+  steps:
+    - intent: ask_dementia_patient_personality_changes
+    - action: utter_dementia_patient_personality_changes
+
+- story: User asks about caregiver time management
+  steps:
+    - intent: ask_caregiver_time_management
+    - action: utter_caregiver_time_management
+
+- story: User asks about caregiver burnout prevention
+  steps:
+    - intent: ask_caregiver_burnout_prevention
+    - action: utter_caregiver_burnout_prevention
+
+- story: User asks about dementia wandering prevention
+  steps:
+    - intent: ask_dementia_patient_wandering_prevention
+    - action: utter_dementia_patient_wandering_prevention
+
+- story: User asks about late-stage dementia care
+  steps:
+    - intent: ask_dementia_patient_late_stage_care
+    - action: utter_dementia_patient_late_stage_care
+
+- story: User asks about dementia support services
+  steps:
+    - intent: ask_dementia_support_services
+    - action: utter_dementia_support_services
+
+- story: User asks about dementia patient pain management
+  steps:
+    - intent: ask_dementia_patient_pain_management
+    - action: utter_dementia_patient_pain_management
+
+- story: User asks about caregiver setting boundaries
+  steps:
+    - intent: ask_caregiver_setting_boundaries
+    - action: utter_caregiver_setting_boundaries
+
+- story: User asks about dementia patient fidgeting
+  steps:
+    - intent: ask_dementia_patient_fidgeting
+    - action: utter_dementia_patient_fidgeting
+
+- story: User asks about dementia patient social withdrawal
+  steps:
+    - intent: ask_dementia_patient_social_withdrawal
+    - action: utter_dementia_patient_social_withdrawal
+
+- story: User asks about dementia palliative care
+  steps:
+    - intent: ask_dementia_palliative_care
+    - action: utter_dementia_palliative_care
+
+- story: User asks about dementia hospice care
+  steps:
+    - intent: ask_dementia_hospice_care
+    - action: utter_dementia_hospice_care
+
+- story: User asks about nursing home decisions for dementia patients
+  steps:
+    - intent: ask_dementia_nursing_home_decision
+    - action: utter_dementia_nursing_home_decision
+
+- story: User asks about dementia patient hygiene
+  steps:
+    - intent: ask_dementia_patient_hygiene_care
+    - action: utter_dementia_patient_hygiene_care
+
+- story: User asks about speech changes in dementia
+  steps:
+    - intent: ask_dementia_patient_speech_changes
+    - action: utter_dementia_patient_speech_changes
+
+- story: User asks about physical disability in dementia patients
+  steps:
+    - intent: ask_dementia_patient_physical_disability
+    - action: utter_dementia_patient_physical_disability
+
+- story: User asks about dementia patient recognition loss
+  steps:
+    - intent: ask_dementia_patient_personal_recognition_loss
+    - action: utter_dementia_patient_personal_recognition_loss
+
+- story: User asks about supporting other family members
+  steps:
+    - intent: ask_caregiver_support_for_family_members
+    - action: utter_caregiver_support_for_family_members
+
+- story: User asks about dementia patient denial
+  steps:
+    - intent: ask_caregiver_dementia_patient_denial
+    - action: utter_caregiver_dementia_patient_denial
+
+- story: User asks about long-distance caregiving
+  steps:
+    - intent: ask_caregiver_long_distance_care
+    - action: utter_caregiver_long_distance_care
+
+- story: User asks about sibling disagreements in caregiving
+  steps:
+    - intent: ask_caregiver_sibling_disagreements
+    - action: utter_caregiver_sibling_disagreements
+
+- story: User asks about caregiver mental health impact
+  steps:
+    - intent: ask_caregiver_effect_on_mental_health
+    - action: utter_caregiver_effect_on_mental_health
+
+- story: User asks about caregiver guilt
+  steps:
+    - intent: ask_caregiver_dealing_with_guilt
+    - action: utter_caregiver_dealing_with_guilt
+
+- story: User asks about dementia patient fear and anxiety
+  steps:
+    - intent: ask_dementia_patient_fear_and_anxiety
+    - action: utter_dementia_patient_fear_and_anxiety
+
+- story: User asks about dementia patient sensitivity to noise
+  steps:
+    - intent: ask_dementia_patient_sensitivity_to_noise
+    - action: utter_dementia_patient_sensitivity_to_noise
+
+- story: User asks about managing aggression in dementia patients
+  steps:
+    - intent: ask_dementia_patient_aggression_management
+    - action: utter_dementia_patient_aggression_management
+
+- story: User asks about sundowning in dementia patients
+  steps:
+    - intent: ask_dementia_sundowning_management
+    - action: utter_dementia_sundowning_management
+
+- story: User asks about dementia patient loss of time awareness
+  steps:
+    - intent: ask_dementia_patient_loss_of_time_awareness
+    - action: utter_dementia_patient_loss_of_time_awareness
+
+- story: User asks about dementia patient excessive repetitive movements
+  steps:
+    - intent: ask_dementia_patient_excessive_repetitive_movements
+    - action: utter_dementia_patient_excessive_repetitive_movements
+
+- story: User asks about dementia patient shadowing behavior
+  steps:
+    - intent: ask_dementia_patient_shadowing_behavior
+    - action: utter_dementia_patient_shadowing_behavior
+
+- story: User asks about hyperorality in dementia
+  steps:
+    - intent: ask_dementia_patient_hyperorality
+    - action: utter_dementia_patient_hyperorality
+
+- story: User asks about dementia patient dressing difficulties
+  steps:
+    - intent: ask_dementia_patient_dressing_difficulties
+    - action: utter_dementia_patient_dressing_difficulties
+
+- story: User asks about dementia patient wandering outside
+  steps:
+    - intent: ask_dementia_patient_wandering_outside
+    - action: utter_dementia_patient_wandering_outside
+
+- story: User asks about setting up routines for dementia patients
+  steps:
+    - intent: ask_caregiver_setting_up_routines_for_dementia_patient
+    - action: utter_caregiver_setting_up_routines_for_dementia_patient
+
+- story: User asks about managing social isolation in dementia patients
+  steps:
+    - intent: ask_caregiver_managing_dementia_patient_social_isolation
+    - action: utter_caregiver_managing_dementia_patient_social_isolation
+
+- story: User asks about dementia patient resisting help
+  steps:
+    - intent: ask_dementia_patient_resisting_help
+    - action: utter_dementia_patient_resisting_help
+
+- story: User asks about dementia patient not recognizing home
+  steps:
+    - intent: ask_dementia_patient_not_recognizing_home
+    - action: utter_dementia_patient_not_recognizing_home
+
+- story: User asks about difficulty swallowing in dementia patients
+  steps:
+    - intent: ask_dementia_patient_difficulty_swallowing
+    - action: utter_dementia_patient_difficulty_swallowing
+
+- story: User asks about dementia patient hiding objects
+  steps:
+    - intent: ask_dementia_patient_hiding_objects
+    - action: utter_dementia_patient_hiding_objects
+
+- story: User asks about fixation on past events
+  steps:
+    - intent: ask_dementia_patient_fixation_on_past_events
+    - action: utter_dementia_patient_fixation_on_past_events
+
+- story: User asks about dementia patient resistance to change
+  steps:
+    - intent: ask_dementia_patient_resistance_to_change
+    - action: utter_dementia_patient_resistance_to_change
+
+- story: User asks about helping dementia patients make decisions
+  steps:
+    - intent: ask_caregiver_helping_dementia_patient_make_decisions
+    - action: utter_caregiver_helping_dementia_patient_make_decisions
+
+- story: User asks about understanding dementia patient emotions
+  steps:
+    - intent: ask_caregiver_understanding_dementia_patient_emotions
+    - action: utter_caregiver_understanding_dementia_patient_emotions
+
+- story: User asks about dementia patient refusing medication
+  steps:
+    - intent: ask_caregiver_how_to_handle_dementia_patient_refusing_medication
+    - action: utter_caregiver_how_to_handle_dementia_patient_refusing_medication
+
+- story: User asks about dementia medical treatment
+  steps:
+    - intent: ask_dementia_treatment_medical
+    - action: utter_dementia_treatment_medical
+
+- story: User asks chatbot to rephrase an answer
+  steps:
+    - intent: ask_chatbot_rephrase_answer
+    - action: utter_chatbot_rephrase_answer
+
+- story: User asks chatbot to skip a question
+  steps:
+    - intent: ask_chatbot_skip_question
+    - action: utter_chatbot_skip_question
+
+- story: user says goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+
+- story: User asks about dementia assistive devices
+  steps:
+    - intent: ask_dementia_assistive_devices
+    - action: utter_dementia_assistive_devices
+
+- story: User asks about dementia patient sleep cycle disruption
+  steps:
+    - intent: ask_dementia_patient_sleep_cycle_disruption
+    - action: utter_dementia_patient_sleep_cycle_disruption
+
+- story: User asks about dementia early signs
+  steps:
+    - intent: ask_dementia_early_signs
+    - action: utter_dementia_early_signs
+
+- story: User asks about dementia risk factors
+  steps:
+    - intent: ask_dementia_risk_factors
+    - action: utter_dementia_risk_factors
+
+- story: User asks about dementia technology assistance
+  steps:
+    - intent: ask_dementia_technology_assistance
+    - action: utter_dementia_technology_assistance
+
+- story: User asks about dementia vs normal aging
+  steps:
+    - intent: ask_dementia_vs_normal_aging
+    - action: utter_dementia_vs_normal_aging
+
+- story: User asks about dementia lifestyle treatment
+  steps:
+    - intent: ask_dementia_treatment_lifestyle
+    - action: utter_dementia_treatment_lifestyle
+
+- story: User asks about dementia transportation challenges
+  steps:
+    - intent: ask_dementia_transportation_challenges
+    - action: utter_dementia_transportation_challenges
+
+- story: User asks about dementia reminiscence therapy
+  steps:
+    - intent: ask_dementia_patient_reminiscence_therapy
+    - action: utter_dementia_patient_reminiscence_therapy
+
+- story: User asks about dementia patient legal rights
+  steps:
+    - intent: ask_dementia_patient_legal_rights
+    - action: utter_dementia_patient_legal_rights
+
+- story: User requests weekly reports and selects one
+  steps:
+      - intent: request_weekly_report
+      - action: action_list_weekly_reports
+      - intent: select_specific_report
+      - action: action_provide_selected_report
