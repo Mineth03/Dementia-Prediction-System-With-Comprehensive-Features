@@ -1,0 +1,11 @@
+Flask
+Flask-Cors
+numpy
+joblib
+tensorflow==2.12.0
+opencv-python
+Pillow
+pymongo
+bcrypt
+jwt
+scikit-learn
