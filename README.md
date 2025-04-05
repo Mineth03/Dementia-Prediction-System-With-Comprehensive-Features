@@ -1,11 +1,11 @@
-# 🧠 Cognitive Health Assessment App
+# 🧠 SafeMind
 
 A futuristic and interactive web-based platform that provides:
 - 🧬 **Dementia Early Detection** (based on non-meical factors)
 - 🧬 **Dementia Sevierity Prediction** (based on medical factors),
 - 🧪 **Depression Test** (via facial emotion analysis),
 - 🧮 **Cognitive Assessment** (based on MoCA test),
-- 🧮 **Patient Tracking System** (based medications and daily routine),
+- 🧮 **Patient Tracking System** (based on medications and daily routine),
 - 💬 **Chatbot Assistant** for mental health support and guidance.
 
 Built with **ReactJS + Tailwind CSS** on the frontend and **Flask + Machine Learning models + Rasa** on the backend.
@@ -128,4 +128,4 @@ Built with **ReactJS + Tailwind CSS** on the frontend and **Flask + Machine Lear
 
 ## 🛠️ Run the system
 
-### Can easily run the system by run the .bat file.
+### Can easily run the system by running the .bat file.
