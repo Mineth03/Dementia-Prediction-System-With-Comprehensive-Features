@@ -1,34 +1,42 @@
 [
   {
-    "text": "what's up?",
-    "intent": "greet",
+    "text": "Are mood swings an early symptom of dementia?",
+    "intent": "ask_dementia_symptoms",
     "intent_prediction": {
-      "name": "how_are_you",
-      "confidence": 0.5174428224563599
+      "name": "ask_dementia_early_signs",
+      "confidence": 0.4895247220993042
     }
   },
   {
-    "text": "Is it normal for families to argue over dementia caregiving responsibilities?",
+    "text": "Can dementia symptoms come and go?",
+    "intent": "ask_dementia_early_signs",
+    "intent_prediction": {
+      "name": "ask_dementia_symptoms",
+      "confidence": 0.7823278903961182
+    }
+  },
+  {
+    "text": "Can siblings share caregiving responsibilities?",
     "intent": "ask_caregiver_support_for_family_members",
     "intent_prediction": {
       "name": "ask_caregiver_sibling_disagreements",
-      "confidence": 0.635211706161499
+      "confidence": 0.6110242009162903
     }
   },
   {
-    "text": "Can brain exercises prevent dementia?",
-    "intent": "ask_dementia_misconceptions",
+    "text": "How do I handle conflicts with family over dementia care?",
+    "intent": "ask_caregiver_support_for_family_members",
     "intent_prediction": {
-      "name": "ask_dementia_brain_exercises",
-      "confidence": 0.49538174271583557
+      "name": "ask_caregiver_sibling_disagreements",
+      "confidence": 0.4555758833885193
     }
   },
   {
-    "text": "How do I create a safe home environment for a wandering dementia patient?",
-    "intent": "ask_dementia_patient_wandering",
+    "text": "Is it normal for families to argue over dementia caregiving?",
+    "intent": "ask_caregiver_sibling_disagreements",
     "intent_prediction": {
-      "name": "ask_dementia_patient_wandering_prevention",
-      "confidence": 0.6061497926712036
+      "name": "ask_caregiver_support_for_family_members",
+      "confidence": 0.5630353689193726
     }
   },
   {
@@ -36,39 +44,15 @@
     "intent": "ask_dementia_patient_sleep_issues",
     "intent_prediction": {
       "name": "ask_dementia_sundowning_management",
-      "confidence": 0.8265877366065979
+      "confidence": 0.8057511448860168
     }
   },
   {
-    "text": "How can I create a bedtime routine for a dementia patient?",
-    "intent": "ask_dementia_patient_sleep_issues",
+    "text": "Should I wake a dementia patient at the same time every day?",
+    "intent": "ask_dementia_patient_daily_routines",
     "intent_prediction": {
-      "name": "ask_dementia_patient_sleep_cycle_disruption",
-      "confidence": 0.44853565096855164
-    }
-  },
-  {
-    "text": "Does melatonin help dementia patients sleep?",
-    "intent": "ask_dementia_patient_sleep_issues",
-    "intent_prediction": {
-      "name": "ask_dementia_patient_sleep_cycle_disruption",
-      "confidence": 0.6978598833084106
-    }
-  },
-  {
-    "text": "Does high cholesterol increase the risk of dementia?",
-    "intent": "ask_dementia_impact_of_diet",
-    "intent_prediction": {
-      "name": "ask_dementia_risk_factors",
-      "confidence": 0.543785572052002
-    }
-  },
-  {
-    "text": "How can I reduce confusion in my home for a dementia patient?",
-    "intent": "ask_dementia_friendly_home_tips",
-    "intent_prediction": {
-      "name": "ask_dementia_patient_confusion",
-      "confidence": 0.5395283699035645
+      "name": "ask_caregiver_setting_up_routines_for_dementia_patient",
+      "confidence": 0.5138170123100281
     }
   },
   {
@@ -76,63 +60,39 @@
     "intent": "ask_dementia_patient_confusion",
     "intent_prediction": {
       "name": "ask_dementia_patient_personal_recognition_loss",
-      "confidence": 0.6798452734947205
+      "confidence": 0.47010698914527893
     }
   },
   {
-    "text": "Should I wake a dementia patient up at the same time every day?",
-    "intent": "ask_caregiver_setting_up_routines_for_dementia_patient",
+    "text": "Is it normal for dementia patients to lose interest in socializing?",
+    "intent": "ask_dementia_patient_personality_changes",
     "intent_prediction": {
-      "name": "ask_dementia_patient_daily_routines",
-      "confidence": 0.48599371314048767
+      "name": "ask_dementia_patient_loss_of_interest",
+      "confidence": 0.4148491322994232
     }
   },
   {
-    "text": "Why do dementia patients deny they have dementia?",
-    "intent": "ask_dementia_patient_lack_of_awareness",
+    "text": "How do I create a safe environment to prevent wandering?",
+    "intent": "ask_dementia_patient_wandering_prevention",
     "intent_prediction": {
-      "name": "ask_caregiver_dementia_patient_denial",
-      "confidence": 0.6051158308982849
+      "name": "ask_dementia_patient_wandering",
+      "confidence": 0.4612997770309448
     }
   },
   {
-    "text": "Is it okay to take breaks from caregiving?",
-    "intent": "ask_caregiver_time_management",
+    "text": "Is it normal for dementia patients to isolate themselves?",
+    "intent": "ask_dementia_patient_social_withdrawal",
     "intent_prediction": {
-      "name": "ask_caregiver_setting_boundaries",
-      "confidence": 0.5831063985824585
+      "name": "ask_caregiver_managing_dementia_patient_social_isolation",
+      "confidence": 0.7740802764892578
     }
   },
   {
-    "text": "Are there self-care tips for caregivers?",
-    "intent": "ask_caregiver_burnout_prevention",
+    "text": "What should I do if a dementia patient refuses to change clothes?",
+    "intent": "ask_dementia_patient_hygiene_care",
     "intent_prediction": {
-      "name": "ask_caregiver_stress_management",
-      "confidence": 0.4478698670864105
-    }
-  },
-  {
-    "text": "How do I handle feelings of frustration and exhaustion?",
-    "intent": "ask_caregiver_burnout_prevention",
-    "intent_prediction": {
-      "name": "ask_caregiver_effect_on_mental_health",
-      "confidence": 0.6184485554695129
-    }
-  },
-  {
-    "text": "What is the difference between hospice and palliative care for dementia?",
-    "intent": "ask_dementia_hospice_care",
-    "intent_prediction": {
-      "name": "ask_dementia_palliative_care",
-      "confidence": 0.6343747973442078
-    }
-  },
-  {
-    "text": "How do I safely handle aggressive behavior in dementia?",
-    "intent": "ask_dementia_patient_aggression_management",
-    "intent_prediction": {
-      "name": "ask_dementia_patient_aggression",
-      "confidence": 0.6057291626930237
+      "name": "ask_dementia_patient_dressing_difficulties",
+      "confidence": 0.4413449466228485
     }
   },
   {
@@ -140,15 +100,15 @@
     "intent": "ask_dementia_patient_aggression_management",
     "intent_prediction": {
       "name": "ask_dementia_patient_aggression",
-      "confidence": 0.5222930908203125
+      "confidence": 0.5130043029785156
     }
   },
   {
-    "text": "What triggers aggression in dementia patients?",
+    "text": "Should I physically restrain a dementia patient if they become violent?",
     "intent": "ask_dementia_patient_aggression_management",
     "intent_prediction": {
       "name": "ask_dementia_patient_aggression",
-      "confidence": 0.6359102129936218
+      "confidence": 0.5573439598083496
     }
   },
   {
@@ -156,7 +116,7 @@
     "intent": "ask_dementia_patient_aggression_management",
     "intent_prediction": {
       "name": "ask_dementia_patient_aggression",
-      "confidence": 0.57630854845047
+      "confidence": 0.5088915228843689
     }
   },
   {
@@ -164,7 +124,7 @@
     "intent": "ask_dementia_patient_aggression_management",
     "intent_prediction": {
       "name": "ask_dementia_patient_aggression",
-      "confidence": 0.7680891156196594
+      "confidence": 0.47480276226997375
     }
   },
   {
@@ -172,7 +132,7 @@
     "intent": "ask_dementia_patient_fixation_on_past_events",
     "intent_prediction": {
       "name": "ask_dementia_patient_reminiscence_therapy",
-      "confidence": 0.432424932718277
+      "confidence": 0.5624538660049438
     }
   },
   {
@@ -180,23 +140,7 @@
     "intent": "ask_dementia_patient_sleep_cycle_disruption",
     "intent_prediction": {
       "name": "ask_dementia_patient_sleep_issues",
-      "confidence": 0.6967287659645081
-    }
-  },
-  {
-    "text": "Is it normal for dementia patients to sleep all day?",
-    "intent": "ask_dementia_patient_sleep_cycle_disruption",
-    "intent_prediction": {
-      "name": "ask_dementia_patient_sleep_issues",
-      "confidence": 0.45586782693862915
-    }
-  },
-  {
-    "text": "Does light therapy help dementia patients sleep?",
-    "intent": "ask_dementia_patient_sleep_cycle_disruption",
-    "intent_prediction": {
-      "name": "ask_dementia_patient_sleep_issues",
-      "confidence": 0.514676034450531
+      "confidence": 0.5624238848686218
     }
   },
   {
@@ -204,15 +148,23 @@
     "intent": "ask_dementia_patient_sleep_cycle_disruption",
     "intent_prediction": {
       "name": "ask_dementia_patient_sleep_issues",
-      "confidence": 0.46070465445518494
+      "confidence": 0.6825957894325256
     }
   },
   {
-    "text": "Are sleep medications safe for dementia patients?",
+    "text": "Can melatonin help dementia patients sleep better?",
     "intent": "ask_dementia_patient_sleep_cycle_disruption",
     "intent_prediction": {
       "name": "ask_dementia_patient_sleep_issues",
-      "confidence": 0.601043701171875
+      "confidence": 0.6005085110664368
+    }
+  },
+  {
+    "text": "what’s up?",
+    "intent": "how_are_you",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.7055614590644836
     }
   }
 ]
