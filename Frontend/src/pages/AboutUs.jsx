@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { FaGlobe, FaBrain, FaChartLine } from 'react-icons/fa';
 import LahiruneeImg from '../assets/Lahirunee.jpg';
 import MinethImg from '../assets/Mineth.jpg';
+import ManugaImg from '../assets/Manuga.jpg';
+import YasanthiImg from '../assets/Yasanthi.jpg';
 
 const teamMembers = [
   { name: 'Mineth Sandew', role: 'Fullstack Developer', image: MinethImg },
   { name: 'Lahirunee Weerthunga', role: 'ML Engineer', image: LahiruneeImg },
-  { name: 'Yasanthi Clair', role: 'ML Engineer', image: '/images/sara.jpg' },
-  { name: 'Manuga Perera', role: 'AI Engineer', image: '/images/mike.jpg' },
+  { name: 'Yasanthi Clair', role: 'ML Engineer', image: YasanthiImg },
+  { name: 'Manuga Perera', role: 'AI Engineer', image: ManugaImg },
 ];
 
 const dementiaStats = [
