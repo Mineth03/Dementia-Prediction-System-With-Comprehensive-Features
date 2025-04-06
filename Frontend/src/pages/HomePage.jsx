@@ -108,7 +108,7 @@ const HomePage = () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://img.freepik.com/free-photo/arabic-woman-teaching-senior-man-use-led-lamp-with-smartphone_23-2149356609.jpg?t=st=1743662029~exp=1743665629~hmac=2b1fadffbfc01d82d51cf7bb3c8fcf1d4640902c4c861deb8e04119882e8c380&w=1380')`,
+            backgroundImage: `url('https://img.freepik.com/free-photo/arabic-woman-teaching-senior-man-use-led-lamp-with-smartphone_23-2149356609.jpg?t=st=1743930039~exp=1743933639~hmac=150ebb7f800af3d19f9a498fe07e953e38c18e153c1bd1bc659b1c95a06b3fb5&w=1380')`,
           }}
         ></div>
 
@@ -363,7 +363,7 @@ const HomePage = () => {
     <div
       className="relative w-full bg-cover bg-center bg-no-repeat py-10 lg:py-16 h-[400px] mt-16"
       style={{
-        backgroundImage: `url('https://img.freepik.com/free-photo/realistic-scene-with-health-worker-taking-care-elderly-patient_23-2151231426.jpg?t=st=1743664536~exp=1743668136~hmac=dc461cece5fb7e9e3b38ce5f8e870d44357f523a505237bbc657d287e7b6b61a&w=1800')`,
+        backgroundImage: `url('https://img.freepik.com/free-photo/realistic-scene-with-health-worker-taking-care-elderly-patient_23-2151231436.jpg?t=st=1743930144~exp=1743933744~hmac=81f5e0699730a9c8a660a378bd4dd53cd5972e7efc80b616cc438a84c5769e02&w=1380')`,
       }}
     >
   {/* Feedback Wrapper */}
